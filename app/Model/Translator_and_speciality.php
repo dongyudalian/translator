@@ -10,7 +10,7 @@ class Translator_and_speciality extends Model
 
   public function translator()
   {
-    return $this->belongsTo('App\Translator','translators_id');
+    return $this->belongsTo('App\Model\Translator','translators_id');
   }
 
   public function mtb_translator_speciality()

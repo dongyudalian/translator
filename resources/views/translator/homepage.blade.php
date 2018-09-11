@@ -61,22 +61,22 @@
         <div class="col-10 title">
             <ul class="nav nav-tabs">
                 <li class="nav-item">
-                    <a class="nav-link" href="#">旅客新規登録</a>
+                  <a class="nav-link" href="/register">旅客新規登録</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">通訳新規登録</a>
+                  <a class="nav-link" href="#">通訳新規登録</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">ログイン</a>
+                  <a class="nav-link" href="#">ログイン</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">個人情報</a>
+                  <a class="nav-link" href="#">個人情報</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">会社情報</a>
+                  <a class="nav-link" href="#">会社情報</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">お客様対応</a>
+                  <a class="nav-link" href="#">お客様対応</a>
                 </li>
             </ul>
         </div>
