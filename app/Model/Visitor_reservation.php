@@ -10,9 +10,9 @@ class Visitor_reservation extends Model
     {
         return $this->belongsTo('App\Model\Translator','visitor_reservation_translator_id');
     }
-    public function translator_salary()
+    public function mtb_translator_salary()
     {
-        return $this->belongsTo('App\Model\Translator_salary','visitor_reservation_cost_id');
+        return $this->belongsTo('App\Model\Mtb_translator_salary','visitor_reservation_cost_id');
     }
     public function visitor()
     {
@@ -22,5 +22,5 @@ class Visitor_reservation extends Model
     {
         return $this->hasmany('App\Model\Reservation_day','reservation_id','id');
     }
-   
+
 }

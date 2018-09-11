@@ -3,11 +3,35 @@
 namespace App\Model;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Notifications\Notifiable;
+use Illuminate\Foundation\Auth\Translator as Model;
 
 class Translator extends Model
 {
     //
     protected $table = "translators";
+
+    public $timestamps = true;
+
+    use Notifiable;
+
+    /**
+     * The attributes that are mass assignable.
+     *
+     * @var array
+     */
+    protected $fillable = [
+        'name', 'email', 'password',
+    ];
+
+    /**
+     * The attributes that should be hidden for arrays.
+     *
+     * @var array
+     */
+    protected $hidden = [
+        'password', 'remember_token',
+    ];
 
     public function translator_and_specialities(){
 
@@ -33,9 +57,9 @@ class Translator extends Model
 
     }
 
-    public function translator_salary(){
+    public function mtb_translator_salary(){
 
-        return $this->belongsTo('App\Translator_salary','translator_salaries_id');
+        return $this->belongsTo('App\Mtb_translator_salary','translator_salaries_id');
 
     }
 
