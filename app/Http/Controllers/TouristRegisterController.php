@@ -42,4 +42,6 @@ class TouristRegisterController extends Controller
       }
   }
 
+  
+
 }

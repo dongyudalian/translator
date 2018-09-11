@@ -64,7 +64,7 @@
                   <a class="nav-link" href="/register">旅客新規登録</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="#">通訳新規登録</a>
+                    <a class="nav-link" href="/translator_register">通訳新規登録</a>
                 </li>
                 <li class="nav-item">
                   <a class="nav-link" href="#">ログイン</a>

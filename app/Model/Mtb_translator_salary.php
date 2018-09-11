@@ -4,10 +4,10 @@ namespace App\Model;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Translator_salary extends Model
+class Mtb_translator_salary extends Model
 {
     //
-    protected $table = "translator_salaries";
+    protected $table = "mtb_translator_salaries";
 
     public function translators(){
 
