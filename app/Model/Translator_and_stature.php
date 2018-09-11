@@ -10,12 +10,12 @@ class Translator_and_stature extends Model
 
   public function translator()
   {
-    return $this->belongsTo('App\Translator','translators_id');
+    return $this->belongsTo('App\Model\Translator','translators_id');
   }
 
   public function mtb_translator_stature()
   {
-    return $this->belongsTo('App\Mtb_translator_stature','mtb_translator_statures_id');
+    return $this->belongsTo('App\Model\Mtb_translator_stature','mtb_translator_statures_id');
   }
 
 }
