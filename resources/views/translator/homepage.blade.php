@@ -61,7 +61,7 @@
         <div class="col-10 title">
             <ul class="nav nav-tabs">
                 <li class="nav-item">
-                  <a class="nav-link" href="/vistor_register">旅客新規登録</a>
+                  <a class="nav-link" href="/visitor_register">旅客新規登録</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="/translator_register">通訳新規登録</a>

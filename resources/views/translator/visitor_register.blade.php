@@ -177,7 +177,7 @@
         <dt class="dt2"><p>パスワード<br>再入力</p><div class="mark">必須</div><p></p></dt>
         <dd>
           <div style="margin-top:50px;"	>
-						<input class="input1" type="password" name="password" value="">
+						<input class="input1" type="password" name="password_confirmation" value="">
 
             @if($errors->has('password'))
               <p class="text-danger">{{$errors->first('password')}}</p>
