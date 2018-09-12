@@ -74,8 +74,8 @@
                             </select>
                         </td>
                         <td>
-                            <input type="radio" name="translator_speciality" value="1">生活
-                            <input type="radio" name="translator_speciality" value="2">商務
+                            <input type="checkbox" name="translator_specialities[]" value="1">生活
+                            <input type="checkbox" name="translator_specialities[]" value="2">商務
                         </td>
                         <td>
                             <input type="checkbox" name="translator_statures[]" value="1">運動

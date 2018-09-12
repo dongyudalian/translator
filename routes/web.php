@@ -1,6 +1,6 @@
 <?php
 
-Route::get('/home', 'HomePageController@home')->name('home');
+Route::get('/home', 'HomePageController@home')->name('homepage');
 
 
 
@@ -17,7 +17,6 @@ Route::post('/translator_register', 'TranslatorController@register')->name('post
 
 Route::get('/translator_login', 'TranslatorController@login')->name('get_login');
 Route::post('/translator_login', 'TranslatorController@login')->name('post_login');
-
+Route::get('/logout', 'TranslatorController@logout')->name('logout');
 
 Auth::routes();
-

@@ -31,7 +31,7 @@ class TranslatorController extends Controller
                 "translator_tel" => "required|numeric|digits_between:9,11",
                 "translator_email" => "required|min:6|max:128|email|unique:translators,email",
                 "translator_salary" => "required",
-                "translator_speciality" => "required",
+                "translator_specialities" => "required",
                 "translator_statures" => "required",
                 "translator_license" => "required",
                 "translator_password" => "required|max:20",
@@ -57,7 +57,7 @@ class TranslatorController extends Controller
                 "translator_email.email" => "正しいメールアドレスを入力してください",
                 "translator_email.unique" => "このメールアドレスはご利用いただけません",
                 "translator_salary.required" => "通訳者料金を選択してください。",
-                "translator_speciality.required" => "通訳者専門性を選択してください。",
+                "translator_specialities.required" => "通訳者専門性を選択してください。",
                 "translator_statures.required" => "通訳者外見を選択してください。",
                 "translator_license.required" => "通訳者免許証有無を選択してください。",
                 "translator_password.required" => "通訳者パースワードを入力してください。",
@@ -118,11 +118,14 @@ class TranslatorController extends Controller
                     $Translator_time->save();
                 }
 
-
-                $Translator_and_speciality = new Translator_and_speciality;
-                $Translator_and_speciality->translators_id = $Translator->id;
-                $Translator_and_speciality->specialities_id = $request["translator_speciality"];
-                $Translator_and_speciality->save();
+                $Translator_specialities = $request->input("translator_specialities");
+                foreach ($Translator_specialities as $Translator_speciality)
+                {
+                    $Translator_and_speciality = new Translator_and_speciality;
+                    $Translator_and_speciality->translators_id = $Translator->id;
+                    $Translator_and_speciality->specialities_id = $Translator_speciality;
+                    $Translator_and_speciality->save();
+                }
 
           		return redirect(route("get_login"))->with("message", "新規登録完了。");
             }
@@ -134,9 +137,25 @@ class TranslatorController extends Controller
         if ($request->isMethod("get")){
             return view("translator_login");
         }else{
-            return view("translator_login");
+            $email = $request->email;
+    		$password = $request->password;
+    		if(Auth::attempt(['email' => $email, 'password' => $password]))
+            {
+    			return redirect(route("homepage"))->with("message", "登録しました。");
+    		}
+            else
+            {
+    			$message = 'ログインに失敗した。';
+    		}
+    		return view ("translator_login",['message'=>$message]);
         }
 
+    }
+
+    public function logout(Request $request)
+    {
+        Auth::logout();
+        return redirect(route("homepage"))->with("message", "ログアウトしました。");
     }
 
 
