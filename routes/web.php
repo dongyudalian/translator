@@ -2,15 +2,11 @@
 
 Route::get('/home', 'HomePageController@home')->name('homepage');
 
-
+Route::get('/homepage', 'VistorRegisterController@home');
 
 Route::get("/search", "SearchController@index");
-Route::get('/homepage', 'TouristRegisterController@home');
-
-Route::get('/register', 'TouristRegisterController@register');
-
-Route::get("/register", "TouristRegisterController@register")->name("get_register");
-Route::post("/register", "TouristRegisterController@add")->name("post_register");
+Route::get("/vistor_register", "VistorRegisterController@register")->name("get_vistor_register");
+Route::post("/vistor_register", "VistorRegisterController@register")->name("post_vistor_register");
 
 Route::get('/translator_register', 'TranslatorController@register')->name('get_register');
 Route::post('/translator_register', 'TranslatorController@register')->name('post_register');
