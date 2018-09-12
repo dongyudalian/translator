@@ -3,6 +3,8 @@
 Route::get('/home', 'HomePageController@home')->name('home');
 
 
+
+Route::get("/search", "SearchController@index");
 Route::get('/homepage', 'TouristRegisterController@home');
 
 Route::get('/register', 'TouristRegisterController@register');
@@ -18,3 +20,4 @@ Route::post('/translator_login', 'TranslatorController@login')->name('post_login
 
 
 Auth::routes();
+

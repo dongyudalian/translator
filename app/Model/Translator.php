@@ -35,31 +35,35 @@ class Translator extends Model
 
     public function translator_and_specialities(){
 
-        return $this->hasMany('App\Model\Translator_and_specialities','translators_id');
+        return $this->hasMany('App\Model\Translator_and_speciality','translators_id');
 
     }
 
     public function translator_and_statures(){
 
-        return $this->hasMany('App\Model\Translator_and_statures','translators_id');
+        return $this->hasMany('App\Model\Translator_and_stature','translators_id');
 
     }
 
     public function translator_and_ikus(){
 
-        return $this->hasMany('App\Model\Translator_and_ikus','translators_id');
+        return $this->hasMany('App\Model\Translator_and_iku','translators_id');
 
     }
 
     public function translator_times(){
 
-        return $this->hasMany('App\Model\Translator_times','translators_id');
+        return $this->hasMany('App\Model\Translator_time','translators_id');
 
     }
 
     public function mtb_translator_salary(){
 
+<<<<<<< HEAD
+        return $this->belongsTo('App\Model\Translator_salary','translator_salaries_id');
+=======
         return $this->belongsTo('App\Mtb_translator_salary','translator_salaries_id');
+>>>>>>> 4b8be1af6ffbe2b8cb15fa6332ab2f5cea42dd82
 
     }
 
@@ -71,19 +75,19 @@ class Translator extends Model
 
     public function mtb_translator_specialities(){
 
-        return $this->belongsToMany('App\Model\Mtb_translator_specialities','translator_and_specialities','translators_id','specialities_id');
+        return $this->belongsToMany('App\Model\Mtb_translator_speciality','translator_and_specialities','translators_id','specialities_id');
 
     }
 
     public function mtb_translator_ikus(){
 
-        return $this->belongsToMany('App\Model\Mtb_translator_ikus','translator_and_ikus','translators_id','ikus_id');
+        return $this->belongsToMany('App\Model\Mtb_translator_iku','translator_and_ikus','translators_id','ikus_id');
 
     }
 
     public function mtb_translator_statures(){
 
-        return $this->belongsToMany('App\Model\Mtb_translator_statures','translators_id','statures_id');
+        return $this->belongsToMany('App\Model\Mtb_translator_stature','translators_id','statures_id');
 
     }
 

@@ -6,6 +6,8 @@ use Illuminate\Database\Eloquent\Model;
 
 class Visitor_reservation extends Model
 {
+    protected $table = "visitor_reservations";
+    
     public function translator()
     {
         return $this->belongsTo('App\Model\Translator','visitor_reservation_translator_id');

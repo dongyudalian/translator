@@ -15,7 +15,7 @@ class Translator_and_iku extends Model
 
   public function mtb_translator_iku()
   {
-    return $this->belongsTo('App\Mtb_translator_iku','mtb_translator_ikus_id');
+    return $this->belongsTo('App\Model\Mtb_translator_iku','mtb_translator_ikus_id');
   }
 
 }
