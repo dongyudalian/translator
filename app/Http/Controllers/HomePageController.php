@@ -9,7 +9,7 @@ class HomePageController extends Controller
     //
     public function home (Request $request){
 
-        return view("homepage");
+        return view("/translator/homepage");
 
     }
 }
