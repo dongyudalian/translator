@@ -67,7 +67,10 @@
                     <a class="nav-link" href="/translator_register">通訳新規登録</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="#">ログイン</a>
+                  <a class="nav-link" href="#">旅客ログイン</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="translator_login">通訳ログイン</a>
                 </li>
                 <li class="nav-item">
                   <a class="nav-link" href="#">個人情報</a>

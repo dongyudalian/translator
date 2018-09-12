@@ -4,7 +4,7 @@ namespace App\Model;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Notifications\Notifiable;
-use Illuminate\Foundation\Auth\Translator as Model;
+use Illuminate\Foundation\Auth\Translator as Demo;
 
 class Translator extends Model
 {
