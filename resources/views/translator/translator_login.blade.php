@@ -162,6 +162,7 @@
       <span class="mark">必須</span>
       <a class="font"> マークのある項目にはすべて入力してください。</a>
       <form action="" method="post">
+        @csrf
 
         <dl style="text-align:center"class="dl1">
           <dt class="dt">

@@ -58,6 +58,10 @@
         <div class="col-2">
             <img src="images/logo.png" style="width: 35px; height: 35px">
         </div>
+        @if(Auth::check())
+    		<p class="nav-link">ようこそ通訳者:{{$user->name.'('.$user->email.')'}}</p>
+            <a class="nav-link" href="logout">ログアウト</a>
+        @else
         <div class="col-10 title">
             <ul class="nav nav-tabs">
                 <li class="nav-item">
@@ -83,9 +87,12 @@
                 </li>
             </ul>
         </div>
+        @endif
     </div>
     <!-- navigation end -->
-
+    @if(Session::has('message'))
+		<p class="alert alert-info">{{Session::get('message') }}</p>
+	@endif
     <!-- pic start -->
     <div id="demo" class="carousel slide" data-ride="carousel">
         <!-- 指示符 -->
