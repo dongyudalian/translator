@@ -21,7 +21,7 @@ class SearchController extends Controller
     	$Mtb_translator_specialities = Mtb_translator_speciality::query();
     	$Mtb_translator_salaries = Mtb_translator_salary::query();
         
-        
+
     	$request_info = $request->all();
     	$search_info = array();
 
@@ -34,7 +34,6 @@ class SearchController extends Controller
             "search_translator_self",
         );	
 
-        
         foreach ($search_names as $search_name) {
             if($request_info) {
                 if(isset($request_info[$search_name])) {
