@@ -4,11 +4,7 @@ namespace App\Model;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Notifications\Notifiable;
-<<<<<<< HEAD
-
-=======
 use Illuminate\Foundation\Auth\User as Authenticatable;
->>>>>>> be469e8324a1fbbbaf71ce57e4502a93d98b2258
 
 class Translator extends Authenticatable
 {
@@ -63,12 +59,8 @@ class Translator extends Authenticatable
 
     public function mtb_translator_salary(){
 
-<<<<<<< HEAD
         return $this->belongsTo('App\Model\Mtb_translator_salary','translator_salaries_id');
-=======
-        return $this->belongsTo('App\Mtb_translator_salary','translator_salaries_id');
 
->>>>>>> be469e8324a1fbbbaf71ce57e4502a93d98b2258
     }
     public function visitor_reservation(){
 
