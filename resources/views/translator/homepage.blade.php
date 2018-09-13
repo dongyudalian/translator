@@ -53,11 +53,13 @@
 
         @if(Auth::guard("visitor")->check())
             <p class="nav-link">ようこそ:{{ $user->name . '(' . $user->email . ')' }}</p>
+            <a class="nav-link" href="/search">検索</a>
             <a class="nav-link" href="visitors_logout">ログアウト</a>
             <a class="nav-link" href="search">検索</a>
         @elseif(Auth::check())
             <p class="nav-link">ようこそ:{{ $user->name . '(' . $user->email . ')' }}</p>
             <a class="nav-link" href="logout">ログアウト</a>
+            <a class="nav-link" href="#">個人情報</a>
         @else
         <div class="col-10 title">
             <ul class="nav nav-tabs">

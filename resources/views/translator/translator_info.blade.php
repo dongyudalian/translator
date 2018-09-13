@@ -88,20 +88,32 @@
             </div>
           </div>
           <div class="col-8 personinfo" style=" background:yellow">
+<<<<<<< HEAD
             个人信心介绍：{{$translator->translator_self}}
 
+=======
+            个人信心介绍：
+>>>>>>> a8c78145a329021a66e2adbcdbfcd0a155a08796
           </div>
         </div>
 
         <div class="container" style="margin-top:30px;">
             <div class="card">
+<<<<<<< HEAD
               <div class="card-body">担当料金：{{ $mtb_translator_salary->value}}</div>
+=======
+              <div class="card-body">担当料金：15000元/天</div>
+>>>>>>> a8c78145a329021a66e2adbcdbfcd0a155a08796
             </div>
             </div>
           <div class="container" style="margin-top:30px;">
               <div class="card">
+<<<<<<< HEAD
                 <div class="card-body">擅长领域：{{ $mtb_translator_speciality->value}}
                 </div>
+=======
+                <div class="card-body">擅长领域：生活</div>
+>>>>>>> a8c78145a329021a66e2adbcdbfcd0a155a08796
               </div>
               </div>
 
