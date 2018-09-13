@@ -2,9 +2,10 @@
 
 namespace App\Model;
 
-use Illuminate\Database\Eloquent\Model;
+// use Illuminate\Database\Eloquent\Model;
+use Illuminate\Foundation\Auth\User as Authenticatable;
 
-class Visitor extends Model
+class Visitor extends Authenticatable
 {
     protected $table = "visitors";
 

@@ -41,7 +41,12 @@ return [
             'provider' => 'users',
         ],
 
-        'api' => [
+        'visitor' => [
+          "driver" => "session",
+          "provider" => "visitor",
+        ],
+
+        'api'=> [
             'driver' => 'token',
             'provider' => 'users',
         ],
@@ -69,6 +74,11 @@ return [
             'driver' => 'eloquent',
             'model' => App\Model\Translator::class,
         ],
+
+        "visitor" => [
+          'driver' => 'eloquent',
+          'model' => App\Model\Visitor::class,
+        ]
 
         // 'users' => [
         //     'driver' => 'database',
