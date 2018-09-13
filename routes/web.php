@@ -4,7 +4,8 @@ Route::get('/home', 'HomePageController@home')->name('home');
 
 
 
-Route::get("/search", "SearchController@index");
+Route::get("/search", "SearchController@index")->name('get_search');
+
 Route::get('/homepage', 'TouristRegisterController@home');
 
 Route::get('/register', 'TouristRegisterController@register');

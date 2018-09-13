@@ -4,7 +4,7 @@ namespace App\Model;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Notifications\Notifiable;
-use Illuminate\Foundation\Auth\Translator as Model;
+
 
 class Translator extends Model
 {
@@ -59,14 +59,8 @@ class Translator extends Model
 
     public function mtb_translator_salary(){
 
-<<<<<<< HEAD
-        return $this->belongsTo('App\Model\Translator_salary','translator_salaries_id');
-=======
-        return $this->belongsTo('App\Mtb_translator_salary','translator_salaries_id');
->>>>>>> 4b8be1af6ffbe2b8cb15fa6332ab2f5cea42dd82
-
+        return $this->belongsTo('App\Model\Mtb_translator_salary','translator_salaries_id');
     }
-
     public function visitor_reservation(){
 
         return $this->hasOne('App\Model\Visitor_reservation','translator_id','id');
