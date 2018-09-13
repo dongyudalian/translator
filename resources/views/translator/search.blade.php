@@ -162,7 +162,7 @@
           @foreach($translators as $translator)
           <tr>
             <td>
-              {{$translator->name}}
+              <a  href="{{route('get_translator_info',['id'=>$translator->id])}}"> {{$translator->name}}</a>
             </td>
             <td>
               {{ date("Y.m.d", strtotime($translator->birthday))}}
@@ -180,6 +180,7 @@
             </td>
 
           </tr>
+
          @endforeach 
         </table>
       </div>
