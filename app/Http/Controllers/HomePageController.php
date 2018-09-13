@@ -10,7 +10,6 @@ class HomePageController extends Controller
 
     public function home (Request $request)
     {
-
         $user = null;
         if(Auth::check()) {
             $user = Auth::user();
