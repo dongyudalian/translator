@@ -54,6 +54,7 @@
         @if(Auth::guard("visitor")->check())
             <p class="nav-link">ようこそ:{{ $user->name . '(' . $user->email . ')' }}</p>
             <a class="nav-link" href="visitors_logout">ログアウト</a>
+            <a class="nav-link" href="search">検索</a>
         @elseif(Auth::check())
             <p class="nav-link">ようこそ:{{ $user->name . '(' . $user->email . ')' }}</p>
             <a class="nav-link" href="logout">ログアウト</a>
@@ -67,7 +68,7 @@
               <a class="nav-link" href="/translator_register">通訳新規登録</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#">旅客ログイン</a>
+              <a class="nav-link" href="/visitor_login">旅客ログイン</a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="translator_login">通訳ログイン</a>
