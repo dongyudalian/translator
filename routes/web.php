@@ -3,14 +3,7 @@
 Route::get('/homepage', 'HomePageController@home')->name('homepage');
 Route::get('/homepage', 'HomePageController@translator_home')->name('translator_homepage');
 
-
-<<<<<<< HEAD
 Route::get("/search", "SearchController@index")->name('get_search');
-
-Route::get('/homepage', 'TouristRegisterController@home');
-=======
-Route::get("/search", "SearchController@index");
->>>>>>> be469e8324a1fbbbaf71ce57e4502a93d98b2258
 
 Route::get("/visitor_register", "VisitorRegisterController@register")->name("get_visitor_register");
 Route::post("/visitor_register", "VisitorRegisterController@register")->name("post_visitor_register");
