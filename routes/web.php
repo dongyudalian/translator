@@ -14,5 +14,6 @@ Route::post('/translator_register', 'TranslatorController@register')->name('post
 Route::get('/translator_login', 'TranslatorController@login')->name('get_login');
 Route::post('/translator_login', 'TranslatorController@login')->name('post_login');
 Route::get('/logout', 'TranslatorController@logout')->name('logout');
+Route::get('/choose_time', 'ChooseController@time')->name('choose');
 
 Auth::routes();

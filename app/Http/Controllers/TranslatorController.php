@@ -10,6 +10,10 @@ use App\Model\Translator_and_stature;
 use App\Model\Translator_and_iku;
 use App\Model\Translator_time;
 use App\Model\Translator_and_speciality;
+use App\Model\Mtb_translator_salary;
+use App\Model\Mtb_translator_speciality;
+use App\Model\Mtb_translator_stature;
+use App\Model\Mtb_translator_iku;
 
 class TranslatorController extends Controller
 {
@@ -17,8 +21,17 @@ class TranslatorController extends Controller
     public function register(Request $request)
     {
     	if ($request->isMethod("get")){
+            $aas = Mtb_translator_salary::all();
+            $bbs = Mtb_translator_speciality::all();
+            $ccs = Mtb_translator_stature::all();
+            $dds = Mtb_translator_iku::all();
 
-        	return view("translator_register");
+        	return view("translator_register",[
+    		    'aas'=>$aas,
+                'bbs'=>$bbs,
+                'ccs'=>$ccs,
+                'dds'=>$dds,
+    		]);
 
       	}else{
 
