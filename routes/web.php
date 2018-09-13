@@ -1,12 +1,9 @@
 <?php
 
 Route::get('/homepage', 'HomePageController@home')->name('homepage');
-
+Route::get('/homepage', 'HomePageController@translator_home')->name('translator_homepage');
 
 Route::get("/search", "SearchController@index")->name('get_search');
-
-Route::get('/homepage', 'TouristRegisterController@home');
-
 
 Route::get("/visitor_register", "VisitorRegisterController@register")->name("get_visitor_register");
 Route::post("/visitor_register", "VisitorRegisterController@register")->name("post_visitor_register");
