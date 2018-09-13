@@ -105,7 +105,7 @@
      button.button2{
 	     background-image: linear-gradient(180deg,#0067cc 0,#04407a 100%);
 	     box-shadow: 0 1px #062440;
-	     color: #fff;
+	     color: white;
 	     width: 200px;
 	     height:50px;
 	     margin-left:100px;
@@ -206,7 +206,7 @@
       </div>
       <br>
       <button class="button2" type="button">
-        <font size="3">新規会員の登録</font>
+        <a href="/visitor_register"><font size="3" style="color:white">新規会員の登録</font></a>
       </button>
     </div>
    </div>

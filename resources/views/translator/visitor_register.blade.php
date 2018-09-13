@@ -70,18 +70,18 @@
       }
 
       dt.dt1{
-        background: #f8f9fa ;
+          background: #f8f9fa ;
 	      width: 150px;
 	      display: table-cell;
 	      padding: 50px 120px 50px 80px;
 	      font-weight: 1000;
 	      vertical-align: top;
-		    border-top: 1px solid;
-		    border-bottom: 1px solid #DCDCDC
+		  border-top: 1px solid;
+		  border-bottom: 1px solid #DCDCDC
       }
 
       dt.dt2{
-        background: #f8f9fa ;
+          background: #f8f9fa ;
 	      width: 150px;
 	      display: table-cell;
 	      padding: 50px 120px 50px 80px;
@@ -121,7 +121,7 @@
           <dd>
             <div style="margin-top:30px;">
               <p >あなたの名前を入力してください。</p>
-					  </div>
+		    </div>
             <div>
               <input class="input1" type="text" name="name" value="">
 
@@ -177,7 +177,7 @@
         <dt class="dt2"><p>パスワード<br>再入力</p><div class="mark">必須</div><p></p></dt>
         <dd>
           <div style="margin-top:50px;"	>
-						<input class="input1" type="password" name="password" value="">
+						<input class="input1" type="password" name="password_confirmation" value="">
 
             @if($errors->has('password'))
               <p class="text-danger">{{$errors->first('password')}}</p>
