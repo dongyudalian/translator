@@ -1,6 +1,8 @@
 <?php
 
 Route::get('/homepage', 'HomePageController@home')->name('homepage');
+Route::get('/homepage', 'HomePageController@translator_home')->name('translator_homepage');
+
 
 Route::get("/search", "SearchController@index");
 

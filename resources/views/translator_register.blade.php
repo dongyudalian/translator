@@ -122,43 +122,43 @@
                             <td width='80px'></td>
                             <td width='80px'><input type='checkbox' name='translator_times[]'value='2018-10-01'>1</td>
                             <td width='80px'><input type='checkbox' name='translator_times[]'value='2018-10-02'>2</td>
-                            <td width='80px'><input type='checkbox' name='translator_time'>3</td>
-                            <td width='80px'><input type='checkbox' name='translator_time'>4</td>
-                            <td width='80px'><input type='checkbox' name='translator_time'>5</td>
-                            <td width='80px'><input type='checkbox' name='translator_time'>6</td>
+                            <td width='80px'><input type='checkbox' name='translator_times[]'value='2018-10-03'>3</td>
+                            <td width='80px'><input type='checkbox' name='translator_times[]'value='2018-10-04'>4</td>
+                            <td width='80px'><input type='checkbox' name='translator_times[]'value='2018-10-05'>5</td>
+                            <td width='80px'><input type='checkbox' name='translator_times[]'value='2018-10-06'>6</td>
                         </tr>
                         <tr>
-                            <td width='80px'><input type='checkbox' name='translator_time'>7</td>
-                            <td width='80px'><input type='checkbox' name='translator_time'>8</td>
-                            <td width='80px'><input type='checkbox' name='translator_time'>9</td>
-                            <td width='80px'><input type='checkbox' name='translator_time'>10</td>
-                            <td width='80px'><input type='checkbox' name='translator_time'>11</td>
-                            <td width='80px'><input type='checkbox' name='translator_time'>12</td>
-                            <td width='80px'><input type='checkbox' name='translator_time'>13</td>
+                            <td width='80px'><input type='checkbox' name='translator_times[]'value='2018-10-01'>7</td>
+                            <td width='80px'><input type='checkbox' name='translator_times[]'value='2018-10-01'>8</td>
+                            <td width='80px'><input type='checkbox' name='translator_times[]'value='2018-10-01'>9</td>
+                            <td width='80px'><input type='checkbox' name='translator_times[]'value='2018-10-01'>10</td>
+                            <td width='80px'><input type='checkbox' name='translator_times[]'value='2018-10-01'>11</td>
+                            <td width='80px'><input type='checkbox' name='translator_times[]'value='2018-10-01'>12</td>
+                            <td width='80px'><input type='checkbox' name='translator_times[]'value='2018-10-01'>13</td>
                         </tr>
                         <tr>
-                            <td width='80px'><input type='checkbox' name='translator_time'>14</td>
-                            <td width='80px'><input type='checkbox' name='translator_time'>15</td>
-                            <td width='80px'><input type='checkbox' name='translator_time'>16</td>
-                            <td width='80px'><input type='checkbox' name='translator_time'>17</td>
-                            <td width='80px'><input type='checkbox' name='translator_time'>18</td>
-                            <td width='80px'><input type='checkbox' name='translator_time'>19</td>
-                            <td width='80px'><input type='checkbox' name='translator_time'>20</td>
+                            <td width='80px'><input type='checkbox' name='translator_times[]'value='2018-10-01'>14</td>
+                            <td width='80px'><input type='checkbox' name='translator_times[]'value='2018-10-01'>15</td>
+                            <td width='80px'><input type='checkbox' name='translator_times[]'value='2018-10-01'>16</td>
+                            <td width='80px'><input type='checkbox' name='translator_times[]'value='2018-10-01'>17</td>
+                            <td width='80px'><input type='checkbox' name='translator_times[]'value='2018-10-01'>18</td>
+                            <td width='80px'><input type='checkbox' name='translator_times[]'value='2018-10-01'>19</td>
+                            <td width='80px'><input type='checkbox' name='translator_times[]'value='2018-10-01'>20</td>
                         </tr>
                         <tr>
-                            <td width='80px'><input type='checkbox' name='translator_time'>21</td>
-                            <td width='80px'><input type='checkbox' name='translator_time'>22</td>
-                            <td width='80px'><input type='checkbox' name='translator_time'>23</td>
-                            <td width='80px'><input type='checkbox' name='translator_time'>24</td>
-                            <td width='80px'><input type='checkbox' name='translator_time'>25</td>
-                            <td width='80px'><input type='checkbox' name='translator_time'>26</td>
-                            <td width='80px'><input type='checkbox' name='translator_time'>27</td>
+                            <td width='80px'><input type='checkbox' name='translator_times[]'value='2018-10-01'>21</td>
+                            <td width='80px'><input type='checkbox' name='translator_times[]'value='2018-10-01'>22</td>
+                            <td width='80px'><input type='checkbox' name='translator_times[]'value='2018-10-01'>23</td>
+                            <td width='80px'><input type='checkbox' name='translator_times[]'value='2018-10-01'>24</td>
+                            <td width='80px'><input type='checkbox' name='translator_times[]'value='2018-10-01'>25</td>
+                            <td width='80px'><input type='checkbox' name='translator_times[]'value='2018-10-01'>26</td>
+                            <td width='80px'><input type='checkbox' name='translator_times[]'value='2018-10-01'>27</td>
                         </tr>
                         <tr>
-                            <td width='80px'><input type='checkbox' name='translator_time'>28</td>
-                            <td width='80px'><input type='checkbox' name='translator_time'>29</td>
-                            <td width='80px'><input type='checkbox' name='translator_time'>30</td>
-                            <td width='80px'><input type='checkbox' name='translator_time'>31</td>
+                            <td width='80px'><input type='checkbox' name='translator_times[]'value='2018-10-01'>28</td>
+                            <td width='80px'><input type='checkbox' name='translator_times[]'value='2018-10-01'>29</td>
+                            <td width='80px'><input type='checkbox' name='translator_times[]'value='2018-10-01'>30</td>
+                            <td width='80px'><input type='checkbox' name='translator_times[]'value='2018-10-01'>31</td>
                         </tr>
                     </table>
                   </div>
@@ -181,44 +181,44 @@
                             <td width='80px'></td>
                             <td width='80px'></td>
                             <td width='80px'></td>
-                            <td width='80px'><input type='checkbox' name='translator_time'>1</td>
-                            <td width='80px'><input type='checkbox' name='translator_time'>2</td>
-                            <td width='80px'><input type='checkbox' name='translator_time'>3</td>
+                            <td width='80px'><input type='checkbox' name='translator_times[]'>1</td>
+                            <td width='80px'><input type='checkbox' name='translator_times[]'>2</td>
+                            <td width='80px'><input type='checkbox' name='translator_times[]'>3</td>
                         </tr>
                         <tr>
-                            <td width='80px'><input type='checkbox' name='translator_time'>4</td>
-                            <td width='80px'><input type='checkbox' name='translator_time'>5</td>
-                            <td width='80px'><input type='checkbox' name='translator_time'>6</td>
-                            <td width='80px'><input type='checkbox' name='translator_time'>7</td>
-                            <td width='80px'><input type='checkbox' name='translator_time'>8</td>
-                            <td width='80px'><input type='checkbox' name='translator_time'>9</td>
-                            <td width='80px'><input type='checkbox' name='translator_time'>10</td>
+                            <td width='80px'><input type='checkbox' name='translator_times[]'>4</td>
+                            <td width='80px'><input type='checkbox' name='translator_times[]'>5</td>
+                            <td width='80px'><input type='checkbox' name='translator_times[]'>6</td>
+                            <td width='80px'><input type='checkbox' name='translator_times[]'>7</td>
+                            <td width='80px'><input type='checkbox' name='translator_times[]'>8</td>
+                            <td width='80px'><input type='checkbox' name='translator_times[]'>9</td>
+                            <td width='80px'><input type='checkbox' name='translator_times[]'>10</td>
                         </tr>
                         <tr>
-                            <td width='80px'><input type='checkbox' name='translator_time'>11</td>
-                            <td width='80px'><input type='checkbox' name='translator_time'>12</td>
-                            <td width='80px'><input type='checkbox' name='translator_time'>13</td>
-                            <td width='80px'><input type='checkbox' name='translator_time'>14</td>
-                            <td width='80px'><input type='checkbox' name='translator_time'>15</td>
-                            <td width='80px'><input type='checkbox' name='translator_time'>16</td>
-                            <td width='80px'><input type='checkbox' name='translator_time'>17</td>
+                            <td width='80px'><input type='checkbox' name='translator_times[]'>11</td>
+                            <td width='80px'><input type='checkbox' name='translator_times[]'>12</td>
+                            <td width='80px'><input type='checkbox' name='translator_times[]'>13</td>
+                            <td width='80px'><input type='checkbox' name='translator_times[]'>14</td>
+                            <td width='80px'><input type='checkbox' name='translator_times[]'>15</td>
+                            <td width='80px'><input type='checkbox' name='translator_times[]'>16</td>
+                            <td width='80px'><input type='checkbox' name='translator_times[]'>17</td>
                         </tr>
                         <tr>
-                            <td width='80px'><input type='checkbox' name='translator_time'>18</td>
-                            <td width='80px'><input type='checkbox' name='translator_time'>19</td>
-                            <td width='80px'><input type='checkbox' name='translator_time'>20</td>
-                            <td width='80px'><input type='checkbox' name='translator_time'>21</td>
-                            <td width='80px'><input type='checkbox' name='translator_time'>22</td>
-                            <td width='80px'><input type='checkbox' name='translator_time'>23</td>
-                            <td width='80px'><input type='checkbox' name='translator_time'>24</td>
+                            <td width='80px'><input type='checkbox' name='translator_times[]'>18</td>
+                            <td width='80px'><input type='checkbox' name='translator_times[]'>19</td>
+                            <td width='80px'><input type='checkbox' name='translator_times[]'>20</td>
+                            <td width='80px'><input type='checkbox' name='translator_times[]'>21</td>
+                            <td width='80px'><input type='checkbox' name='translator_times[]'>22</td>
+                            <td width='80px'><input type='checkbox' name='translator_times[]'>23</td>
+                            <td width='80px'><input type='checkbox' name='translator_times[]'>24</td>
                         </tr>
                         <tr>
-                            <td width='80px'><input type='checkbox' name='translator_time'>25</td>
-                            <td width='80px'><input type='checkbox' name='translator_time'>26</td>
-                            <td width='80px'><input type='checkbox' name='translator_time'>27</td>
-                            <td width='80px'><input type='checkbox' name='translator_time'>28</td>
-                            <td width='80px'><input type='checkbox' name='translator_time'>29</td>
-                            <td width='80px'><input type='checkbox' name='translator_time'>30</td>
+                            <td width='80px'><input type='checkbox' name='translator_times[]'>25</td>
+                            <td width='80px'><input type='checkbox' name='translator_times[]'>26</td>
+                            <td width='80px'><input type='checkbox' name='translator_times[]'>27</td>
+                            <td width='80px'><input type='checkbox' name='translator_times[]'>28</td>
+                            <td width='80px'><input type='checkbox' name='translator_times[]'>29</td>
+                            <td width='80px'><input type='checkbox' name='translator_times[]'>30</td>
                         </tr>
                     </table>
                   </div>
