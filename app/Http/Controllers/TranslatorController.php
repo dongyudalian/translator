@@ -6,7 +6,14 @@ use App\Model\Translator;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
-use App\Model\Translator_salary;
+use App\Model\Translator_and_stature;
+use App\Model\Translator_and_iku;
+use App\Model\Translator_time;
+use App\Model\Translator_and_speciality;
+use App\Model\Mtb_translator_salary;
+use App\Model\Mtb_translator_speciality;
+use App\Model\Mtb_translator_stature;
+use App\Model\Mtb_translator_iku;
 
 class TranslatorController extends Controller
 {
@@ -14,8 +21,17 @@ class TranslatorController extends Controller
     public function register(Request $request)
     {
     	if ($request->isMethod("get")){
+            $aas = Mtb_translator_salary::all();
+            $bbs = Mtb_translator_speciality::all();
+            $ccs = Mtb_translator_stature::all();
+            $dds = Mtb_translator_iku::all();
 
-        	return view("translator_register");
+        	return view("translator_register",[
+    		    'aas'=>$aas,
+                'bbs'=>$bbs,
+                'ccs'=>$ccs,
+                'dds'=>$dds,
+    		]);
 
       	}else{
 
@@ -28,12 +44,12 @@ class TranslatorController extends Controller
                 "translator_tel" => "required|numeric|digits_between:9,11",
                 "translator_email" => "required|min:6|max:128|email|unique:translators,email",
                 "translator_salary" => "required",
-                "translator_speciality" => "required",
-                "translator_stature" => "required",
+                "translator_specialities" => "required",
+                "translator_statures" => "required",
                 "translator_license" => "required",
                 "translator_password" => "required|max:20",
-                "translator_iku" => "required",
-                "translator_time" => "required",
+                "translator_ikus" => "required",
+                "translator_times" => "required",
                 "translator_self" => "required",
 
             ];
@@ -54,14 +70,14 @@ class TranslatorController extends Controller
                 "translator_email.email" => "正しいメールアドレスを入力してください",
                 "translator_email.unique" => "このメールアドレスはご利用いただけません",
                 "translator_salary.required" => "通訳者料金を選択してください。",
-                "translator_speciality.required" => "通訳者専門性を選択してください。",
-                "translator_stature.required" => "通訳者外見を選択してください。",
+                "translator_specialities.required" => "通訳者専門性を選択してください。",
+                "translator_statures.required" => "通訳者外見を選択してください。",
                 "translator_license.required" => "通訳者免許証有無を選択してください。",
                 "translator_password.required" => "通訳者パースワードを入力してください。",
                 "translator_password.max" => "通訳者パースワードを:max文字以内入力してください。",
-                "translator_iku.required" => "通訳者仕事場所を選択してください。",
+                "translator_ikus.required" => "通訳者仕事場所を選択してください。",
                 "translator_self.required" => "通訳者自己紹介を入力してください。",
-                "translator_time.required" => "通訳者仕事時間を選択してください。",
+                "translator_times.required" => "通訳者仕事時間を選択してください。",
 
 
             ];
@@ -69,42 +85,95 @@ class TranslatorController extends Controller
             if($validator->fails()) {
                 return redirect(route('post_register') )->withErrors($validator)->withInput();
             }else{
-          		$info = [
-    		    	"translator_name" => $request["translator_name"],
-    		    	"translator_birthcity" => $request["translator_birthcity"],
-                    "translator_birthday" => $request["translator_birthday"],
-                    "translator_sex" => $request["translator_sex"],
-                    "translator_tel" => $request["translator_tel"],
-                    "translator_email" => $request["translator_email"],
-                    "translator_license" => $request["translator_license"],
-                    "translator_salary" => $request["translator_salary"],
-    		    	"translator_password"=>  Hash::make($request['translator_password']),
-    	    	];
     			$Translator= new Translator;
-                $Translator->translator_name = $request["translator_name"];
-
-                $Translator->translator_salaries_id = $request->translater_salary_id;
-
-
-
+                $Translator->name = $request["translator_name"];
+                $Translator->email = $request["translator_email"];
+                $Translator->password = Hash::make($request["translator_password"]);
+                $Translator->tel = $request["translator_tel"];
+                $Translator->city = $request["translator_birthcity"];
+                $Translator->birthday = $request["translator_birthday"];
+                $Translator->sex = $request["translator_sex"];
+                $Translator->license = $request["translator_license"];
+                $Translator->translator_self = $request["translator_self"];
+                $Translator->translator_salaries_id = $request["translator_salary"];
                 $Translator->save();
 
 
-                Translator::save_Translator($info,$Translator);
+                $translator_statures = $request->input("translator_statures");
+                foreach ($translator_statures as $translator_stature)
+                {
+                    $Translator_and_stature = new Translator_and_stature;
+                    $Translator_and_stature->translators_id = $Translator->id;
+                    $Translator_and_stature->statures_id = $translator_stature;
+                    $Translator_and_stature->save();
+                }
 
-                $translator_salaries_id = Translator->translator_salaries_id;
-                $info2 = [
-                    "translator_salary" => $request["translator_salary"],
-                ];
-                Translator_salary::insert($info2);
 
-                $info3 = [
-                    "translator_speciality" => $request["translator_speciality"],
-                ];
-                Translator_speciality::insert($info3);
 
-          		return redirect(route("login"))->with("message", "新規登録完了。");
+                $translator_ikus = $request->input("translator_ikus");
+                foreach ($translator_ikus as $translator_iku)
+                {
+                    $Translator_and_iku = new Translator_and_iku;
+                    $Translator_and_iku->translators_id = $Translator->id;
+                    $Translator_and_iku->ikus_id = $translator_iku;
+                    $Translator_and_iku->save();
+                }
+
+
+
+
+                $translator_times = $request->input("translator_times");
+                foreach ($translator_times as $translator_time)
+                {
+                    $Translator_time = new Translator_time;
+                    $Translator_time->translators_id = $Translator->id;
+                    $Translator_time->translator_time = $translator_time;
+                    $Translator_time->save();
+                }
+
+                $Translator_specialities = $request->input("translator_specialities");
+                foreach ($Translator_specialities as $Translator_speciality)
+                {
+                    $Translator_and_speciality = new Translator_and_speciality;
+                    $Translator_and_speciality->translators_id = $Translator->id;
+                    $Translator_and_speciality->specialities_id = $Translator_speciality;
+                    $Translator_and_speciality->save();
+                }
+
+          		return redirect(route("get_login"))->with("message", "新規登録完了。");
             }
         }
     }
+
+    public function login(Request $request)
+    {
+        if ($request->isMethod("get")){
+            return view("translator_login");
+        }else{
+            $email = $request->email;
+    		$password = $request->password;
+    		if(Auth::attempt(['email' => $email, 'password' => $password]))
+            {
+    			return redirect(route("homepage"))->with("message", "登録しました。");
+    		}
+            else
+            {
+    			$message = 'ログインに失敗した。';
+    		}
+    		return view ("translator_login",['message'=>$message]);
+        }
+
+    }
+
+    public function logout(Request $request)
+    {
+        Auth::logout();
+        return redirect(route("homepage"))->with("message", "ログアウトしました。");
+    }
+
+
+
+
+
+
 }

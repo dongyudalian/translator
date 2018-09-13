@@ -67,20 +67,21 @@
                         <td>
                             <select class="select_salary" id="translator_salary" name="translator_salary">
                                 <option value="">時給を選択</option>
-                                @foreach($aas as $aa)
-                                <option value="{{$aa->id}}">{{$aa->value}}</option>
-                                @endforeach
+                                <option value="1">1000円/時</option>
+                                <option value="2">1500円/時</option>
+                                <option value="3">2000円/時</option>
+                                <option value="4">2500円/時</option>
                             </select>
                         </td>
                         <td>
-                            @foreach($bbs as $bb)
-                            <input type="checkbox" name="translator_specialities[]" value="{{$bb->id}}">{{$bb->value}}
-                            @endforeach
+                            <input type="checkbox" name="translator_specialities[]" value="1">生活
+                            <input type="checkbox" name="translator_specialities[]" value="2">商務
                         </td>
                         <td>
-                            @foreach($ccs as $cc)
-                            <input type="checkbox" name="translator_statures[]" value="{{$cc->id}}">{{$cc->value}}
-                            @endforeach
+                            <input type="checkbox" name="translator_statures[]" value="1">運動
+                            <input type="checkbox" name="translator_statures[]" value="2">淑やか
+                            <input type="checkbox" name="translator_statures[]" value="3">可愛い
+                            <input type="checkbox" name="translator_statures[]" value="4">成熟
                         </td>
                         <td>
                             <select class="select_license" id="translator_license" name="translator_license">
@@ -101,9 +102,12 @@
                 <h3>自己紹介</h3>
                 <textarea name="translator_self" rows="14" cols="140"></textarea>
                 <h3>行ける場所</h3>
-                @foreach($dds as $dd)
-                <input type="checkbox" name="translator_ikus[]" value="{{$dd->id}}">{{$dd->value}}
-                @endforeach
+                <input type="checkbox" name="translator_ikus[]" value="1">東京都
+                <input type="checkbox" name="translator_ikus[]" value="2">大阪
+                <input type="checkbox" name="translator_ikus[]" value="3">北海道
+                <input type="checkbox" name="translator_ikus[]" value="4">冲绳
+                <input type="checkbox" name="translator_ikus[]" value="5">横滨
+                <input type="checkbox" name="translator_ikus[]" value="6">京都
                 <h3>空い時間選択</h3>
                 <div class="row" style="margin-top:50px">
                   <div class="col-6">
