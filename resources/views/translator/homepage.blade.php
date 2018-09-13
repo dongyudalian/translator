@@ -213,7 +213,7 @@
           <div class="row">
             <div class="col-4">
               <div class="person-pic">
-                <img src="haruko.jpg">
+                <img src="images/haruko.jpg">
               </div>
               <div class="person-introduction">
                 <a href="图片链接地址1">No.1 晴子</a>
@@ -221,7 +221,7 @@
             </div>
             <div class="col-4">
               <div class="person-pic">
-                <img src="haruko.jpg">
+                <img src="images/haruko.jpg">
               </div>
               <div class="person-introduction">
                 <a href="图片链接地址1">No.2 晴子</a>
@@ -229,7 +229,7 @@
             </div>
             <div class="col-4">
               <div class="person-pic">
-                <img src="haruko.jpg">
+                <img src="images/haruko.jpg">
               </div>
               <div class="person-introduction">
                 <a href="图片链接地址1">No.3 晴子</a>
@@ -237,7 +237,7 @@
             </div>
             <div class="col-4">
               <div class="person-pic">
-                <img src="haruko.jpg">
+                <img src="images/haruko.jpg">
               </div>
               <div class="person-introduction">
                 <a href="图片链接地址1">No.4 晴子</a>
@@ -245,7 +245,7 @@
             </div>
             <div class="col-4">
               <div class="person-pic">
-                <img src="haruko.jpg">
+                <img src="images/haruko.jpg">
               </div>
               <div class="person-introduction">
                 <a href="图片链接地址1">No.5 晴子</a>
@@ -253,7 +253,7 @@
             </div>
             <div class="col-4">
               <div class="person-pic">
-                <img src="haruko.jpg">
+                <img src="images/haruko.jpg">
               </div>
               <div class="person-introduction">
                 <a href="图片链接地址1">No.6 晴子</a>
