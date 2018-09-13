@@ -21,6 +21,7 @@ class TranslatorController extends Controller
     public function register(Request $request)
     {
     	if ($request->isMethod("get")){
+
             $aas = Mtb_translator_salary::all();
             $bbs = Mtb_translator_speciality::all();
             $ccs = Mtb_translator_stature::all();
@@ -154,7 +155,7 @@ class TranslatorController extends Controller
     		$password = $request->password;
     		if(Auth::attempt(['email' => $email, 'password' => $password]))
             {
-    			return redirect(route("homepage"))->with("message", "登録しました。");
+    			return redirect(route("translator_homepage"))->with("message", "登録しました。");
     		}
             else
             {
@@ -168,7 +169,7 @@ class TranslatorController extends Controller
     public function logout(Request $request)
     {
         Auth::logout();
-        return redirect(route("homepage"))->with("message", "ログアウトしました。");
+        return redirect(route("translator_homepage"))->with("message", "ログアウトしました。");
     }
 
 
