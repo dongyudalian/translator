@@ -147,67 +147,63 @@
 		<p class="alert alert-info">{{Session::get('message') }}</p>
 	@endif
 	<div class="img">
-	  <img src="images/carousel-pic1.jpg"  height="300" width="1200px">
+	    <img src="images/carousel-pic1.jpg"  height="300" width="1200px">
 	</div>
-  <div style="margin-left:100px ;margin-top:30px">
+    <div style="margin-left:100px ;margin-top:30px">
 	   <h2>ログイン</h2>
-  </div>
+    </div>
 	<hr style="height:10px;margin-left:100px;margin-right:100px;border:none;border-top:5px solid #DCDCDC;">
-  <div style="margin-left:100px ;margin-top:30px;margin-right:100px">
-	<h4 class="message">ごログイン、誠にありがとうございます。ご希望のメールアドレスとパスワードを入力の上、「ログイン」ボタンを押してください。まだ新規登録していない方は先に登録してください。</h4>
-  </div>
-  <div class="row">
-    <div class="col-5 kaiin" style="margin-left:100px">
-      <h2 class="title1">会員の方</h2>
-      <span class="mark">必須</span>
-      <a class="font"> マークのある項目にはすべて入力してください。</a>
-      <form action="" method="post">
-        @csrf
-
+    <div style="margin-left:100px ;margin-top:30px;margin-right:100px">
+	    <h4 class="message">ごログイン、誠にありがとうございます。ご希望のメールアドレスとパスワードを入力の上、「ログイン」ボタンを押してください。まだ新規登録していない方は先に登録してください。</h4>
+    </div>
+    <div class="row">
+        <div class="col-5 kaiin" style="margin-left:100px">
+            <h2 class="title1">会員の方</h2>
+            <span class="mark">必須</span>
+            <a class="font"> マークのある項目にはすべて入力してください。</a>
+            <form action="" method="post">
+                @csrf
         <dl style="text-align:center"class="dl1">
-          <dt class="dt">
-            <span>メールアドレス</span>
-            <br>
-            <span class="mark">必須</span></dt>
+            <dt class="dt">
+                <span>メールアドレス</span>
+                <br>
+                <span class="mark">必須</span></dt>
             <dd>
-              <input class="input1" type="email" name="email" value="">
-              <br>
-              <span><font color="gray">半角英数字 128文字以内</font></span>
+                <input class="input1" type="email" name="email" value="">
+                <br>
+                <span><font color="gray">半角英数字 128文字以内</font></span>
             </dd>
-       </dl>
+        </dl>
 
-       <dl style="text-align:center"class="dl2">
-         <dt class="dt">
-           <span>パスワード</span>
-           <br>
-           <span class="mark">必須</span>
-         </dt>
+        <dl style="text-align:center"class="dl2">
+           <dt class="dt">
+               <span>パスワード</span>
+               <br>
+               <span class="mark">必須</span>
+           </dt>
 	            <dd>
 	                <input class="input2" type="password" name="password" value=""><br>
 	                <span><font color="gray">半角英数字 128文字以内</font></span>
 	            </dd>
-	        </dl>
+	    </dl>
 	       	<br>
 	            <button class="button1" type="submit"><font size="4">ログイン</font></button>
 
-	    </form>
-	</div>
-	<div class="col-5 shinnki" style="margin-right:100px">
-		<h2 class="title2">はじめてご利用の方</h2>
-		<p>楽訳がはじめての方は、新規会員登録が必要です。</p>
-		<div class="style">
-			<ul>
-				<li><i class="fa fa-circle"></i>あなただけの会員ページ</li>
-				<li><i class="fa fa-circle"></i>予約情報がいつでも見られる</li>
-				<li><i class="fa fa-circle"></i>便利な検索機能</li>
-			</ul>
-		</div>
-	<br>
-		<button class="button2" type="button"><font size="3">新規会員の登録</font></button>
-	</div>
-</div>
-
-
-
+	        </form>
+	    </div>
+    	<div class="col-5 shinnki" style="margin-right:100px">
+    		<h2 class="title2">はじめてご利用の方</h2>
+    		<p>楽訳がはじめての方は、新規会員登録が必要です。</p>
+    		<div class="style">
+    			<ul>
+    				<li><i class="fa fa-circle"></i>あなただけの会員ページ</li>
+    				<li><i class="fa fa-circle"></i>予約情報がいつでも見られる</li>
+    				<li><i class="fa fa-circle"></i>便利な検索機能</li>
+    			</ul>
+    		</div>
+    	    <br>
+    		<button class="button2" type="button"><font size="3">新規会員の登録</font></button>
+    	</div>
+    </div>
 </body>
 </html>
