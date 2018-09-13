@@ -99,7 +99,6 @@ class TranslatorController extends Controller
                 $Translator->translator_salaries_id = $request["translator_salary"];
                 $Translator->save();
 
-
                 $translator_statures = $request->input("translator_statures");
                 foreach ($translator_statures as $translator_stature)
                 {
@@ -109,8 +108,6 @@ class TranslatorController extends Controller
                     $Translator_and_stature->save();
                 }
 
-
-
                 $translator_ikus = $request->input("translator_ikus");
                 foreach ($translator_ikus as $translator_iku)
                 {
@@ -119,9 +116,6 @@ class TranslatorController extends Controller
                     $Translator_and_iku->ikus_id = $translator_iku;
                     $Translator_and_iku->save();
                 }
-
-
-
 
                 $translator_times = $request->input("translator_times");
                 foreach ($translator_times as $translator_time)
@@ -155,7 +149,7 @@ class TranslatorController extends Controller
     		$password = $request->password;
     		if(Auth::attempt(['email' => $email, 'password' => $password]))
             {
-    			return redirect(route("translator_homepage"))->with("message", "登録しました。");
+    			return redirect(route("visitor_homepage"))->with("message", "登録しました。");
     		}
             else
             {
@@ -169,7 +163,7 @@ class TranslatorController extends Controller
     public function logout(Request $request)
     {
         Auth::logout();
-        return redirect(route("translator_homepage"))->with("message", "ログアウトしました。");
+        return redirect(route("visitor_homepage"))->with("message", "ログアウトしました。");
     }
-    
+
 }
