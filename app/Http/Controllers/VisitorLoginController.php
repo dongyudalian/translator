@@ -18,7 +18,7 @@ class VisitorLoginController extends Controller
 
       if(Auth::guard("visitor")->attempt(['email' => $email, 'password' => $password]))
       {
-        return redirect(route("homepage"))->with("message", "登録しました。");
+        return redirect(route('visitor_homepage'))->with("message", "登録しました。");
       } else {
         $message = 'ログインに失敗した';
       }
@@ -29,7 +29,7 @@ class VisitorLoginController extends Controller
   public function logout(Request $request)
   {
     Auth::guard("visitor")->logout();
-    return redirect(route("homepage"))->with("message", "ログアウトしました。");
+    return redirect(route("visitor_homepage"))->with("message", "ログアウトしました。");
   }
 
 }

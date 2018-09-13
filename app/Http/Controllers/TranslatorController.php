@@ -171,10 +171,5 @@ class TranslatorController extends Controller
         Auth::logout();
         return redirect(route("translator_homepage"))->with("message", "ログアウトしました。");
     }
-
-
-
-
-
-
+    
 }
