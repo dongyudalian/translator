@@ -13,7 +13,7 @@ Route::post('/translator_register', 'TranslatorController@register')->name('post
 
 Route::get('/visitor_login', 'VisitorLoginController@login')->name('get_visitor_login');
 Route::post('/visitor_login', 'VisitorLoginController@login')->name('post_visitor_login');
-Route::get('/visitors_logout', 'VisitorLoginController@logout')->name('logout');
+Route::get('/visitor_logout', 'VisitorLoginController@logout')->name('logout');
 
 Route::get('/translator_login', 'TranslatorController@login')->name('get_login');
 Route::post('/translator_login', 'TranslatorController@login')->name('post_login');

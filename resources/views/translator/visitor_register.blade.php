@@ -102,96 +102,96 @@
         	      height:50px;
                 border-radius: 10px;
               }
+
+              .text-danger{
+                  color: red;
+              }
             </style>
-          </head>
+        </head>
 
-          <body>
-              <div class="img">
-                  <img src="images/carousel-pic1.jpg" height="300" width="1200px">
-              </div>
-              <h1 class="position">新規登録</h1>
-              <hr style="height:10px;margin-left:100px;margin-right:100px;border:none;border-top:5px solid #DCDCDC;">
-              <span class="mark">必須</span><a class="font"> マークのある項目にはすべて入力してください。</a>
-              <br>
-              <form action="" method="post">
-                  {{csrf_field()}}
-                  <div class="position">
-                      <dl class="dl1">
-                          <dt class="dt1"><p>名前</p><div class="mark">必須</div><p></p></dt>
-                          <dd>
-                              <div style="margin-top:30px;">
-                                  <p >あなたの名前を入力してください。</p>
-                              </div>
-                              <div>
-                                  <input class="input1" type="text" name="name" value="">
-
-                                  @if($errors->has('name'))
-                                    <p class="text-danger">{{$errors->first('name')}}</p>
-                                  @endif
-                              </div>
-                              <span><font color="gray">半角英数字 128文字以内</font></span>
-                          </dd>
-                      </dl>
-                      <dl class="dl2">
-                          <dt class="dt2"><p>メールアドレス</p><div class="mark">必須</div><p></p></dt>
-                          <dd>
-                              <div style="margin-top:30px;">
-                                  <p>パソコンまたはスマートフォンのEメールアドレスを入力してください。</p>
-                              </div>
-                              <div>
-                                  <input class="input1" type="email" name="email" value="">
-
+      <body>
+          <div class="img">
+              <img src="images/carousel-pic1.jpg" height="300" width="1200px">
+          </div>
+          <h1 class="position">新規登録</h1>
+          <hr style="height:10px;margin-left:100px;margin-right:100px;border:none;border-top:5px solid #DCDCDC;">
+          <span class="mark">必須</span><a class="font"> マークのある項目にはすべて入力してください。</a>
+          <br>
+          <form action="" method="post">
+              {{csrf_field()}}
+              <div class="position">
+                  <dl class="dl1">
+                      <dt class="dt1"><p>名前</p><div class="mark">必須</div><p></p></dt>
+                      <dd>
+                          <div style="margin-top:30px;">
+                              <p >あなたの名前を入力してください。</p>
+                          </div>
+                          <div>
+                              <input class="input1" type="text" name="name" value="{{old('name')}}">
+                              @if($errors->has('name'))
+                                <p class="text-danger">{{$errors->first('name')}}</p>
+                              @endif
+                          </div>
+                          <span><font color="gray">半角英数字 128文字以内</font></span>
+                      </dd>
+                  </dl>
+                  <dl class="dl2">
+                      <dt class="dt2"><p>メールアドレス</p><div class="mark">必須</div><p></p></dt>
+                      <dd>
+                          <div style="margin-top:30px;">
+                              <p>パソコンまたはスマートフォンのEメールアドレスを入力してください。</p>
+                          </div>
+                          <div>
+                              <input class="input1" type="email" name="email" value="{{old('email')}}">
                                   @if($errors->has('email'))
                                     <p class="text-danger">{{$errors->first('email')}}</p>
                                   @endif
-
-                              </div>
-                              <span><font color="gray">半角英数字 128文字以内</font></span>
-                          </dd>
-                      </dl>
-                      <dl class="dl2">
-                          <dt class="dt2">
-                              <p>パスワード</p>
-                              <div class="mark">必須
-                              </div>
-                          </dt>
-                          <dd>
-                              <div style="margin-top:30px;">
-                                  <p >8文字以上の半角英数を混ぜたものをお奨めします</p>
-                              </div>
-                              <div>
-                                  <input class="input1" type="password" name="password" value="">
-
+                          </div>
+                          <span><font color="gray">半角英数字 128文字以内</font></span>
+                      </dd>
+                  </dl>
+                  <dl class="dl2">
+                      <dt class="dt2">
+                          <p>パスワード</p>
+                          <div class="mark">必須
+                          </div>
+                      </dt>
+                      <dd>
+                          <div style="margin-top:30px;">
+                              <p >8文字以上の半角英数を混ぜたものをお奨めします</p>
+                          </div>
+                          <div>
+                              <input class="input1" type="password" name="password" value="{{old('password')}}">
                                   @if($errors->has('password'))
                                     <p class="text-danger">{{$errors->first('password')}}</p>
                                   @endif
-                              </div>
-                              <span>
-                                  <font color="gray">半角英数字5〜20文字以内、スペース不可</font>
-                              </span>
-                          </dd>
-                      </dl>
-                      <dl class="dl2">
-                          <dt class="dt2"><p>パスワード<br>再入力</p><div class="mark">必須</div><p></p></dt>
-                          <dd>
-                              <div style="margin-top:50px;"	>
-                                  <input class="input1" type="password" name="password_confirmation" value="">
-                                    @if($errors->has('password'))
-                                        <p class="text-danger">{{$errors->first('password')}}</p>
-                                    @endif
-                             </div>
-                             <span>
-                                 <font color="gray">同じパスワードを再入力してください。</font>
-                             </span>
-                         </dd>
-                     </dl>
-                 </div>
-                 <br><br>
-                 <div style="text-align:center;">
-                     <button class="button" type="submit" value="">
-                         <font size="3">新規会員の登録</font>
-                     </button>
-                 </div>
-             </form>
-         </body>
+                          </div>
+                          <span>
+                              <font color="gray">半角英数字5〜20文字以内、スペース不可</font>
+                          </span>
+                      </dd>
+                  </dl>
+                  <dl class="dl2">
+                      <dt class="dt2"><p>パスワード<br>再入力</p><div class="mark">必須</div><p></p></dt>
+                      <dd>
+                          <div style="margin-top:50px;">
+                              <input class="input1" type="password" name="password_confirmation" value="{{old('password_confirmation')}}">
+                              @if($errors->has('password'))
+                                    <p class="text-danger">{{$errors->first('password')}}</p>
+                              @endif
+                         </div>
+                         <span>
+                             <font color="gray">同じパスワードを再入力してください。</font>
+                         </span>
+                     </dd>
+                 </dl>
+             </div>
+             <br><br>
+             <div style="text-align:center;">
+                 <button class="button" type="submit" value="">
+                     <font size="3">新規会員の登録</font>
+                 </button>
+             </div>
+         </form>
+     </body>
 </html>

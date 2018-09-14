@@ -45,19 +45,13 @@
       <div class="col-10">
           <ul class="nav nav-tabs">
             <li class="nav-item">
-                <a class="nav-link active" href="#">注册</a>
+                <a class="nav-link" href="/homepage">ホームページ</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="/register">登陆</a>
+                <a class="nav-link" href="/visitor_logout">ログアウト</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#">个人信息</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="#">公司简介</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="#">客服</a>
+                <a class="nav-link" href="#">お客様対応</a>
             </li>
           </ul>
       </div>
@@ -75,7 +69,7 @@
           <h3>按照条件搜索</h3>
           <hr style="height:3px;border:none;border-top:1px solid #185598; "/>
           <div id="box">
-            
+
             <h3>我要去的地方</h3>
               @foreach ($Mtb_translator_ikus as $Mtb_translator_iku)
                 <input type="checkbox" name="search_mtb_translator_ikus_ids[]" value="{{$Mtb_translator_iku->id}}"
@@ -146,10 +140,10 @@
           <input type="submit" value="送信">
        </div>
     </form>
-        
+
     <div class="row result">
       <div class="col-6 person">
-      
+
         <table class="table">
         <p>{{ $translators->count() }}件が該当しました。</p>
           <tr>
@@ -181,7 +175,7 @@
 
           </tr>
 
-         @endforeach 
+         @endforeach
         </table>
       </div>
     </div>

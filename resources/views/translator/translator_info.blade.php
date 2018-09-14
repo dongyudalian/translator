@@ -27,24 +27,15 @@
         <!-- navigation start -->
         <div class="row">
             <div class="col-2">
-                <img src="images/logo.png" style="width: 35px; height: 35px">
+                <img src="/images/logo.png" style="width: 35px; height: 35px">
             </div>
             <div class="col-10">
                 <ul class="nav nav-tabs">
                     <li class="nav-item">
-                        <a class="nav-link active" href="#">注册</a>
+                        <a class="nav-link" href="/homepage">ホームページ</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">登陆</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">个人信息</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">公司简介</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">客服</a>
+                        <a class="nav-link" href="/visitor_logout">ログアウト</a>
                     </li>
                 </ul>
             </div>
@@ -52,30 +43,30 @@
         <!-- navigation end -->
 
         <!-- pic -->
-        <div class="titlepic">
-          <img src="images/carousel-pic1.jpg" style="width:1200px">
+        <div class="class="carousel-inner"">
+          <img src="/images/carousel-pic1.jpg" style="width:1200px">
         </div>
         <!-- pic -->
 
         <div class="row" style="margin-top:30px;">
-          <div class="col-4 pic">
-            <div id="demo" class="carousel slide" data-ride="carousel">
-                <!-- 指示符 -->
-                <ul class="carousel-indicators">
-                    <li data-target="#demo" data-slide-to="0" class="active"></li>
-                    <li data-target="#demo" data-slide-to="1"></li>
-                    <li data-target="#demo" data-slide-to="2"></li>
+            <div class="col-4 pic">
+                <div id="demo" class="carousel slide" data-ride="carousel">
+                    <!-- 指示符 -->
+                    <ul class="carousel-indicators">
+                        <li data-target="#demo" data-slide-to="0" class="active"></li>
+                        <li data-target="#demo" data-slide-to="1"></li>
+                        <li data-target="#demo" data-slide-to="2"></li>
                 </ul>
                 <!-- 轮播图片 -->
                 <div class="carousel-inner">
                     <div class="carousel-item active">
-                        <img src="images/haruko.jpg">
+                        <img src="/images/haruko.jpg">
                     </div>
                     <div class="carousel-item">
-                        <img src="images/haruko.jpg">
+                        <img src="/images/haruko.jpg">
                     </div>
                     <div class="carousel-item">
-                        <img src="images/haruko.jpg">
+                        <img src="/images/haruko.jpg">
                     </div>
                 </div>
                 <!-- 左右切换按钮 -->
@@ -87,166 +78,78 @@
                 </a>
             </div>
           </div>
-          <div class="col-8 personinfo" style=" background:yellow">
-<<<<<<< HEAD
-            个人信心介绍：{{$translator->translator_self}}
-
-=======
-            个人信心介绍：
->>>>>>> a8c78145a329021a66e2adbcdbfcd0a155a08796
+          <div class="col-8 personinfo">
+              <div class="container">
+                  <h2>担当個人情報</h2>
+                  <div class="card">
+                      <div class="card-body">
+                          <p class="card-text">個人紹介：{{$translator->translator_self}}</p>
+                      </div>
+                  </div>
+              </div>
           </div>
+      </div>
         </div>
-
         <div class="container" style="margin-top:30px;">
-            <div class="card">
-<<<<<<< HEAD
-              <div class="card-body">担当料金：{{ $mtb_translator_salary->value}}</div>
-=======
-              <div class="card-body">担当料金：15000元/天</div>
->>>>>>> a8c78145a329021a66e2adbcdbfcd0a155a08796
+            <div class="card bg-primary text-white">
+              <div class="card-body">誕生日：{{$translator->birthday}}
+              </div>
             </div>
+        </div>
+        <div class="container" style="margin-top:30px;">
+            <div class="card bg-warning text-white">
+              <div class="card-body"> 性別：{{ $mtb_translator_salary->value}}
+              </div>
             </div>
-          <div class="container" style="margin-top:30px;">
-              <div class="card">
-<<<<<<< HEAD
-                <div class="card-body">擅长领域：{{ $mtb_translator_speciality->value}}
+        </div>
+        <div class="container" style="margin-top:30px;">
+            <div class="card bg-danger text-white">
+              <div class="card-body"> 出身地：{{ $mtb_translator_salary->value}}
+              </div>
+            </div>
+        </div>
+        <div class="container" style="margin-top:30px;">
+            <div class="card bg-info text-white">
+              <div class="card-body">E-mail：{{ $mtb_translator_salary->value}}
+              </div>
+            </div>
+        </div>
+        <div class="container" style="margin-top:30px;">
+            <div class="card bg-success text-white">
+              <div class="card-body">Tel：{{ $mtb_translator_salary->value}}
+              </div>
+            </div>
+        </div>
+        <div class="container" style="margin-top:30px;">
+            <div class="card bg-secondary text-white">
+              <div class="card-body">担当の料金：{{ $mtb_translator_salary->value}}
+              </div>
+            </div>
+        </div>
+        <div class="container" style="margin-top:30px;">
+              <div class="card bg-dark text-white">
+                <div class="card-body">得意な分野：{{ $mtb_translator_speciality->value}}
                 </div>
-=======
-                <div class="card-body">擅长领域：生活</div>
->>>>>>> a8c78145a329021a66e2adbcdbfcd0a155a08796
               </div>
-              </div>
-
+        </div>
         <div class="container" style="margin-top:30px;">
             <div class="card">
-              <div class="card-body">用户对当前翻译评价：</div>
+              <div class="card-body">用户对当前翻译评价：
+                  <div  style="margin-top:20px;"><textarea rows="3" cols="130"></textarea></div>
+              </div>
+              <div class"info1" style="margin-bottom:20px"; align="center">
+                <button type="button" class="btn btn-outline-primary">送る</button>
+              </div>
             </div>
+        </div>
+        <div class="container" style="margin-top:30px;">
+            <div class="card">
+                <div class="card-body">
+                  <h4 class="card-title">Translator Calendar Cherk</h4>
+                  <a class="card-text">You can click on the <a href="#" class="card-link">link</a> below to query the date.</a>
+                </div>
             </div>
-
-        <div class="row" style="margin-top:50px">
-          <div class="col-6">
-            本月空闲时间:
-            <table border='1' align='center'>10月</br>
-              <tr>
-                <th>星期日</th>
-                <th>星期一</th>
-                <th>星期二</th>
-                <th>星期三</th>
-                <th>星期四</th>
-                <th>星期五</th>
-                <th>星期六</th>
-              </tr>
-              <tr>
-                    <td width='80px'></td>
-                    <td width='80px'><input type='checkbox' name='translator_time'>1</td>
-                    <td width='80px'><input type='checkbox' name='translator_time'>2</td>
-                    <td width='80px'><input type='checkbox' name='translator_time'>3</td>
-                    <td width='80px'><input type='checkbox' name='translator_time'>4</td>
-                    <td width='80px'><input type='checkbox' name='translator_time'>5</td>
-                    <td width='80px'><input type='checkbox' name='translator_time'>6</td>
-                </tr>
-                <tr>
-                    <td width='80px'><input type='checkbox' name='translator_time'>7</td>
-                    <td width='80px'><input type='checkbox' name='translator_time'>8</td>
-                    <td width='80px'><input type='checkbox' name='translator_time'>9</td>
-                    <td width='80px'><input type='checkbox' name='translator_time'>10</td>
-                    <td width='80px'><input type='checkbox' name='translator_time'>11</td>
-                    <td width='80px'><input type='checkbox' name='translator_time'>12</td>
-                    <td width='80px'><input type='checkbox' name='translator_time'>13</td>
-                </tr>
-                <tr>
-                    <td width='80px'><input type='checkbox' name='translator_time'>14</td>
-                    <td width='80px'><input type='checkbox' name='translator_time'>15</td>
-                    <td width='80px'><input type='checkbox' name='translator_time'>16</td>
-                    <td width='80px'><input type='checkbox' name='translator_time'>17</td>
-                    <td width='80px'><input type='checkbox' name='translator_time'>18</td>
-                    <td width='80px'><input type='checkbox' name='translator_time'>19</td>
-                    <td width='80px'><input type='checkbox' name='translator_time'>20</td>
-                </tr>
-                <tr>
-                    <td width='80px'><input type='checkbox' name='translator_time'>21</td>
-                    <td width='80px'><input type='checkbox' name='translator_time'>22</td>
-                    <td width='80px'><input type='checkbox' name='translator_time'>23</td>
-                    <td width='80px'><input type='checkbox' name='translator_time'>24</td>
-                    <td width='80px'><input type='checkbox' name='translator_time'>25</td>
-                    <td width='80px'><input type='checkbox' name='translator_time'>26</td>
-                    <td width='80px'><input type='checkbox' name='translator_time'>27</td>
-                </tr>
-                <tr>
-                    <td width='80px'><input type='checkbox' name='translator_time'>28</td>
-                    <td width='80px'><input type='checkbox' name='translator_time'>29</td>
-                    <td width='80px'><input type='checkbox' name='translator_time'>30</td>
-                    <td width='80px'><input type='checkbox' name='translator_time'>31</td>
-                </tr>
-            </table>
-          </div>
-
-
-          <div class="col-6">
-            次月空闲时间:
-            <table border='1' align='center'>11月</br>
-                <tr>
-                    <th>星期日</th>
-                    <th>星期一</th>
-                    <th>星期二</th>
-                    <th>星期三</th>
-                    <th>星期四</th>
-                    <th>星期五</th>
-                    <th>星期六</th>
-                </tr>
-                <tr>
-                    <td width='80px'></td>
-                    <td width='80px'></td>
-                    <td width='80px'></td>
-                    <td width='80px'></td>
-                    <td width='80px'><input type='checkbox' name='translator_time'>1</td>
-                    <td width='80px'><input type='checkbox' name='translator_time'>2</td>
-                    <td width='80px'><input type='checkbox' name='translator_time'>3</td>
-                </tr>
-                <tr>
-                    <td width='80px'><input type='checkbox' name='translator_time'>4</td>
-                    <td width='80px'><input type='checkbox' name='translator_time'>5</td>
-                    <td width='80px'><input type='checkbox' name='translator_time'>6</td>
-                    <td width='80px'><input type='checkbox' name='translator_time'>7</td>
-                    <td width='80px'><input type='checkbox' name='translator_time'>8</td>
-                    <td width='80px'><input type='checkbox' name='translator_time'>9</td>
-                    <td width='80px'><input type='checkbox' name='translator_time'>10</td>
-                </tr>
-                <tr>
-                    <td width='80px'><input type='checkbox' name='translator_time'>11</td>
-                    <td width='80px'><input type='checkbox' name='translator_time'>12</td>
-                    <td width='80px'><input type='checkbox' name='translator_time'>13</td>
-                    <td width='80px'><input type='checkbox' name='translator_time'>14</td>
-                    <td width='80px'><input type='checkbox' name='translator_time'>15</td>
-                    <td width='80px'><input type='checkbox' name='translator_time'>16</td>
-                    <td width='80px'><input type='checkbox' name='translator_time'>17</td>
-                </tr>
-                <tr>
-                    <td width='80px'><input type='checkbox' name='translator_time'>18</td>
-                    <td width='80px'><input type='checkbox' name='translator_time'>19</td>
-                    <td width='80px'><input type='checkbox' name='translator_time'>20</td>
-                    <td width='80px'><input type='checkbox' name='translator_time'>21</td>
-                    <td width='80px'><input type='checkbox' name='translator_time'>22</td>
-                    <td width='80px'><input type='checkbox' name='translator_time'>23</td>
-                    <td width='80px'><input type='checkbox' name='translator_time'>24</td>
-                </tr>
-                <tr>
-                    <td width='80px'><input type='checkbox' name='translator_time'>25</td>
-                    <td width='80px'><input type='checkbox' name='translator_time'>26</td>
-                    <td width='80px'><input type='checkbox' name='translator_time'>27</td>
-                    <td width='80px'><input type='checkbox' name='translator_time'>28</td>
-                    <td width='80px'><input type='checkbox' name='translator_time'>29</td>
-                    <td width='80px'><input type='checkbox' name='translator_time'>30</td>
-                </tr>
-            </table>
-          </div>
         </div>
-
-        <div class"info1" style="margin-top:50px"; align="center">
-          <input type="submit" name="" value="送る">
-        </div>
-
-
+    </div>
 </body>
-
 </html>

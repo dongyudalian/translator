@@ -17,7 +17,6 @@ class HomePageController extends Controller
         if(Auth::guard("visitor")->check()) {
             $user = Auth::guard("visitor")->user();
         }
-
         return view("/translator/homepage",
         [
             'user'=>$user,
