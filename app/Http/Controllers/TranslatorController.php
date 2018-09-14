@@ -27,7 +27,7 @@ class TranslatorController extends Controller
             $ccs = Mtb_translator_stature::all();
             $dds = Mtb_translator_iku::all();
 
-        	return view("translator_register",[
+        	return view("translator/translator_register",[
     		    'aas'=>$aas,
                 'bbs'=>$bbs,
                 'ccs'=>$ccs,
@@ -143,7 +143,7 @@ class TranslatorController extends Controller
     public function login(Request $request)
     {
         if ($request->isMethod("get")){
-            return view("translator_login");
+            return view("translator/translator_login");
         }else{
             $email = $request->email;
     		$password = $request->password;

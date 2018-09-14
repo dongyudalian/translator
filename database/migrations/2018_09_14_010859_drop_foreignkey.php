@@ -13,7 +13,7 @@ class DropForeignkey extends Migration
      */
     public function up()
     {
-        
+
     }
 
     /**
@@ -28,4 +28,3 @@ class DropForeignkey extends Migration
         });
     }
 }
-s
