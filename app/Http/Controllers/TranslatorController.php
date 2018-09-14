@@ -27,11 +27,137 @@ class TranslatorController extends Controller
             $ccs = Mtb_translator_stature::all();
             $dds = Mtb_translator_iku::all();
 
-        	return view("translator_register",[
+            $time = getdate();
+            $mday = $time["mday"]; //今天是当月第几天
+            $mon = $time["mon"]; // 今天是那个月
+            $year = $time["year"];// 现在是那一年
+
+            //得到今天这个月一共多少天
+            if($mon==4||$mon==6||$mon==9||$mon==11){
+                $day = 30;
+            }elseif($mon==2){
+                if(($year%4==0&&$year%100!=0)||$year%400==0){
+                    $day = 29;
+                }else{
+                    $day = 28;
+                }
+            }else{
+                $day = 31;
+            }
+            //得到当月第一天是周几
+            $w = getdate(mktime(0,0,0,$mon,1,$year))["wday"];
+
+            //把这个月所有的日期放进这个变量中
+            $arr = array();
+            for($i=1;$i<=$day;$i++){
+                array_push($arr,$i);
+            }
+
+            //这个月的第一天是星期几开始写入这个月所有日期的值
+            if($w>=1&&$w<=6){
+                for($m=1;$m<=$w;$m++){
+                    array_unshift($arr,"");
+                }
+            }
+            $n=0;
+
+            $time1 = getdate();
+            $mday1 = $time["mday"]; //今天是当月第几天
+            $mon1 = $time["mon"]+1; // 今天是那个月
+            $year1 = $time["year"];// 现在是那一年
+
+            //得到今天这个月一共多少天
+            if($mon1==4||$mon1==6||$mon1==9||$mon1==11){
+                $day1 = 30;
+            }elseif($mon1==2){
+                if(($year1%4==0&&$year1%100!=0)||$year1%400==0){
+                    $day1 = 29;
+                }else{
+                    $day1 = 28;
+                }
+            }else{
+                $day1 = 31;
+            }
+            //得到当月第一天是周几
+            $w1 = getdate(mktime(0,0,0,$mon1,1,$year1))["wday"];
+
+            //把这个月所有的日期放进这个变量中
+            $arr1 = array();
+            for($i=1;$i<=$day1;$i++){
+                array_push($arr1,$i);
+            }
+
+            //这个月的第一天是星期几开始写入这个月所有日期的值
+            if($w1>=1&&$w1<=6){
+                for($m=1;$m<=$w1;$m++){
+                    array_unshift($arr1,"");
+                }
+            }
+            $n1=0;
+
+            $time2 = getdate();
+            $mday2 = $time["mday"]; //今天是当月第几天
+            $mon2 = $time["mon"]+2; // 今天是那个月
+            $year2 = $time["year"];// 现在是那一年
+
+            //得到今天这个月一共多少天
+            if($mon2==4||$mon2==6||$mon2==9||$mon2==11){
+                $day2 = 30;
+            }elseif($mon2==2){
+                if(($year2%4==0&&$year2%100!=0)||$year2%400==0){
+                    $day2 = 29;
+                }else{
+                    $day2 = 28;
+                }
+            }else{
+                $day2 = 31;
+            }
+            //得到当月第一天是周几
+            $w2 = getdate(mktime(0,0,0,$mon2,1,$year2))["wday"];
+
+            //把这个月所有的日期放进这个变量中
+            $arr2 = array();
+            for($i=1;$i<=$day2;$i++){
+                array_push($arr2,$i);
+            }
+
+            //这个月的第一天是星期几开始写入这个月所有日期的值
+            if($w2>=1&&$w2<=6){
+                for($m=1;$m<=$w2;$m++){
+                    array_unshift($arr2,"");
+                }
+            }
+            $n2=0;
+
+        	return view("/translator/translator_register",[
     		    'aas'=>$aas,
                 'bbs'=>$bbs,
                 'ccs'=>$ccs,
                 'dds'=>$dds,
+                'time'=>$time,
+                'mday'=>$mday,
+                'mon'=>$mon,
+                'year'=>$year,
+                'day'=>$day,
+                'w'=>$w,
+                'arr'=>$arr,
+                'n'=>$n,
+                'time1'=>$time1,
+                'mday1'=>$mday1,
+                'mon1'=>$mon1,
+                'year1'=>$year1,
+                'day1'=>$day1,
+                'w1'=>$w1,
+                'arr1'=>$arr1,
+                'n1'=>$n1,
+                'time2'=>$time2,
+                'mday2'=>$mday2,
+                'mon2'=>$mon2,
+                'year2'=>$year2,
+                'day2'=>$day2,
+                'w2'=>$w2,
+                'arr2'=>$arr2,
+                'n2'=>$n2,
     		]);
 
       	}else{
@@ -143,7 +269,7 @@ class TranslatorController extends Controller
     public function login(Request $request)
     {
         if ($request->isMethod("get")){
-            return view("translator_login");
+            return view("/translator/translator_login");
         }else{
             $email = $request->email;
     		$password = $request->password;

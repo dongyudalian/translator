@@ -98,25 +98,25 @@
         </div>
         <div class="container" style="margin-top:30px;">
             <div class="card bg-warning text-white">
-              <div class="card-body"> 性別：{{ $mtb_translator_salary->value}}
+              <div class="card-body"> 性別：{{$translator->sex}}
               </div>
             </div>
         </div>
         <div class="container" style="margin-top:30px;">
             <div class="card bg-danger text-white">
-              <div class="card-body"> 出身地：{{ $mtb_translator_salary->value}}
+              <div class="card-body"> 出身地：{{$translator->city}}
               </div>
             </div>
         </div>
         <div class="container" style="margin-top:30px;">
             <div class="card bg-info text-white">
-              <div class="card-body">E-mail：{{ $mtb_translator_salary->value}}
+              <div class="card-body">E-mail：{{$translator->email}}
               </div>
             </div>
         </div>
         <div class="container" style="margin-top:30px;">
             <div class="card bg-success text-white">
-              <div class="card-body">Tel：{{ $mtb_translator_salary->value}}
+              <div class="card-body">Tel：{{$translator->tel}}
               </div>
             </div>
         </div>
