@@ -23,6 +23,6 @@ class ChangeTableName2 extends Migration
      */
     public function down()
     {
-        Schema::rename("visitor_reservations", "reservations");
+        Schema::rename("reservations", "visitor_reservations");
     }
 }

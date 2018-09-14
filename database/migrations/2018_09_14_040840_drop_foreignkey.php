@@ -13,7 +13,10 @@ class DropForeignkey extends Migration
      */
     public function up()
     {
-        
+        Schema::table('reservations', function (Blueprint $table) {
+            $table->dropForeign('visitor_reservations_cost_id_foreign');
+            $table->dropColumn('cost_id');
+        });
     }
 
     /**
@@ -23,9 +26,6 @@ class DropForeignkey extends Migration
      */
     public function down()
     {
-        Schema::table('reservations', function (Blueprint $table) {
-            $table->dropForeign('reservations_cost_foreign');
-        });
+        
     }
 }
-s
