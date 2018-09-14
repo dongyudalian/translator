@@ -18,7 +18,7 @@ class ChooseController extends Controller
             $id = $request->id;
             $translators = DB::table('translators')->where('id',$id)->get();
             $get_times = DB::table('translator_times')->where('translators_id',$translators[0]->id)->get()->toArray();
-            
+
             //得到纯时间的数组
             $work_dates = array();
             foreach ($get_times as $value) {
@@ -54,6 +54,13 @@ class ChooseController extends Controller
             }
             $n=0;
 
+            if($mon==1||$mon==2||$mon==3||$mon==4||$mon==5||$mon==6||$mon==7||$mon==8||$mon==9){
+                $mon="0".$mon;
+            }
+            else {
+                $mon = $mon;
+            }
+
             $time1 = getdate();
             $mday1 = $time["mday"]; //今天是当月第几天
             $mon1 = $time["mon"]+1; // 今天是那个月
@@ -87,6 +94,13 @@ class ChooseController extends Controller
                 }
             }
             $n1=0;
+
+            if($mon1==1||$mon1==2||$mon1==3||$mon1==4||$mon1==5||$mon1==6||$mon1==7||$mon1==8||$mon1==9){
+                $mon1="0".$mon1;
+            }
+            else {
+                $mon1 = $mon1;
+            }
 
             $time2 = getdate();
             $mday2 = $time["mday"]; //今天是当月第几天
@@ -122,6 +136,13 @@ class ChooseController extends Controller
                 }
             }
             $n2=0;
+
+            if($mon2==1||$mon2==2||$mon2==3||$mon2==4||$mon2==5||$mon2==6||$mon2==7||$mon2==8||$mon2==9){
+                $mon2="0".$mon2;
+            }
+            else {
+                $mon2 = $mon2;
+            }
 
             return view ("choose_time",
             [

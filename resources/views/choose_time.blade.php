@@ -32,7 +32,7 @@
                     @if($n==1)
                     <tr>
                     @endif
-                    @if($mday <= $arr[$j-1] && in_array($year."-"."0".$mon."-".$arr[$j-1],$work_dates))
+                    @if($mday <= $arr[$j-1] && in_array($year."-".$mon."-".$arr[$j-1],$work_dates))
                         <td width='80px'><input type='checkbox' name='translator_times[]' value='{{$year}}-{{$mon}}-{{$arr[$j-1]}}'>{{$arr[$j-1]}}</td>
                     @else
                         <td width='80px'value='{{$year}}-{{$mon}}-{{$arr[$j-1]}}'>&nbsp&nbsp&nbsp&nbsp{{$arr[$j-1]}}</td>
