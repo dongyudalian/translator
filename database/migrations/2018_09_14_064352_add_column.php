@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class ChangeRenamecolumn2 extends Migration
+class AddColumn extends Migration
 {
     /**
      * Run the migrations.
@@ -13,9 +13,9 @@ class ChangeRenamecolumn2 extends Migration
      */
     public function up()
     {
-        //
         Schema::table('reservations', function (Blueprint $table) {
-            $table->renameColumn('cost_id', 'cost');
+            $table->integer('cost');
+            
         });
     }
 
@@ -27,8 +27,5 @@ class ChangeRenamecolumn2 extends Migration
     public function down()
     {
         //
-        Schema::table('reservations', function (Blueprint $table) {
-            $table->renameColumn('cost_id', 'cost');
-        });
     }
 }
