@@ -27,6 +27,6 @@ class DropForeignkey extends Migration
      */
     public function down()
     {
-        
+
     }
 }

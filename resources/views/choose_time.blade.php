@@ -28,13 +28,14 @@
                     @php
                     $n++;
                     @endphp
+
                     @if($n==1)
                     <tr>
                     @endif
-                    @if($mday <= $arr[$j-1])
+                    @if($mday <= $arr[$j-1] && in_array($year."-".$mon."-".$arr[$j-1],$work_dates))
                         <td width='80px'><input type='checkbox' name='translator_times[]' value='{{$year}}-{{$mon}}-{{$arr[$j-1]}}'>{{$arr[$j-1]}}</td>
                     @else
-                        <td width='80px'>&nbsp&nbsp&nbsp&nbsp{{$arr[$j-1]}}</td>
+                        <td width='80px'value='{{$year}}-{{$mon}}-{{$arr[$j-1]}}'>&nbsp&nbsp&nbsp&nbsp{{$arr[$j-1]}}</td>
                     @endif
                     @if($n==7)
                         </tr>
@@ -65,7 +66,7 @@
                     @if($n1==1)
                     <tr>
                     @endif
-                    @if($mday1 = $arr1[$j-1])
+                    @if($mday1 = $arr1[$j-1] && in_array($year1."-".$mon1."-".$arr1[$j-1],$work_dates))
                         <td width='80px'><input type='checkbox' name='translator_times[]' value='{{$year1}}-{{$mon1}}-{{$arr1[$j-1]}}'>{{$arr1[$j-1]}}</td>
                     @else
                         <td width='80px'>&nbsp&nbsp&nbsp&nbsp{{$arr1[$j-1]}}</td>
@@ -99,7 +100,7 @@
                     @if($n2==1)
                     <tr>
                     @endif
-                    @if($mday2 = $arr2[$j-1])
+                    @if($mday2 = $arr2[$j-1] && in_array($year2."-".$mon2."-".$arr2[$j-1],$work_dates))
                         <td width='80px'><input type='checkbox' name='translator_times[]'value='{{$year2}}-{{$mon2}}-{{$arr2[$j-1]}}'>{{$arr2[$j-1]}}</td>
                     @else
                         <td width='80px'>&nbsp&nbsp&nbsp&nbsp{{$arr2[$j-1]}}</td>
@@ -115,10 +116,16 @@
                     </tr>
                 @endif
             </table></br></br>
-            <div class="submit" style="text-align:center;">
-                <input type="submit"value="確定する">
+            <div class="container" style="text-align:center;">
+                <div class="card">
+                    <div class="card-body">通訳者に連絡するメッセージを入力
+                        <div  style="margin-top:20px;"><textarea rows="3" cols="130"></textarea></div></br></br>
+                    </div>
+                    <div class"info1" style="margin-bottom:20px"; align="center">
+                        <button type="button" class="btn btn-outline-primary">予約確定</button>
+                    </div>
+                </div>
             </div>
-
         </form>
     </body>
 </html>
