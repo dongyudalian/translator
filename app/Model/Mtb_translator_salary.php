@@ -15,13 +15,4 @@ class Mtb_translator_salary extends Model
 
     }
 
-    public function visitor_reservation()
-    {
-
-        return $this->hasOne('App\Model\Visitor_reservation','cost_id','id');
-
-    }
-
-
-
 }

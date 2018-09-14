@@ -9,8 +9,8 @@ class Visitor extends Authenticatable
 {
     protected $table = "visitors";
 
-    public function visitor_reservations()
+    public function reservations()
     {
-        return $this->hasMany('App\Model\Visitor_reservation','visitor_id','id');
+        return $this->hasMany('App\Model\Reservation','visitor_id','id');
     }
 }

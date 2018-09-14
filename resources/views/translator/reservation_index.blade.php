@@ -25,7 +25,7 @@
 
 <body>
     <div class="main-container container-fluid">
-      <!-- navigation start -->
+    <!-- navigation start -->
     <div class="row">
         <div class="col-2">
             <img src="images/logo.png" style="width: 35px; height: 35px">
@@ -50,12 +50,12 @@
             </ul>
         </div>
     </div>
-      <!-- navigation end -->
+    <!-- navigation end -->
 
-      <!-- pic -->
+    <!-- pic -->
     <div class="titlepic">
         <img src="images/carousel-pic1.jpg" style="width:1200px">
     </div>
-
+    
 </body>
 </html>

@@ -62,9 +62,9 @@ class Translator extends Authenticatable
         return $this->belongsTo('App\Model\Mtb_translator_salary','translator_salaries_id');
 
     }
-    public function visitor_reservation(){
+    public function reservation(){
 
-        return $this->hasOne('App\Model\Visitor_reservation','translator_id','id');
+        return $this->hasOne('App\Model\Reservation','translator_id','id');
 
     }
 
