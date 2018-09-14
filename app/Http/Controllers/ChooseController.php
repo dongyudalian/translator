@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class ChooseController extends Controller
 {
@@ -14,6 +15,15 @@ class ChooseController extends Controller
             $mday = $time["mday"]; //今天是当月第几天
             $mon = $time["mon"]; // 今天是那个月
             $year = $time["year"];// 现在是那一年
+            $id = $request->id;
+            $translators = DB::table('translators')->where('id',$id)->get();
+            $get_times = DB::table('translator_times')->where('translators_id',$translators[0]->id)->get()->toArray();
+            
+            //得到纯时间的数组
+            $work_dates = array();
+            foreach ($get_times as $value) {
+                $work_dates[] = $value->translator_time;
+            }
 
             //得到今天这个月一共多少天
             if($mon==4||$mon==6||$mon==9||$mon==11){
@@ -83,6 +93,7 @@ class ChooseController extends Controller
             $mon2 = $time["mon"]+2; // 今天是那个月
             $year2 = $time["year"];// 现在是那一年
 
+
             //得到今天这个月一共多少天
             if($mon2==4||$mon2==6||$mon2==9||$mon2==11){
                 $day2 = 30;
@@ -138,6 +149,7 @@ class ChooseController extends Controller
                 'w2'=>$w2,
                 'arr2'=>$arr2,
                 'n2'=>$n2,
+                'work_dates'=>$work_dates,
             ]);
 
         }

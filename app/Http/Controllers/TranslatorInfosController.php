@@ -14,7 +14,7 @@ class TranslatorInfosController extends Controller
 {
 	public function index(Request $request,$id){
 		if($request->isMethod("get")) {
-            
+
             $id = $request->id;
             $translators = DB::table('translators')->where('id',$id)->get();
             $mtb_translator_salary = DB::table('mtb_translator_salaries')->where('id',$translators[0]->translator_salaries_id)->first();
