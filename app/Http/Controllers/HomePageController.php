@@ -10,7 +10,6 @@ class HomePageController extends Controller
 
     public function home (Request $request)
     {
-
         $user = null;
         if(Auth::check()) {
             $user = Auth::user();
@@ -18,7 +17,6 @@ class HomePageController extends Controller
         if(Auth::guard("visitor")->check()) {
             $user = Auth::guard("visitor")->user();
         }
-
         return view("/translator/homepage",
         [
             'user'=>$user,
