@@ -21,6 +21,7 @@
             text-align: center;
         }
     </style>
+
 </head>
 
 <body>
@@ -67,6 +68,10 @@
                 <th>操作</th>
             </tr>
             @foreach($reservations as $reservation)
+                <form action="" method="post" >
+                    {{csrf_field()}}
+                <input type="hidden" name="id" value="{{$reservation->id}}" />
+
             <tr>
                 <td>
                     {{$translator->name}}
@@ -83,11 +88,37 @@
                     {{$reservation->reservation_comment}}
                 </td>
                 <td>
-                   
-                    <button type = "submit" name="recept">受け取り</button>&emsp;|&emsp;
-                    <button type = "submit" name="refuse">断り</button>
+                    @if($reservation->status_id==1)
+                        
+                        <div class="row">
+                            <input type="hidden" id="getid" name="getid" value="">
+
+                            <div class="col-5" >
+                                <button id="recept"  onclick="myFunction1()">受け取り</button>  
+                            </div>
+
+                            <div class="col-5">
+                                <button id="refuse"  onclick="myFunction2()">断り</button>
+                            </div>
+
+                            <script>
+                                function myFunction1(){
+                                    document.getElementById("getid").value="2";
+                                }
+                                function myFunction2(){
+                                    document.getElementById("getid").value="3";
+                                }
+                            </script>
+                        </div>
+                       
+                    @elseif($reservation->status_id==2)
+                        <button type="submit">予約済み</button>
+                    @elseif($reservation->status_id==3)
+                        <button type="submit">断り済み</button>
+                    @endif
                 </td>
             </tr>
+            </form>
             @endforeach
         </table>
 </body>
