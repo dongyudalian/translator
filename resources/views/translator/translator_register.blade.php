@@ -1,111 +1,371 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta charset="utf-8">
-        <title>新規登録</title>
-    </head>
-    <body>
-        @if(count($errors) > 0)
-            <ul>
-            @foreach($errors->all() as $error)
-                <li>{{$error}}</li>
-            @endforeach
-            <ul>
-        @endif
-        <div class="application" style="text-align: center;">
-            <h2>通訳者の新規登録</h2>
-            <form class="new_application" action="{{ route('post_register') }}" method= "post" >
-                @csrf
-                <h3>基本資料</h3>
-                <table id="table-1" border="1" align="center">
-                    <thead>
-                        <th>名前</th>
-                        <th>出身地</th>
-                        <th>出生年月日</th>
-                        <th>性別</th>
-                        <th>電話番号</th>
-                        <th>Eメール</th>
-                    </thead>
-                    <tbody>
-                    <tr>
-                        <td>
-                            <input type="text" name="translator_name" value="">
-                        </td>
-                        <td>
-                            <input type="text" name="translator_birthcity" value="">
-                        </td>
-                        <td>
-                            <input type="date" name="translator_birthday" value="">
-                        </td>
-                        <td>
-                            <select class="select_frame" id="translator_sex" name="translator_sex">
+<head>
+    <meta charset="utf-8">
+    <title>通訳者新規登録</title>
+    <style>
+        .img{
+            margin: auto;
+            max-width: 1200px;
+        }
+        h1{
+            text-align: center;
+            margin-top: 50px;
+        }
+        span.mark{
+            font-size: .875rem;
+      	    display: inline-block;
+      	    width: 50px;
+      	    height: 20px;
+      	    text-align: center;
+      	    background: #e30026;
+      	    color: #fff;
+      	    font-weight: 400;
+      	    margin-left:110px;
+            margin-top: 30px;
+            margin-bottom: 0px;
+        }
+        .position{
+      	    margin-left:100px;
+      	    margin-right: 100px;
+      	    margin-top: 20px;
+        }
+        div.mark{
+            font-size: .875rem;
+      	    width: 50px;
+      	    height: 20px;
+      	    text-align: center;
+      	    background: #e30026;
+      	    color: #fff;
+            margin:auto;
+        }
+        input.input1{
+            border-radius: 3px;
+            width: 600px;
+            height:50px;
+            background-color: #fff2f2;
+          	border: 1px solid #e30026
+        }
+        dl.dl1{
+          	display: table;
+      	    width: 100%;
+            margin: 0;
+        }
+        dl.dl2{
+            display: table;
+            width: 100%;
+            border-bottom: 2px solid #DCDCDC ;
+            margin: 0;
+        }
+        dt.dt1{
+            background: #f8f9fa ;
+            width: 150px;
+            display: table-cell;
+            padding: 40px 120px 50px 80px;
+            font-weight: 1000;
+            vertical-align: top;
+        }
+        dt.dt2{
+            background: #f8f9fa ;
+            width: 150px;
+            display: table-cell;
+            padding: 50px 120px 50px 80px;
+            font-weight: 1000;
+        }
+        .inp{
+            text-align: center;
+            margin-top: 50px;
+        }
+        .info{
+            border: 1px solid;
+            color: #e9e7e7;
+            max-width:1200px;
+            margin: auto;
+            margin-top: 1px;
+        }
+        p{
+            text-align: center;
+            color: black;
+        }
+        .button{
+            background-image: linear-gradient(180deg,#0067cc 0,#04407a 100%);
+            box-shadow: 0 1px #062440;
+            color: #fff;
+            width: 200px;
+            height:50px;
+            border-radius: 10px;
+        }
+        .selectput{
+            width: 300px;
+            height: 50px;
+            margin: auto;
+            font-size:20px;
+            text-align-last: center;
+        }
+        .birthday{
+            width: 300px;
+            height: 50px;
+            margin: auto;
+            font-size:20px;
+            text-align-last: center;
+        }
+        .checkbox1{
+            font-size:30px;
+            text-align-last: center;
+            color: red;
+        }
+        .se{
+            text-align-last: center;
+        }
+        .text-danger{
+            color: red;
+        }
+    </style>
+</head>
+<body>
+    <div class="img">
+        <img src="images/carousel-pic1.jpg" height="300" width="1200px">
+    </div>
+    <h1>通訳者新規登録</h1>
+    <div>
+        <span class="mark">必須</span>
+        <a class="font"> マークのある項目にはすべて入力してください。</a>
+    </div>
+    <br>
+    <form action="" method= "post" >
+        {{csrf_field()}}
+        <div class="position">
+            <div class="info">
+                <dl class="dl1">
+                    <dt class="dt1"><p>名前</p>
+                        <div class="mark">必須</div>
+                    </dt>
+                    <dd>
+                        <div class="inp">
+                            <input class="input1" type="text" name="translator_name" value="{{old('translator_name')}}" placeholder="&nbsp&nbsp&nbsp名前を入力してください。(半角英数字 128文字以内)">
+                            @if($errors->has('translator_name'))
+                                <p class="text-danger">{{$errors->first('translator_name')}}</p>
+                            @endif
+                        </div>
+                    </dd>
+                </dl>
+            </div>
+            <div class="info">
+                <dl class="dl1">
+                    <dt class="dt1"><p>出身地</p>
+                        <div class="mark">必須</div>
+                    </dt>
+                    <dd>
+                        <div class="inp">
+                            <input class="input1" type="text" name="translator_birthcity" value="{{old('translator_birthcity')}}" placeholder="&nbsp&nbsp&nbsp出身地を入力してください。(半角英数字 128文字以内)">
+                            @if($errors->has('translator_birthcity'))
+                                <p class="text-danger">{{$errors->first('translator_birthcity')}}</p>
+                            @endif
+                        </div>
+                    </dd>
+                </dl>
+            </div>
+            <div class="info">
+                <dl class="dl1">
+                    <dt class="dt1"><p>性別</p>
+                        <div class="mark">必須</div>
+                    </dt>
+                    <dd>
+                        <div class="inp">
+                            <select class="selectput" id="translator_sex" name="translator_sex">
                                 <option value="">性別を選択</option>
                                 <option value="1">男</option>
                                 <option value="2">女</option>
                             </select>
-                        </td>
-                        <td>
-                            <input type="tel" name="translator_tel" value="">
-                        </td>
-                        <td>
-                            <input type="email" name="translator_email" value="">
-                        </td>
-                    </tr>
-                    </tbody>
-                    <thead>
-                        <th>料金設定</th>
-                        <th>専門性</th>
-                        <th>外見</th>
-                        <th>免許</th>
-                        <th>パースワード</th>
-                        <th>写真</th>
-                    </thead>
-                    <tbody>
-                    <tr>
-                        <td>
-                            <select class="select_salary" id="translator_salary" name="translator_salary">
+                            @if($errors->has('translator_sex'))
+                                <p class="text-danger">{{$errors->first('translator_sex')}}</p>
+                            @endif
+                        </div>
+                    </dd>
+                </dl>
+            </div>
+            <div class="info">
+                <dl class="dl1">
+                    <dt class="dt1"><p>生年月日</p>
+                        <div class="mark">必須</div>
+                    </dt>
+                    <dd>
+                        <div class="inp">
+                            <input class="birthday" type="date" name="translator_birthday" value="">
+                            @if($errors->has('translator_birthday'))
+                                <p class="text-danger">{{$errors->first('translator_birthday')}}</p>
+                            @endif
+                        </div>
+                    </dd>
+                </dl>
+            </div>
+            <div class="info">
+                <dl class="dl1">
+                    <dt class="dt1"><p>電話番号</p>
+                        <div class="mark">必須</div>
+                    </dt>
+                    <dd>
+                        <div class="inp">
+                            <input class="input1" type="text" name="translator_tel" value="{{old('translator_tel')}}" placeholder="&nbsp&nbsp&nbsp電話番号を入力してください。(半角英数字 128文字以内)">
+                            @if($errors->has('translator_tel'))
+                                <p class="text-danger">{{$errors->first('translator_tel')}}</p>
+                            @endif
+                        </div>
+                    </dd>
+                </dl>
+            </div>
+            <div class="info">
+                <dl class="dl1">
+                    <dt class="dt1"><p>メールアドレス</p>
+                        <div class="mark">必須</div>
+                    </dt>
+                    <dd>
+                        <div class="inp">
+                            <input class="input1" type="text" name="translator_email" value="{{old('translator_email')}}" placeholder="&nbsp&nbsp&nbspメールアドレスを入力してください。(半角英数字 128文字以内)">
+                            @if($errors->has('translator_email'))
+                                <p class="text-danger">{{$errors->first('translator_email')}}</p>
+                            @endif
+                        </div>
+                    </dd>
+                </dl>
+            </div>
+            <div class="info">
+                <dl class="dl1">
+                    <dt class="dt1"><p>時給を選択</p>
+                        <div class="mark">必須</div>
+                    </dt>
+                    <dd>
+                        <div class="inp">
+                            <select class="selectput" id="translator_salary" name="translator_salary">
                                 <option value="">時給を選択</option>
                                 @foreach($aas as $aa)
                                     <option value="{{$aa->id}}">{{$aa->value}}</option>
                                 @endforeach
                             </select>
-                        </td>
-                        <td>
+                            @if($errors->has('translator_salary'))
+                                <p class="text-danger">{{$errors->first('translator_salary')}}</p>
+                            @endif
+                        </div>
+                    </dd>
+                </dl>
+            </div>
+            <div class="info">
+                <dl class="dl1">
+                    <dt class="dt1"><p>専門性を選択</p>
+                        <div class="mark">必須</div>
+                    </dt>
+                    <dd>
+                        <div class="inp">
                             @foreach($bbs as $bb)
-                                <input type="checkbox" name="translator_specialities[]" value="{{$bb->id}}">{{$bb->value}}
+                                <input class="checkbox1" type="checkbox" name="translator_specialities[]" value="{{$bb->id}}">{{$bb->value}}
                             @endforeach
-                        </td>
-                        <td>
+                            @if($errors->has('translator_specialities'))
+                                <p class="text-danger">{{$errors->first('translator_specialities')}}</p>
+                            @endif
+                        </div>
+                    </dd>
+                </dl>
+            </div>
+            <div class="info">
+                <dl class="dl1">
+                    <dt class="dt1"><p>外見を選択</p>
+                        <div class="mark">必須</div>
+                    </dt>
+                    <dd>
+                        <div class="inp">
                             @foreach($ccs as $cc)
                                 <input type="checkbox" name="translator_statures[]" value="{{$cc->id}}">{{$cc->value}}
                             @endforeach
-                        </td>
-                        <td>
-                            <select class="select_license" id="translator_license" name="translator_license">
+                            @if($errors->has('translator_statures'))
+                                <p class="text-danger">{{$errors->first('translator_statures')}}</p>
+                            @endif
+                        </div>
+                    </dd>
+                </dl>
+            </div>
+            <div class="info">
+                <dl class="dl1">
+                    <dt class="dt1"><p>機動車免許を選択</p>
+                        <div class="mark">必須</div>
+                    </dt>
+                    <dd>
+                        <div class="inp">
+                            <select class="selectput" id="translator_license" name="translator_license">
                                 <option value="">機動車免許を選択</option>
                                 <option value="1">あり</option>
                                 <option value="2">なし</option>
                             </select>
-                        </td>
-                        <td>
-                            <input type="password" name="translator_password" value="">
-                        </td>
-                        <td>
-                            <input type="file" name="translator_image" multiple="multiple"  value="">
-                        </td>
-                    </tr>
-                    </tbody>
-                </table>
-                <h3>自己紹介</h3>
-                <textarea name="translator_self" rows="14" cols="140"></textarea>
-                <h3>行ける場所</h3>
-                @foreach($dds as $dd)
-                    <input type="checkbox" name="translator_ikus[]" value="{{$dd->id}}">{{$dd->value}}
-                @endforeach
-                <h3>空い時間選択</h3>
-                <div class="row" style="margin-top:50px">
+                            @if($errors->has('translator_license'))
+                                <p class="text-danger">{{$errors->first('translator_license')}}</p>
+                            @endif
+                        </div>
+                    </dd>
+                </dl>
+            </div>
+            <div class="info">
+                <dl class="dl1">
+                    <dt class="dt1"><p>パスワード</p>
+                        <div class="mark">必須</div>
+                    </dt>
+                    <dd>
+                        <div class="inp">
+                            <input class="input1" type="text" name="translator_password" value="{{old('translator_password')}}" placeholder="&nbsp&nbsp&nbspパスワードを入力してください。(半角英数字5〜20文字以内、スペース不可)">
+                            @if($errors->has('translator_password'))
+                                <p class="text-danger">{{$errors->first('translator_password')}}</p>
+                            @endif
+                        </div>
+                    </dd>
+                </dl>
+            </div>
+            <div class="info">
+                <dl class="dl1">
+                    <dt class="dt1"><p>写真</p>
+                    </dt>
+                    <dd>
+                        <div class="inp">
+                            <input class="" type="file" name="translator_image" multiple="multiple"  value="">
+                            @if($errors->has('name'))
+                                <p class="text-danger">{{$errors->first('name')}}</p>
+                            @endif
+                        </div>
+                    </dd>
+                </dl>
+            </div>
+            <div class="info">
+                <dl class="dl1">
+                    <dt class="dt1"><p>自己紹介</p>
+                        <div class="mark">必須</div>
+                    </dt>
+                    <dd>
+                        <div class="inp">
+                            <textarea class="se" name="translator_self" rows="5" cols="100"></textarea>
+                            @if($errors->has('translator_self'))
+                                <p class="text-danger">{{$errors->first('translator_self')}}</p>
+                            @endif
+                        </div>
+                    </dd>
+                </dl>
+            </div>
+            <div class="info">
+                <dl class="dl1">
+                    <dt class="dt1"><p>行ける場所</p>
+                        <div class="mark">必須</div>
+                    </dt>
+                    <dd>
+                        <div class="inp">
+                            @foreach($dds as $dd)
+                                <input type="checkbox" name="translator_ikus[]" value="{{$dd->id}}">{{$dd->value}}
+                            @endforeach
+                            @if($errors->has('translator_ikus'))
+                                <p class="text-danger">{{$errors->first('translator_ikus')}}</p>
+                            @endif
+                        </div>
+                    </dd>
+                </dl>
+            </div>
+            <div class="row" style="margin-top:50px">
                     <div class="col-6">
-                        <p>{{$mon}}月</p>
+                        <p>{{$mon}}月</p >
                     <table border='1' align='center'></br>
                         <tr>
                             <th>星期日</th>
@@ -139,7 +399,7 @@
                             </tr>
                         @endif
                     </table></br></br>
-                    <p>{{$mon1}}月</p>
+                    <p>{{$mon1}}月</p >
                     <table border='1' align='center'>
                         <tr>
                             <th>星期日</th>
@@ -173,7 +433,7 @@
                             </tr>
                         @endif
                     </table></br></br>
-                    <p>{{$mon2}}月</p>
+                    <p>{{$mon2}}月</p >
                     <table border='1' align='center'>
                         <tr>
                             <th>星期日</th>
@@ -208,9 +468,16 @@
                         @endif
                     </table></br></br>
                     </div>
+                    @if($errors->has('translator_times'))
+                        <p class="text-danger">{{$errors->first('translator_times')}}</p>
+                    @endif
                 </div>
-                <input type="submit" value="送る">
-            </form>
         </div>
-    </body>
+        <div style="text-align:center;margin-top:30px;">
+            <button class="button" type="submit" value="">
+                <font size="3">新規会員の登録</font>
+            </button>
+        </div>
+    </form>
+</body>
 </html>
