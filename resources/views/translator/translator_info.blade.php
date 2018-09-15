@@ -128,16 +128,11 @@
         </div>
         <div class="container" style="margin-top:30px;">
               <div class="card bg-dark text-white">
-                <div class="card-body">得意な分野：@if($mtb_translator_speciality1->value){{$mtb_translator_speciality1->value}}
-                    @else""
-                    @endif
-                    @if($mtb_translator_speciality2->value){{$mtb_translator_speciality2->value}}
-                    @else""
-                    @endif
+                <div class="card-body">得意な分野：{{$mtb_translator_speciality1->value}}{{$mtb_translator_speciality2->value}}
                 </div>
               </div>
         </div>
-        
+
         <div class="container" style="margin-top:30px;">
             <div class="card">
                 <div class="card-body">
