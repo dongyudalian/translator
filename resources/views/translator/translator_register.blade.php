@@ -206,7 +206,7 @@
                     </dt>
                     <dd>
                         <div class="inp">
-                            <input class="input1" type="text" name="translator_tel" value="{{old('translator_tel')}}" placeholder="&nbsp&nbsp&nbsp電話番号を入力してください。(半角英数字 128文字以内)">
+                            <input class="input1" type="tel" name="translator_tel" value="{{old('translator_tel')}}" placeholder="&nbsp&nbsp&nbsp電話番号を入力してください。(半角英数字 128文字以内)">
                             @if($errors->has('translator_tel'))
                                 <p class="text-danger">{{$errors->first('translator_tel')}}</p>
                             @endif
@@ -221,7 +221,7 @@
                     </dt>
                     <dd>
                         <div class="inp">
-                            <input class="input1" type="text" name="translator_email" value="{{old('translator_email')}}" placeholder="&nbsp&nbsp&nbspメールアドレスを入力してください。(半角英数字 128文字以内)">
+                            <input class="input1" type="email" name="translator_email" value="{{old('translator_email')}}" placeholder="&nbsp&nbsp&nbspメールアドレスを入力してください。(半角英数字 128文字以内)">
                             @if($errors->has('translator_email'))
                                 <p class="text-danger">{{$errors->first('translator_email')}}</p>
                             @endif
@@ -309,7 +309,7 @@
                     </dt>
                     <dd>
                         <div class="inp">
-                            <input class="input1" type="text" name="translator_password" value="{{old('translator_password')}}" placeholder="&nbsp&nbsp&nbspパスワードを入力してください。(半角英数字5〜20文字以内、スペース不可)">
+                            <input class="input1" type="password" name="translator_password" value="{{old('translator_password')}}" placeholder="&nbsp&nbsp&nbspパスワードを入力してください。(半角英数字5〜20文字以内、スペース不可)">
                             @if($errors->has('translator_password'))
                                 <p class="text-danger">{{$errors->first('translator_password')}}</p>
                             @endif
