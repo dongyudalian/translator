@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class ChangeTableName2 extends Migration
+class AddColumnToReservations extends Migration
 {
     /**
      * Run the migrations.
@@ -13,7 +13,10 @@ class ChangeTableName2 extends Migration
      */
     public function up()
     {
-         Schema::rename("visitor_reservations", "reservations");
+        Schema::table('reservations', function (Blueprint $table) {
+            $table->unsignedInteger('status_id')->after("translator_id");
+            
+        });
     }
 
     /**
@@ -23,6 +26,6 @@ class ChangeTableName2 extends Migration
      */
     public function down()
     {
-        Schema::rename("reservations", "visitor_reservations");
+        //
     }
 }

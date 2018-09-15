@@ -137,7 +137,7 @@
             <div class="card">
                 <div class="card-body">
                   <h4 class="card-title">Translator Calendar Cherk</h4>
-                  <a class="card-text">You can click on the <a href="#" class="card-link">link</a> below to query the date.</a>
+                  <a class="card-text">You can click on the <a href="{{route('choose',['id'=>$translator->id])}}" class="card-link">link</a> below to query the date.</a>
                 </div>
             </div>
         </div>

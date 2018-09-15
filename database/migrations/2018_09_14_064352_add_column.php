@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class DropForeignkey extends Migration
+class AddColumn extends Migration
 {
     /**
      * Run the migrations.
@@ -13,7 +13,10 @@ class DropForeignkey extends Migration
      */
     public function up()
     {
-
+        Schema::table('reservations', function (Blueprint $table) {
+            $table->integer('cost');
+            
+        });
     }
 
     /**
@@ -23,8 +26,6 @@ class DropForeignkey extends Migration
      */
     public function down()
     {
-        Schema::table('reservations', function (Blueprint $table) {
-            $table->dropForeign('reservations_cost_foreign');
-        });
+        //
     }
 }

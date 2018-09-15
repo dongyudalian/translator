@@ -56,6 +56,39 @@
     <div class="titlepic">
         <img src="images/carousel-pic1.jpg" style="width:1200px">
     </div>
-    
+    <hr style="height:3px;border:none;border-top:1px solid #185598; "/>
+    <table class="table">
+        <p>予約{{ $reservations->count() }}件がとりました。</p>
+            <tr>
+                <th>観光者名前</th>
+                <th>予約日付</th>
+                <th>予約金額</th>
+                <th>予約要望</th>
+                <th>操作</th>
+            </tr>
+            @foreach($reservations as $reservation)
+            <tr>
+                <td>
+                    {{$translator->name}}
+                </td>
+                <td>
+                    @foreach($reservation_days as $reservation_day)
+                        {{$reservation_day->pickup_date}}
+                    @endforeach
+                </td>
+                <td>
+                    {{$reservation->cost}}
+                </td>
+                <td>
+                    {{$reservation->reservation_comment}}
+                </td>
+                <td>
+                   
+                    <button type = "submit" name="recept">受け取り</button>&emsp;|&emsp;
+                    <button type = "submit" name="refuse">断り</button>
+                </td>
+            </tr>
+            @endforeach
+        </table>
 </body>
 </html>
