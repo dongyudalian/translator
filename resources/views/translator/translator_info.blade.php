@@ -137,16 +137,7 @@
                 </div>
               </div>
         </div>
-        <div class="container" style="margin-top:30px;">
-            <div class="card">
-              <div class="card-body">用户对当前翻译评价：
-                  <div  style="margin-top:20px;"><textarea rows="3" cols="130"></textarea></div>
-              </div>
-              <div class"info1" style="margin-bottom:20px"; align="center">
-                <button type="button" class="btn btn-outline-primary">送る</button>
-              </div>
-            </div>
-        </div>
+        
         <div class="container" style="margin-top:30px;">
             <div class="card">
                 <div class="card-body">
