@@ -11,22 +11,45 @@ class ReservationsController extends Controller
 {
     public function index(Request $request)
     {
-    	if($request->isMethod("get")) {
-	    	if(Auth::check()){
-	    		$user = Auth::user();
-	    	 
-	    	$reservations = DB::table('reservations')->where('translator_id',$user->id)->get();	
-	    	$translator = DB::table('translators')->where('id',$reservations[0]->translator_id)->first();
-	    	$reservation_days = DB::table('reservation_days')->where('reservation_id',$reservations[0]->id)->get();
+    	if(Auth::check()){
+    		$user = Auth::user();
 
-	    	
-	    	
-	    	return view("translator/reservation_index",[
-	    		"reservations" => $reservations,
-	    		"translator" => $translator,
-	    		"reservation_days" => $reservation_days
-	    	]);
-    		}
-    	}	
+    		if($request->isMethod("get")) {
+	    	 
+		    	$reservations = DB::table('reservations')->where('translator_id',$user->id)->get();	
+		    	$translator = DB::table('translators')->where('id',$reservations[0]->translator_id)->first();
+		    	$reservation_days = DB::table('reservation_days')->where('reservation_id',$reservations[0]->id)->get();
+
+		    	return view("translator/reservation_index",[
+		    		"reservations" => $reservations,
+		    		"translator" => $translator,
+		    		"reservation_days" => $reservation_days
+		    	]);
+    		}else{
+				
+    			$reservations = DB::table('reservations')->where('id',$request->id)->get();
+				foreach ($reservations as $reservation) {
+					
+					if($reservation->status_id == 1){
+						if($request->getid){
+							$request->status_id = $request->getid;
+						}
+					}
+					
+
+    				$query_parameters = [
+	    					"status_id" => $request->status_id,
+	    					"id" => $request->id
+    				];
+				
+    				
+	    			DB::update('update reservations set  status_id =:status_id where id =:id', $query_parameters);
+	    				
+		    		return redirect(route('get_reservation'));
+	    			
+    			}
+    			
+    		}	
+    	}
     }
 }

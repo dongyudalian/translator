@@ -21,5 +21,6 @@ Route::get('/logout', 'TranslatorController@logout')->name('logout');
 Route::get('/choose_time', 'ChooseController@time')->name('choose');
 
 Route::get('/reservation','ReservationsController@index')->name('get_reservation');
+Route::post('/reservation','ReservationsController@index')->name('post_reservation');
 
 Auth::routes();
