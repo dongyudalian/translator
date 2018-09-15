@@ -2,8 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Model\Reservation;
+use App\Model\Reservation_day;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Auth;
 
 class ChooseController extends Controller
 {
@@ -18,6 +21,7 @@ class ChooseController extends Controller
             $id = $request->id;
             $translators = DB::table('translators')->where('id',$id)->get();
             $get_times = DB::table('translator_times')->where('translators_id',$translators[0]->id)->get()->toArray();
+            $mtb_translator_salary = DB::table('mtb_translator_salaries')->where('id',$translators[0]->translator_salaries_id)->first();
 
             //得到纯时间的数组
             $work_dates = array();
@@ -171,8 +175,37 @@ class ChooseController extends Controller
                 'arr2'=>$arr2,
                 'n2'=>$n2,
                 'work_dates'=>$work_dates,
+                'mtb_translator_salary' =>$mtb_translator_salary,
             ]);
 
+        }else {
+            $id = $request->id;
+            $translators = DB::table('translators')->where('id',$id)->get();
+            $get_times = DB::table('translator_times')->where('translators_id',$translators[0]->id)->get()->toArray();
+            $mtb_translator_salary = DB::table('mtb_translator_salaries')->where('id',$translators[0]->translator_salaries_id)->first();
+            $visitor = Auth::guard("visitor")->user();
+            $Restervation = new Reservation;
+            $Restervation->visitor_id = $visitor->id;
+            $Restervation->translator_id = $request["id"];
+            $Restervation->status_id = $request["status_id"];
+            $Restervation->reservation_comment = $request["reservation_comment"];
+            $Restervation->cost = $mtb_translator_salary->value;
+
+            $Restervation->save();
+
+
+            $translator_times = $request->input("translator_times");
+
+            foreach ($translator_times as $translator_time)
+            {
+                $Reservation_day = new Reservation_day;
+                $Reservation_day->reservation_id = $Restervation->id;
+                $Reservation_day->pickup_date = $translator_time;
+
+                $Reservation_day->save();
+            }
+
+            return redirect(route("visitor_homepage"))->with("message", "予約しました");
         }
     }
 

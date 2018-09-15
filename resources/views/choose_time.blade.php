@@ -11,7 +11,9 @@
     </head>
     <body>
         <form class="" action="" method="post">
+            <input type="hidden" name="status_id" value="1">
             @csrf
+
             <p>この通訳者さんが出勤できる時間を選択してください</p>
             <p>{{$mon}}月</p>
             <table border='1' align='center'>
@@ -119,10 +121,11 @@
             <div class="container" style="text-align:center;">
                 <div class="card">
                     <div class="card-body">通訳者に連絡するメッセージを入力
-                        <div  style="margin-top:20px;"><textarea rows="3" cols="130"></textarea></div></br></br>
+                        <div  style="margin-top:20px;"><textarea name="reservation_comment" rows="3" cols="130"></textarea></div></br></br>
                     </div>
+                    <p　name="salary" value="{{ $mtb_translator_salary->value}}">担当の料金最後の確認：{{ $mtb_translator_salary->value}}</p>
                     <div class"info1" style="margin-bottom:20px"; align="center">
-                        <button type="button" class="btn btn-outline-primary">予約確定</button>
+                        <button type="submit" class="btn btn-outline-primary">予約確定</button>
                     </div>
                 </div>
             </div>

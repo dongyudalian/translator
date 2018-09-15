@@ -57,7 +57,7 @@
                 @elseif(Auth::check())
                     <p class="nav-link">ようこそ:{{ $user->name . '(' . $user->email . ')' }}</p>
                     <a class="nav-link" href="logout">ログアウト</a>
-                    <a class="nav-link" href="/translator_info/{id}">個人情報</a>
+                    <a class="nav-link" href="/reservation">予約管理</a>
                 @else
                     <div class="col-10 title">
                         <ul class="nav nav-tabs">

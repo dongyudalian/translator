@@ -98,7 +98,7 @@
         </div>
         <div class="container" style="margin-top:30px;">
             <div class="card bg-warning text-white">
-              <div class="card-body"> 性別：{{$translator->sex}}
+              <div class="card-body"> 性別：@if(($translator->sex)== 1 ) 男 @else(($translator->sex)==2) 女 @endif
               </div>
             </div>
         </div>
@@ -128,7 +128,12 @@
         </div>
         <div class="container" style="margin-top:30px;">
               <div class="card bg-dark text-white">
-                <div class="card-body">得意な分野：{{ $mtb_translator_speciality->value}}
+                <div class="card-body">得意な分野：@if($mtb_translator_speciality1->value){{$mtb_translator_speciality1->value}}
+                    @else""
+                    @endif
+                    @if($mtb_translator_speciality2->value){{$mtb_translator_speciality2->value}}
+                    @else""
+                    @endif
                 </div>
               </div>
         </div>
