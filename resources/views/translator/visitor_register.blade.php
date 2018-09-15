@@ -132,9 +132,9 @@
                     </dt>
                     <dd>
                         <div class="inp">
-                            <input class="input1" type="text" name="name" value="{{old('name')}}" placeholder="&nbsp&nbsp&nbspメールアドレスを入力してください。(半角英数字 128文字以内)">
-                            @if($errors->has('name'))
-                                <p class="text-danger">{{$errors->first('name')}}</p>
+                            <input class="input1" type="email" name="email" value="{{old('name')}}" placeholder="&nbsp&nbsp&nbspメールアドレスを入力してください。(半角英数字 128文字以内)">
+                            @if($errors->has('email'))
+                                <p class="text-danger">{{$errors->first('email')}}</p>
                             @endif
                         </div>
                     </dd>
@@ -147,9 +147,9 @@
                     </dt>
                     <dd>
                         <div class="inp">
-                            <input class="input1" type="text" name="name" value="{{old('name')}}" placeholder="&nbsp&nbsp&nbspパスワードを入力してください。(半角英数字5〜20文字以内、スペース不可)">
-                            @if($errors->has('name'))
-                                <p class="text-danger">{{$errors->first('name')}}</p>
+                            <input class="input1" type="password" name="password" value="{{old('name')}}" placeholder="&nbsp&nbsp&nbspパスワードを入力してください。(半角英数字5〜20文字以内、スペース不可)">
+                            @if($errors->has('password'))
+                                <p class="text-danger">{{$errors->first('password')}}</p>
                             @endif
                         </div>
                     </dd>
@@ -162,9 +162,9 @@
                     </dt>
                     <dd>
                         <div class="inp">
-                            <input class="input1" type="text" name="name" value="{{old('name')}}" placeholder="&nbsp&nbsp&nbsp同じパスワードを再入力してください。">
-                            @if($errors->has('name'))
-                                <p class="text-danger">{{$errors->first('name')}}</p>
+                            <input class="input1" type="password" name="password_confirmation" value="{{old('name')}}" placeholder="&nbsp&nbsp&nbsp同じパスワードを再入力してください。">
+                            @if($errors->has('password_confirmation'))
+                                <p class="text-danger">{{$errors->first('password_confirmation')}}</p>
                             @endif
                         </div>
                     </dd>

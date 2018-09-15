@@ -128,7 +128,10 @@
         </div>
         <div class="container" style="margin-top:30px;">
               <div class="card bg-dark text-white">
-                <div class="card-body">得意な分野：{{$mtb_translator_speciality1->value}}{{$mtb_translator_speciality2->value}}
+                <div class="card-body">
+            @foreach($mtb_translator_specialities as $mtb_translator_speciality)
+                  {{$mtb_translator_speciality->value}}
+            @endforeach
                 </div>
               </div>
         </div>

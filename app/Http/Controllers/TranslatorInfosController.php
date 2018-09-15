@@ -18,13 +18,21 @@ class TranslatorInfosController extends Controller
             $id = $request->id;
             $translators = DB::table('translators')->where('id',$id)->get();
             $mtb_translator_salary = DB::table('mtb_translator_salaries')->where('id',$translators[0]->translator_salaries_id)->first();
-            $translator_and_speciality = DB::table('translator_and_specialities')->where('translators_id',$translators[0]->id)->first();
-        	$mtb_translator_speciality = DB::table('mtb_translator_specialities')->where('id',$translator_and_speciality->specialities_id)->first();
+            $translator_and_specialities = DB::table('translator_and_specialities')->where('translators_id',$request->id)->get();
+
+			$translator_and_speciality_specialities_ids = array();
+      		foreach ($translator_and_specialities as $translator_and_speciality) {
+      			$translator_and_speciality_specialities_ids[] = $translator_and_speciality->specialities_id;
+      		}
+
+			$mtb_translator_specialities = DB::table('mtb_translator_specialities')->whereIn('id',$translator_and_speciality_specialities_ids)->get();
+
 
 		return view("translator/translator_info",[
 			"translator" => $translators[0],
 			"mtb_translator_salary" => $mtb_translator_salary,
-			"mtb_translator_speciality" => $mtb_translator_speciality,
+			"translator_and_speciality" => $translator_and_speciality,
+			"mtb_translator_specialities" =>$mtb_translator_specialities,
 
 		]);
 
