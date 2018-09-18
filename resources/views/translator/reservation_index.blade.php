@@ -56,13 +56,12 @@
                 <th>予約日付</th>
                 <th>予約金額</th>
                 <th>予約要望</th>
-                <th>操作</th>
+                <th>操作機能</th>
             </tr>
             @foreach($reservations as $reservation)
-                <form action="" method="post" >
-                    {{csrf_field()}}
-                <input type="hidden" name="id" value="{{$reservation->id}}" />
-
+            <form action="" method="post" >
+                {{csrf_field()}}
+            <input type="hidden" name="id" value="{{$reservation->id}}" />
             <tr>
                 <td>
                     {{$translator->name}}
@@ -103,14 +102,14 @@
                         </div>
 
                     @elseif($reservation->status_id==2)
-                        <button type="submit">予約済み</button>
+                        <input type="button" value="予約済み">
                     @elseif($reservation->status_id==3)
-                        <button type="submit">断り済み</button>
+                        <input type="button" value="断り済み">
                     @endif
                 </td>
             </tr>
             </form>
             @endforeach
-        </table>
+    </table>
 </body>
 </html>
