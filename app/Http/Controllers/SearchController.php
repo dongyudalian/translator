@@ -118,8 +118,8 @@ class SearchController extends Controller
             })->orWhereHas("translator_times", function($query) use($search_self) {
                 $query->where("translator_times.translator_time","LIKE", "%" . $search_self . "%");
 
-            });
-
+            })->orWhere("translator_self", "LIKE", "%" . $search_self . "%");
+            ;
         }
 
 

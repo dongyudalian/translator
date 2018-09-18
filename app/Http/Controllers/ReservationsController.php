@@ -17,14 +17,19 @@ class ReservationsController extends Controller
     		if($request->isMethod("get")) {
 	    	 
 		    	$reservations = DB::table('reservations')->where('translator_id',$user->id)->get();	
-		    	$translator = DB::table('translators')->where('id',$reservations[0]->translator_id)->first();
-		    	$reservation_days = DB::table('reservation_days')->where('reservation_id',$reservations[0]->id)->get();
+		    	if(isset($reservations[0])){
+		    		$translator = DB::table('translators')->where('id',$reservations[0]->translator_id)->first();
+		    		$reservation_days = DB::table('reservation_days')->where('reservation_id',$reservations[0]->id)->get();
 
-		    	return view("translator/reservation_index",[
-		    		"reservations" => $reservations,
-		    		"translator" => $translator,
-		    		"reservation_days" => $reservation_days
-		    	]);
+		    		return view("translator/reservation_index",[
+			    		"reservations" => $reservations,
+			    		"translator" => $translator,
+			    		"reservation_days" => $reservation_days
+			    	]);
+		    	}else{
+		    		return redirect(route("visitor_homepage"))->with("message", "予約が見つからなかった。");
+				}
+		    	
     		}else{
 				
     			$reservations = DB::table('reservations')->where('id',$request->id)->get();

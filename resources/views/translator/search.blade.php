@@ -50,11 +50,11 @@
     <div class="main-container container-fluid">
       <!-- navigation start -->
     <div class="row">
-      <div class="col-2">
+        <div class="col-2">
           <img src="images/logo.png" style="width: 35px; height: 35px">
-      </div>
-      <div class="col-10">
-          <ul class="nav nav-tabs">
+    </div>
+        <div class="col-10">
+            <ul class="nav nav-tabs">
             <li class="nav-item">
                 <a class="nav-link" href="/homepage">ホームページ</a>
             </li>
@@ -65,7 +65,7 @@
                 <a class="nav-link" href="#">お客様対応</a>
             </li>
           </ul>
-      </div>
+        </div>
     </div>
       <!-- navigation end -->
 
