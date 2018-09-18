@@ -7,13 +7,15 @@ use App\Model\Reservation_day;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Validator;
 
 class ChooseController extends Controller
 {
     //
-    public function time(Request $request)
+    public function time(Request $request,$id)
     {
-    	if ($request->isMethod("get")){
+
+        if ($request->isMethod("get")){
             $time = getdate();
             $mday = $time["mday"]; //今天是当月第几天
             $mon = $time["mon"]; // 今天是那个月
@@ -202,36 +204,53 @@ class ChooseController extends Controller
                 'work_dates'=>$work_dates,
                 'mtb_translator_salary' =>$mtb_translator_salary,
                 'choose_times' =>$choose_times,
+                'translators' =>$translators,
             ]);
 
         }else {
             $id = $request->id;
             $translators = DB::table('translators')->where('id',$id)->get();
-            $get_times = DB::table('translator_times')->where('translators_id',$translators[0]->id)->get()->toArray();
-            $mtb_translator_salary = DB::table('mtb_translator_salaries')->where('id',$translators[0]->translator_salaries_id)->first();
-            $visitor = Auth::guard("visitor")->user();
-            $Restervation = new Reservation;
-            $Restervation->visitor_id = $visitor->id;
-            $Restervation->translator_id = $request["id"];
-            $Restervation->status_id = $request["status_id"];
-            $Restervation->reservation_comment = $request["reservation_comment"];
-            $Restervation->cost = $mtb_translator_salary->value;
+            $rules = [
+                "translator_times" => "required",
+                "reservation_comment" => "required|max:200",
+            ];
+            $errors = [
+                "translator_times.required" => "通訳者の時間を選択してください",
+                "reservation_comment.required" => "簡単なメッセージを入力してください。",
+                "reservation_comment.max" => "メッセージは:max字以内を入力してください。",
+            ];
+            $validator = Validator::make($request->all(), $rules, $errors);
+            if($validator->fails()) {
+                return redirect(route('choose',['id' => $translators[0]->id]))->withErrors($validator)->withInput();
+            }else{
+                $id = $request->id;
+                $translators = DB::table('translators')->where('id',$id)->get();
+                $get_times = DB::table('translator_times')->where('translators_id',$translators[0]->id)->get()->toArray();
+                $mtb_translator_salary = DB::table('mtb_translator_salaries')->where('id',$translators[0]->translator_salaries_id)->first();
+                $visitor = Auth::guard("visitor")->user();
+                $Restervation = new Reservation;
+                $Restervation->visitor_id = $visitor->id;
+                $Restervation->translator_id = $request["id"];
+                $Restervation->status_id = $request["status_id"];
+                $Restervation->reservation_comment = $request["reservation_comment"];
+                $Restervation->cost = $mtb_translator_salary->value;
 
-            $Restervation->save();
+                $Restervation->save();
 
 
-            $translator_times = $request->input("translator_times");
+                $translator_times = $request->input("translator_times");
 
-            foreach ($translator_times as $translator_time)
-            {
-                $Reservation_day = new Reservation_day;
-                $Reservation_day->reservation_id = $Restervation->id;
-                $Reservation_day->pickup_date = $translator_time;
+                foreach ($translator_times as $translator_time)
+                {
+                    $Reservation_day = new Reservation_day;
+                    $Reservation_day->reservation_id = $Restervation->id;
+                    $Reservation_day->pickup_date = $translator_time;
 
-                $Reservation_day->save();
+                    $Reservation_day->save();
+                }
+
+                return redirect(route("visitor_homepage"))->with("message", "予約しました");
             }
-
-            return redirect(route("visitor_homepage"))->with("message", "予約しました");
         }
     }
 

@@ -174,8 +174,8 @@
                         <div class="inp">
                             <select class="selectput" id="translator_sex" name="translator_sex">
                                 <option value="">性別を選択</option>
-                                <option value="1">男</option>
-                                <option value="2">女</option>
+                                <option value="1" {{ old('translator_sex') == 1 ? 'selected' : '' }}>男</option>
+                                <option value="2" {{ old('translator_sex') == 2 ? 'selected' : '' }}>女</option>
                             </select>
                             @if($errors->has('translator_sex'))
                                 <p class="text-danger">{{$errors->first('translator_sex')}}</p>
@@ -191,7 +191,7 @@
                     </dt>
                     <dd>
                         <div class="inp">
-                            <input class="birthday" type="date" name="translator_birthday" value="">
+                            <input class="birthday" type="date" name="translator_birthday" value="{{ old('translator_birthday', date('1990-01-01')) }}">
                             @if($errors->has('translator_birthday'))
                                 <p class="text-danger">{{$errors->first('translator_birthday')}}</p>
                             @endif
@@ -236,14 +236,14 @@
                     </dt>
                     <dd>
                         <div class="inp">
-                            <select class="selectput" id="translator_salary" name="translator_salary">
+                            <select class="selectput" id="translator_salary" name="mtb_translator_salaries">
                                 <option value="">時給を選択</option>
                                 @foreach($aas as $aa)
-                                    <option value="{{$aa->id}}">{{$aa->value}}</option>
+                                    <option value="{{$aa->id}}" {{old('mtb_translator_salaries') == $aa->id ? 'selected' : ''}}>{{$aa->value}}</option>
                                 @endforeach
                             </select>
-                            @if($errors->has('translator_salary'))
-                                <p class="text-danger">{{$errors->first('translator_salary')}}</p>
+                            @if($errors->has('mtb_translator_salaries'))
+                                <p class="text-danger">{{$errors->first('mtb_translator_salaries')}}</p>
                             @endif
                         </div>
                     </dd>
@@ -257,7 +257,7 @@
                     <dd>
                         <div class="inp">
                             @foreach($bbs as $bb)
-                                <input class="checkbox1" type="checkbox" name="translator_specialities[]" value="{{$bb->id}}">{{$bb->value}}
+                                <input class="checkbox1" type="checkbox" name="translator_specialities[]" value="{{$bb->id}}" {{ (is_array(old('translator_specialities')) and in_array($bb->id, old('translator_specialities'))) ? ' checked' : '' }}>{{$bb->value}}
                             @endforeach
                             @if($errors->has('translator_specialities'))
                                 <p class="text-danger">{{$errors->first('translator_specialities')}}</p>
@@ -274,7 +274,7 @@
                     <dd>
                         <div class="inp">
                             @foreach($ccs as $cc)
-                                <input type="checkbox" name="translator_statures[]" value="{{$cc->id}}">{{$cc->value}}
+                                <input type="checkbox" name="translator_statures[]" value="{{$cc->id}}" {{ (is_array(old('translator_statures')) and in_array($cc->id, old('translator_statures'))) ? ' checked' : '' }}>{{$cc->value}}
                             @endforeach
                             @if($errors->has('translator_statures'))
                                 <p class="text-danger">{{$errors->first('translator_statures')}}</p>
@@ -292,8 +292,8 @@
                         <div class="inp">
                             <select class="selectput" id="translator_license" name="translator_license">
                                 <option value="">機動車免許を選択</option>
-                                <option value="1">あり</option>
-                                <option value="2">なし</option>
+                                <option value="1" {{ old('translator_license') == 1 ? 'selected' : '' }}>あり</option>
+                                <option value="2" {{ old('translator_license') == 2 ? 'selected' : '' }}>なし</option>
                             </select>
                             @if($errors->has('translator_license'))
                                 <p class="text-danger">{{$errors->first('translator_license')}}</p>
@@ -338,7 +338,7 @@
                     </dt>
                     <dd>
                         <div class="inp">
-                            <textarea class="se" name="translator_self" rows="5" cols="100"></textarea>
+                            <textarea class="se" name="translator_self" rows="5" cols="100">{{old('translator_self')}}</textarea>
                             @if($errors->has('translator_self'))
                                 <p class="text-danger">{{$errors->first('translator_self')}}</p>
                             @endif
@@ -354,7 +354,7 @@
                     <dd>
                         <div class="inp">
                             @foreach($dds as $dd)
-                                <input type="checkbox" name="translator_ikus[]" value="{{$dd->id}}">{{$dd->value}}
+                                <input type="checkbox" name="translator_ikus[]" value="{{$dd->id}}" {{ (is_array(old('translator_ikus')) and in_array($dd->id, old('translator_ikus'))) ? ' checked' : '' }}>{{$dd->value}}
                             @endforeach
                             @if($errors->has('translator_ikus'))
                                 <p class="text-danger">{{$errors->first('translator_ikus')}}</p>
@@ -376,6 +376,8 @@
                             <th>星期五</th>
                             <th>星期六</th>
                         </tr>
+
+
                         @for($j=1;$j<=count($arr);$j++)
                             @php
                             $n++;
@@ -384,7 +386,7 @@
                                 <tr>
                             @endif
                             @if($mday <= $arr[$j-1])
-                                <td width='80px'><input type='checkbox' name='translator_times[]' value='{{$year}}-{{$mon}}-{{$arr[$j-1]}}'>{{$arr[$j-1]}}</td>
+                                <td width='80px'><input type='checkbox' name='translator_times[]' value='{{$year}}-{{$mon}}-{{$arr[$j-1]}}' {{ (old('translator_times') and is_array(old('translator_times')) and in_array($year. "-" . $mon . "-" . $arr[$j-1], old('translator_times'))) ? ' checked' : '' }}>{{$arr[$j-1]}}</td>
                             @else
                                 <td width='80px'>&nbsp&nbsp&nbsp&nbsp{{$arr[$j-1]}}</td>
                             @endif
@@ -418,7 +420,7 @@
                                 <tr>
                             @endif
                             @if($mday1 = $arr1[$j-1])
-                                <td width='80px'><input type='checkbox' name='translator_times[]' value='{{$year1}}-{{$mon1}}-{{$arr1[$j-1]}}'>{{$arr1[$j-1]}}</td>
+                                <td width='80px'><input type='checkbox' name='translator_times[]' value='{{$year1}}-{{$mon1}}-{{$arr1[$j-1]}}' {{ (old('translator_times') and is_array(old('translator_times')) and in_array($year1. "-" . $mon1 . "-" . $arr1[$j-1], old('translator_times'))) ? ' checked' : '' }}>{{$arr1[$j-1]}}</td>
                             @else
                                 <td width='80px'>&nbsp&nbsp&nbsp&nbsp{{$arr1[$j-1]}}</td>
                             @endif
@@ -452,7 +454,7 @@
                                 <tr>
                             @endif
                             @if($mday2 = $arr2[$j-1])
-                                <td width='80px'><input type='checkbox' name='translator_times[]'value='{{$year2}}-{{$mon2}}-{{$arr2[$j-1]}}'>{{$arr2[$j-1]}}</td>
+                                <td width='80px'><input type='checkbox' name='translator_times[]'value='{{$year2}}-{{$mon2}}-{{$arr2[$j-1]}}' {{ (old('translator_times') and is_array(old('translator_times')) and in_array($year2. "-" . $mon2 . "-" . $arr2[$j-1], old('translator_times'))) ? ' checked' : '' }}>{{$arr2[$j-1]}}</td>
                             @else
                                 <td width='80px'>&nbsp&nbsp&nbsp&nbsp{{$arr2[$j-1]}}</td>
                             @endif

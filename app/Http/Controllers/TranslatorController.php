@@ -27,6 +27,7 @@ class TranslatorController extends Controller
             $ccs = Mtb_translator_stature::all();
             $dds = Mtb_translator_iku::all();
 
+
             $time = getdate();
             $mday = $time["mday"]; //今天是当月第几天
             $mon = $time["mon"]; // 今天是那个月
@@ -60,6 +61,13 @@ class TranslatorController extends Controller
                 }
             }
             $n=0;
+
+            if($mon==1||$mon==2||$mon==3||$mon==4||$mon==5||$mon==6||$mon==7||$mon==8||$mon==9){
+                $mon="0".$mon;
+            }
+            else {
+                $mon = $mon;
+            }
 
             $time1 = getdate();
             $mday1 = $time["mday"]; //今天是当月第几天
@@ -95,6 +103,13 @@ class TranslatorController extends Controller
             }
             $n1=0;
 
+            if($mon1==1||$mon1==2||$mon1==3||$mon1==4||$mon1==5||$mon1==6||$mon1==7||$mon1==8||$mon1==9){
+                $mon1="0".$mon1;
+            }
+            else {
+                $mon1 = $mon1;
+            }
+
             $time2 = getdate();
             $mday2 = $time["mday"]; //今天是当月第几天
             $mon2 = $time["mon"]+2; // 今天是那个月
@@ -128,6 +143,13 @@ class TranslatorController extends Controller
                 }
             }
             $n2=0;
+
+            if($mon2==1||$mon2==2||$mon2==3||$mon2==4||$mon2==5||$mon2==6||$mon2==7||$mon2==8||$mon2==9){
+                $mon2="0".$mon2;
+            }
+            else {
+                $mon2 = $mon2;
+            }
 
         	return view("/translator/translator_register",[
     		    'aas'=>$aas,
@@ -170,7 +192,7 @@ class TranslatorController extends Controller
                 "translator_sex" => "required",
                 "translator_tel" => "required|numeric|digits_between:9,11",
                 "translator_email" => "required|min:6|max:128|email|unique:translators,email",
-                "translator_salary" => "required",
+                "mtb_translator_salaries" => "required",
                 "translator_specialities" => "required",
                 "translator_statures" => "required",
                 "translator_license" => "required",
@@ -196,7 +218,7 @@ class TranslatorController extends Controller
                 "translator_email.max" => "メールアドレスの長さは:max以内にしてください",
                 "translator_email.email" => "正しいメールアドレスを入力してください",
                 "translator_email.unique" => "このメールアドレスはご利用いただけません",
-                "translator_salary.required" => "通訳者料金を選択してください。",
+                "mtb_translator_salaries.required" => "通訳者料金を選択してください。",
                 "translator_specialities.required" => "通訳者専門性を選択してください。",
                 "translator_statures.required" => "通訳者外見を選択してください。",
                 "translator_license.required" => "通訳者免許証有無を選択してください。",

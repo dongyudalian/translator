@@ -18,8 +18,8 @@ Route::get('/visitor_logout', 'VisitorLoginController@logout')->name('logout');
 Route::get('/translator_login', 'TranslatorController@login')->name('get_login');
 Route::post('/translator_login', 'TranslatorController@login')->name('post_login');
 Route::get('/logout', 'TranslatorController@logout')->name('logout');
-Route::get('/choose_time', 'ChooseController@time')->name('choose');
-Route::post('/choose_time', 'ChooseController@time')->name('post_choose');
+Route::get('/choose_time/{id}', 'ChooseController@time')->name('choose');
+Route::post('/choose_time/{id}', 'ChooseController@time')->name('post_choose');
 
 Route::get('/reservation','ReservationsController@index')->name('get_reservation');
 Route::post('/reservation','ReservationsController@index')->name('post_reservation');
