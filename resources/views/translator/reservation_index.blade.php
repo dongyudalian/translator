@@ -25,32 +25,23 @@
 </head>
 
 <body>
-    <div class="main-container container-fluid">
-    <!-- navigation start -->
-    <div class="row">
-        <div class="col-2">
-            <img src="images/logo.png" style="width: 35px; height: 35px">
+	<div class="main-container container-fluid">
+        <!-- navigation start -->
+        <div class="row">
+            <div class="col-2">
+                <img src="/images/logo.png" style="width: 35px; height: 35px">
+            </div>
+            <div class="col-10">
+                <ul class="nav nav-tabs">
+                    <li class="nav-item">
+                        <a class="nav-link" href="/homepage">ホームページ</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/visitor_logout">ログアウト</a>
+                    </li>
+                </ul>
+            </div>
         </div>
-        <div class="col-10">
-            <ul class="nav nav-tabs">
-                <li class="nav-item">
-                    <a class="nav-link active" href="#">注册</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="/register">登陆</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">个人信息</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">公司简介</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">客服</a>
-                </li>
-            </ul>
-        </div>
-    </div>
     <!-- navigation end -->
 
     <!-- pic -->
@@ -89,12 +80,12 @@
                 </td>
                 <td>
                     @if($reservation->status_id==1)
-                        
+
                         <div class="row">
                             <input type="hidden" id="getid" name="getid" value="">
 
                             <div class="col-5" >
-                                <button id="recept"  onclick="myFunction1()">受け取り</button>  
+                                <button id="recept"  onclick="myFunction1()">受け取り</button>
                             </div>
 
                             <div class="col-5">
@@ -110,7 +101,7 @@
                                 }
                             </script>
                         </div>
-                       
+
                     @elseif($reservation->status_id==2)
                         <button type="submit">予約済み</button>
                     @elseif($reservation->status_id==3)

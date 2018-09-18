@@ -22,6 +22,29 @@ class ChooseController extends Controller
             $translators = DB::table('translators')->where('id',$id)->get();
             $get_times = DB::table('translator_times')->where('translators_id',$translators[0]->id)->get()->toArray();
             $mtb_translator_salary = DB::table('mtb_translator_salaries')->where('id',$translators[0]->translator_salaries_id)->first();
+            $reservations = DB::table('reservations')->where('translator_id',$id)->get()->toArray();
+            $status_ids = array();
+            foreach ($reservations as $reservation) {
+                $status_ids[]=$reservation->status_id;
+            }
+
+            if($reservation->status_id ==1 ||$reservation->status_id==2 ){
+
+                $reservation_ids = array();
+
+                foreach ($reservations as $reservation) {
+                    $reservation_ids[] = $reservation->id;
+                }
+                $choose_times =array();
+                foreach ($reservation_ids as $reservation_id) {
+                    $reservations = DB::table('reservation_days')->where('reservation_id',$reservation_id)->get();
+                    foreach ($reservations as $reservation) {
+                        $choose_times[] = $reservation->pickup_date;
+                    }
+                }
+            }else{
+                $choose_times = $get_times;
+            }
 
             //得到纯时间的数组
             $work_dates = array();
@@ -148,7 +171,9 @@ class ChooseController extends Controller
                 $mon2 = $mon2;
             }
 
-            return view ("choose_time",
+
+
+            return view ("/translator/choose_time",
             [
                 'time'=>$time,
                 'mday'=>$mday,
@@ -176,6 +201,7 @@ class ChooseController extends Controller
                 'n2'=>$n2,
                 'work_dates'=>$work_dates,
                 'mtb_translator_salary' =>$mtb_translator_salary,
+                'choose_times' =>$choose_times,
             ]);
 
         }else {
