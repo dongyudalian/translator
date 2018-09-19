@@ -8,18 +8,6 @@
             text-align: center;
         }
         </style>
-
-        <script language="JavaScript">
-        function delete_confirm(e)
-        {
-            if (event.srcElement.outerText == "删除")
-            {
-                event.returnValue = confirm("删除是不可恢复的，你确认要删除吗？");
-            }
-        }
-        document.onclick = delete_confirm;
-        </script>
-
     </head>
     <body>
         <div class="main-container container-fluid">
@@ -160,21 +148,22 @@
                     </div>
                     <p　name="salary" value="{{ $mtb_translator_salary->value}}">担当の料金最後の確認：{{ $mtb_translator_salary->value}}円/日(約8時間)</p>
                     <div class"info1" style="margin-bottom:20px"; align="center">
-                        <button type="button" onclick="fun()">予約する</button>
+                        <button onclick="return fun()">予約する</button>
                     </div>
                     <script>
                     function fun(){
-                        var x;
                         var checks = document.getElementsByName("translator_times[]");
                         n = 0;
                         for(i=0;i<checks.length;i++){
                             if(checks[i].checked)
                             n++;
                         }
-
-                        var r=confirm("この担当者"+n+"日予約しますか？"+"料金合計"+n*{{ $mtb_translator_salary->value}}+"円");
-                        document.getElementById("myForm").submit();
+                        r=confirm("この担当者"+n+"日予約しますか？"+"料金合計"+n*{{ $mtb_translator_salary->value}}+"円");
+                        if(r) {
+                            document.getElementById("myForm").submit();
                         }
+                        return r;
+                    }
                     </script>
                 </div>
             </div>
