@@ -101,6 +101,9 @@
     </style>
 </head>
 <body>
+    <div style="text-align:center;">
+        <a class="nav-link" href="/homepage"　style="">ホームページ</a>
+    </div>
     <div class="img">
         <img src="images/carousel-pic1.jpg" height="300" width="1200px">
     </div>

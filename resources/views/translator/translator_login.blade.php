@@ -146,6 +146,9 @@
     @if(Session::has('message'))
 		<p class="alert alert-info">{{Session::get('message') }}</p>
 	@endif
+        <div style="text-align:center;">
+            <a class="nav-link" href="/homepage"　style="">ホームページ</a>
+        </div>
 	<div class="img">
 	  <img src="images/carousel-pic1.jpg"  height="300" width="1200px">
 	</div>
@@ -202,8 +205,10 @@
 				<li><i class="fa fa-circle"></i>便利な検索機能</li>
 			</ul>
 		</div>
-	<br>
-		<button class="button2" type="button"><font size="3">新規会員の登録</font></button>
+	    <br>
+		<button class="button2" type="button">
+            <a href="/translator_register"><font size="3" style="color:white">新規通訳者会員の登録</font></a>
+        </button>
 	</div>
 </div>
 
