@@ -244,7 +244,7 @@ class TranslatorController extends Controller
                 $Translator->sex = $request["translator_sex"];
                 $Translator->license = $request["translator_license"];
                 $Translator->translator_self = $request["translator_self"];
-                $Translator->translator_salaries_id = $request["translator_salary"];
+                $Translator->translator_salaries_id = $request["mtb_translator_salaries"];
                 $Translator->save();
 
                 $translator_statures = $request->input("translator_statures");
