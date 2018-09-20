@@ -90,7 +90,7 @@ class Translator extends Authenticatable
     public function get_reservation_times()
     {
         $reservations = Reservation::query()->where("translator_id", $this->id)->where("status_id", 2)->get();
-        return count($reservations);
+        return $reservations->count();
     }
 
 
