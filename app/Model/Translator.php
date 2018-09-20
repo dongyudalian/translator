@@ -5,6 +5,7 @@ namespace App\Model;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
+use App\Model\Reservation;
 
 class Translator extends Authenticatable
 {
@@ -84,6 +85,12 @@ class Translator extends Authenticatable
 
         return $this->belongsToMany('App\Model\Mtb_translator_stature','translators_id','statures_id');
 
+    }
+
+    public function get_reservation_times()
+    {
+        $reservations = Reservation::query()->where("translator_id", $this->id)->where("status_id", 2)->get();
+        return count($reservations);
     }
 
 

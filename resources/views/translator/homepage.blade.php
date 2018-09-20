@@ -136,13 +136,13 @@
             </div>
             <div class="col-5 persons">
                 <div class="row">
-                    @foreach($translators as $translator)
+                    @foreach($ordered_translaters as $ordered_translater)
                     <div class="col-4">
                         <div class="person-pic">
                             <img src="images/haruko.jpg">
                         </div>
                         <div class="person-introduction">
-                            <a href="图片链接地址1">{{$translator->name}}</a>
+                            <a href="图片链接地址1">{{$ordered_translater->name}}</a>
                         </div>
                     </div>
                     @endforeach
