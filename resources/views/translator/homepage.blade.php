@@ -125,9 +125,9 @@
                     <img src="images/tokyo.jpg" style="width:600px">
                 </div>
                 <div class="Introduction">
-                    <span style="font-size:30px;color:#4fa79e">东京</span>
+                    <span style="font-size:30px;color:#4fa79e">東京都</span>
                     <span style="color:#9c9e9e">
-                        :东京（とうきょう、Tōkyō），是位于日本关东平原中部面向东京湾的国际大都市，
+                        :東京（とうきょう、Tōkyō），是位于日本关东平原中部面向东京湾的国际大都市，
                         是日本事实上的首都（但并没有正式的相关法律规定）。狭义上指东京都、或东京都区部（即东京市区），
                         亦可泛指东京都及周边卫星都市群相连而成的“首都圈”（东京都会区）。
                         东京是江户幕府的所在地——江户在庆应4年7月（1868年9月）改名为东京的一个地方.
@@ -136,54 +136,16 @@
             </div>
             <div class="col-5 persons">
                 <div class="row">
+                    @foreach($translators as $translator)
                     <div class="col-4">
                         <div class="person-pic">
                             <img src="images/haruko.jpg">
                         </div>
                         <div class="person-introduction">
-                            <a href="图片链接地址1">No.1 晴子</a>
+                            <a href="图片链接地址1">{{$translator->name}}</a>
                         </div>
                     </div>
-                    <div class="col-4">
-                        <div class="person-pic">
-                            <img src="images/haruko.jpg">
-                        </div>
-                        <div class="person-introduction">
-                            <a href="图片链接地址1">No.2 晴子</a>
-                        </div>
-                    </div>
-                    <div class="col-4">
-                        <div class="person-pic">
-                            <img src="images/haruko.jpg">
-                        </div>
-                        <div class="person-introduction">
-                            <a href="图片链接地址1">No.2 晴子</a>
-                        </div>
-                    </div>
-                    <div class="col-4">
-                        <div class="person-pic">
-                            <img src="images/haruko.jpg">
-                        </div>
-                        <div class="person-introduction">
-                            <a href="图片链接地址1">No.2 晴子</a>
-                        </div>
-                    </div>
-                    <div class="col-4">
-                        <div class="person-pic">
-                            <img src="images/haruko.jpg">
-                        </div>
-                        <div class="person-introduction">
-                            <a href="图片链接地址1">No.2 晴子</a>
-                        </div>
-                    </div>
-                    <div class="col-4">
-                        <div class="person-pic">
-                            <img src="images/haruko.jpg">
-                        </div>
-                        <div class="person-introduction">
-                            <a href="图片链接地址1">No.2 晴子</a>
-                        </div>
-                    </div>
+                    @endforeach
                 </div>
             </div>
         </div>
