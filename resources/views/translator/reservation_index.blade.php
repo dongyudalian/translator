@@ -64,7 +64,7 @@
             <input type="hidden" name="id" value="{{$reservation->id}}" />
             <tr>
                 <td>
-                    {{$translator->name}}
+                    {{$visitor->name}}
                 </td>
                 <td>
                     @foreach($reservation_days as $reservation_day)
@@ -105,6 +105,8 @@
                         <input type="button" value="予約済み">
                     @elseif($reservation->status_id==3)
                         <input type="button" value="断り済み">
+                    @elseif($reservation->status_id==4)
+                        <input type="button" value="期限切れ">
                     @endif
                 </td>
             </tr>

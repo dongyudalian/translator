@@ -249,9 +249,15 @@ class TranslatorController extends Controller
 
 
                 // 图片上传
-                $path = $request->file("translator_image")->store("/public/pictures");
+                if($request->file("translator_image")){
 
+                    $path = $request->file("translator_image")->store("/public/pictures");
+
+                }else{
+                    $path = "/images/haruko.jpg";   
+                }
                 $Translator->pictures = $path;
+                
                 
 
                 $Translator->save();
@@ -308,12 +314,12 @@ class TranslatorController extends Controller
     		if(Auth::attempt(['email' => $email, 'password' => $password]))
             {
     			return redirect(route("visitor_homepage"))->with("message", "登録しました。");
+    		}else{
+                
+    			return redirect(route("get_login"))->with("message", "該当が存在してないので、ログイン失敗しました。");
+
     		}
-            else
-            {
-    			$message = 'ログインに失敗した。';
-    		}
-    		return view ("translator_login",['message'=>$message]);
+    		
         }
 
     }
