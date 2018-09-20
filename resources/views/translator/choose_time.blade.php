@@ -57,6 +57,11 @@
                     @if($n==1)
                     <tr>
                     @endif
+                    @php
+                    if($arr[$j-1]<=9 && $arr[$j-1]>0){
+                        $arr[$j-1]="0".$arr[$j-1];
+                    }
+                    @endphp
                     @if(in_array($year."-".$mon."-".$arr[$j-1],$work_dates) && !in_array($year."-".$mon."-".$arr[$j-1],$choose_times))
                         <td width='80px'><input type='checkbox' name='translator_times[]' value='{{$year}}-{{$mon}}-{{$arr[$j-1]}}' {{ (old('translator_times') and is_array(old('translator_times')) and in_array($year. "-" . $mon . "-" . $arr[$j-1], old('translator_times'))) ? ' checked' : '' }}>{{$arr[$j-1]}}</td>
                     @else
@@ -91,6 +96,11 @@
                     @if($n1==1)
                     <tr>
                     @endif
+                    @php
+                    if($arr1[$j-1]<=9 && $arr1[$j-1]>0){
+                        $arr1[$j-1]="0".$arr1[$j-1];
+                    }
+                    @endphp
                     @if(in_array($year1."-".$mon1."-".$arr1[$j-1],$work_dates) && !in_array($year1."-".$mon1."-".$arr1[$j-1],$choose_times))
                         <td width='80px'><input type='checkbox' name='translator_times[]' value='{{$year1}}-{{$mon1}}-{{$arr1[$j-1]}}' {{ (old('translator_times') and is_array(old('translator_times')) and in_array($year1. "-" . $mon1 . "-" . $arr1[$j-1], old('translator_times'))) ? ' checked' : '' }}>{{$arr1[$j-1]}}</td>
                     @else
@@ -125,6 +135,11 @@
                     @if($n2==1)
                     <tr>
                     @endif
+                    @php
+                    if($arr2[$j-1]<=9 && $arr2[$j-1]>0){
+                        $arr2[$j-1]="0".$arr2[$j-1];
+                    }
+                    @endphp
                     @if(in_array($year2."-".$mon2."-".$arr2[$j-1],$work_dates) && !in_array($year2."-".$mon2."-".$arr2[$j-1],$choose_times))
                         <td width='80px'><input type='checkbox' name='translator_times[]'value='{{$year2}}-{{$mon2}}-{{$arr2[$j-1]}}' {{ (old('translator_times') and is_array(old('translator_times')) and in_array($year2. "-" . $mon2 . "-" . $arr2[$j-1], old('translator_times'))) ? ' checked' : '' }}>{{$arr2[$j-1]}}</td>
                     @else
