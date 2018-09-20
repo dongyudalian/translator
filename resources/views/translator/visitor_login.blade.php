@@ -150,6 +150,9 @@
     </head>
 
     <body>
+        @if(Session::has('message'))
+            <p class="alert alert-info">{{Session::get('message') }}</p>
+        @endif
         <div style="text-align:center;">
             <a class="nav-link" href="/homepage"　style="">ホームページ</a>
         </div>

@@ -60,7 +60,8 @@
                 <!-- 轮播图片 -->
                 <div class="carousel-inner">
                     <div class="carousel-item active">
-                        <img src="">
+                        <img src="{{$img_url}}">
+
                     </div>
 
                 </div>

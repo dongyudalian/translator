@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Model\Reservation;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Console\Scheduling\Schedule;
 
 class ReservationsController extends Controller
 {
@@ -18,12 +19,12 @@ class ReservationsController extends Controller
 	    	 
 		    	$reservations = DB::table('reservations')->where('translator_id',$user->id)->get();	
 		    	if(isset($reservations[0])){
-		    		$translator = DB::table('translators')->where('id',$reservations[0]->translator_id)->first();
+		    		$visitor = DB::table('translators')->where('id',$reservations[0]->visitor_id)->first();
 		    		$reservation_days = DB::table('reservation_days')->where('reservation_id',$reservations[0]->id)->get();
 
 		    		return view("translator/reservation_index",[
 			    		"reservations" => $reservations,
-			    		"translator" => $translator,
+			    		"visitor" => $visitor,
 			    		"reservation_days" => $reservation_days
 			    	]);
 		    	}else{
@@ -57,4 +58,5 @@ class ReservationsController extends Controller
     		}	
     	}
     }
+    
 }
