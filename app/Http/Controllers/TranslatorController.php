@@ -14,6 +14,7 @@ use App\Model\Mtb_translator_salary;
 use App\Model\Mtb_translator_speciality;
 use App\Model\Mtb_translator_stature;
 use App\Model\Mtb_translator_iku;
+use Illuminate\Support\Facades\Storage;
 
 class TranslatorController extends Controller
 {
@@ -244,7 +245,14 @@ class TranslatorController extends Controller
                 $Translator->sex = $request["translator_sex"];
                 $Translator->license = $request["translator_license"];
                 $Translator->translator_self = $request["translator_self"];
-                $Translator->translator_salaries_id = $request["translator_salary"];
+                $Translator->translator_salaries_id = $request["mtb_translator_salaries"];
+
+                // 图片上传
+                $path = $request->file("translator_image")->store("pictures");
+
+                $Translator->pictures = $path;
+                
+
                 $Translator->save();
 
                 $translator_statures = $request->input("translator_statures");
@@ -282,6 +290,7 @@ class TranslatorController extends Controller
                     $Translator_and_speciality->specialities_id = $Translator_speciality;
                     $Translator_and_speciality->save();
                 }
+
 
           		return redirect(route("get_login"))->with("message", "新規登録完了。");
             }

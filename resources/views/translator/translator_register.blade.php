@@ -132,7 +132,7 @@
         <a class="font"> マークのある項目にはすべて入力してください。</a>
     </div>
     <br>
-    <form action="" method= "post" >
+    <form action="{{route('post_register')}}" method= "post"  enctype="multipart/form-data">
         {{csrf_field()}}
         <div class="position">
             <div class="info">
@@ -323,6 +323,7 @@
                     </dt>
                     <dd>
                         <div class="inp">
+                            
                             <input class="" type="file" name="translator_image" multiple="multiple"  value="">
                             @if($errors->has('name'))
                                 <p class="text-danger">{{$errors->first('name')}}</p>

@@ -60,14 +60,9 @@
                 <!-- 轮播图片 -->
                 <div class="carousel-inner">
                     <div class="carousel-item active">
-                        <img src="/images/haruko.jpg">
+                        <img src="{{$img_url}}">
                     </div>
-                    <div class="carousel-item">
-                        <img src="/images/haruko.jpg">
-                    </div>
-                    <div class="carousel-item">
-                        <img src="/images/haruko.jpg">
-                    </div>
+
                 </div>
                 <!-- 左右切换按钮 -->
                 <a class="carousel-control-prev" href="#demo" data-slide="prev">

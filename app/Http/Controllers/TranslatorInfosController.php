@@ -8,6 +8,8 @@ use Illuminate\Support\Facades\DB;
 use App\Model\Mtb_translator_salary;
 use App\Model\Translator_and_speciality;
 use App\Model\Mtb_translator_speciality;
+use Illuminate\Support\Facades\Storage;
+
 
 
 class TranslatorInfosController extends Controller
@@ -27,12 +29,16 @@ class TranslatorInfosController extends Controller
 
 			$mtb_translator_specialities = DB::table('mtb_translator_specialities')->whereIn('id',$translator_and_speciality_specialities_ids)->get();
 
+			$img_url = $translators[0]->pictures;
+		
+
 
 		return view("translator/translator_info",[
 			"translator" => $translators[0],
 			"mtb_translator_salary" => $mtb_translator_salary,
 			"translator_and_speciality" => $translator_and_speciality,
 			"mtb_translator_specialities" =>$mtb_translator_specialities,
+			"img_url" => $img_url
 
 		]);
 
