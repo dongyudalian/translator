@@ -249,7 +249,7 @@ class TranslatorController extends Controller
 
 
                 // 图片上传
-                $path = $request->file("translator_image")->store("pictures");
+                $path = $request->file("translator_image")->store("/public/pictures");
 
                 $Translator->pictures = $path;
                 
