@@ -117,7 +117,7 @@
         </div>
         <div class="container" style="margin-top:30px;">
             <div class="card bg-secondary text-white">
-              <div class="card-body">担当の料金：{{ $mtb_translator_salary->value}}
+              <div class="card-body">担当の料金：{{ $mtb_translator_salary->value}}円/日(約8時間)
               </div>
             </div>
         </div>

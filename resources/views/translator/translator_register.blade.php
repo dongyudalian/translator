@@ -123,6 +123,9 @@
     </style>
 </head>
 <body>
+    <div style="text-align:center;">
+        <a class="nav-link" href="/homepage"　style="">ホームページ</a>
+    </div>
     <div class="img">
         <img src="images/carousel-pic1.jpg" height="300" width="1200px">
     </div>
@@ -239,7 +242,7 @@
                             <select class="selectput" id="translator_salary" name="mtb_translator_salaries">
                                 <option value="">時給を選択</option>
                                 @foreach($aas as $aa)
-                                    <option value="{{$aa->id}}" {{old('mtb_translator_salaries') == $aa->id ? 'selected' : ''}}>{{$aa->value}}</option>
+                                    <option value="{{$aa->id}}" {{old('mtb_translator_salaries') == $aa->id ? 'selected' : ''}}>{{$aa->value}}円/日(約8時間)</option>
                                 @endforeach
                             </select>
                             @if($errors->has('mtb_translator_salaries'))

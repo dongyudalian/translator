@@ -34,7 +34,7 @@
                 @endforeach
                 <ul>
             @endif
-        <form class="" action="{{route('post_choose',['id' => $translators[0]->id])}}" method="post">
+        <form id="myForm" action="{{route('post_choose',['id' => $translators[0]->id])}}" method="post">
             <input type="hidden" name="status_id" value="1">
             @csrf
             <p>この通訳者さんが出勤できる時間を選択してください</p>
@@ -57,8 +57,13 @@
                     @if($n==1)
                     <tr>
                     @endif
+                    @php
+                    if($arr[$j-1]<=9 && $arr[$j-1]>0){
+                        $arr[$j-1]="0".$arr[$j-1];
+                    }
+                    @endphp
                     @if(in_array($year."-".$mon."-".$arr[$j-1],$work_dates) && !in_array($year."-".$mon."-".$arr[$j-1],$choose_times))
-                        <td width='80px'><input type='checkbox' name='translator_times[]' value='{{$year}}-{{$mon}}-{{$arr[$j-1]}}'>{{$arr[$j-1]}}</td>
+                        <td width='80px'><input type='checkbox' name='translator_times[]' value='{{$year}}-{{$mon}}-{{$arr[$j-1]}}' {{ (old('translator_times') and is_array(old('translator_times')) and in_array($year. "-" . $mon . "-" . $arr[$j-1], old('translator_times'))) ? ' checked' : '' }}>{{$arr[$j-1]}}</td>
                     @else
                         <td width='80px'value='{{$year}}-{{$mon}}-{{$arr[$j-1]}}'>&nbsp&nbsp&nbsp&nbsp{{$arr[$j-1]}}</td>
                     @endif
@@ -91,8 +96,13 @@
                     @if($n1==1)
                     <tr>
                     @endif
+                    @php
+                    if($arr1[$j-1]<=9 && $arr1[$j-1]>0){
+                        $arr1[$j-1]="0".$arr1[$j-1];
+                    }
+                    @endphp
                     @if(in_array($year1."-".$mon1."-".$arr1[$j-1],$work_dates) && !in_array($year1."-".$mon1."-".$arr1[$j-1],$choose_times))
-                        <td width='80px'><input type='checkbox' name='translator_times[]' value='{{$year1}}-{{$mon1}}-{{$arr1[$j-1]}}'>{{$arr1[$j-1]}}</td>
+                        <td width='80px'><input type='checkbox' name='translator_times[]' value='{{$year1}}-{{$mon1}}-{{$arr1[$j-1]}}' {{ (old('translator_times') and is_array(old('translator_times')) and in_array($year1. "-" . $mon1 . "-" . $arr1[$j-1], old('translator_times'))) ? ' checked' : '' }}>{{$arr1[$j-1]}}</td>
                     @else
                         <td width='80px'>&nbsp&nbsp&nbsp&nbsp{{$arr1[$j-1]}}</td>
                     @endif
@@ -125,8 +135,13 @@
                     @if($n2==1)
                     <tr>
                     @endif
+                    @php
+                    if($arr2[$j-1]<=9 && $arr2[$j-1]>0){
+                        $arr2[$j-1]="0".$arr2[$j-1];
+                    }
+                    @endphp
                     @if(in_array($year2."-".$mon2."-".$arr2[$j-1],$work_dates) && !in_array($year2."-".$mon2."-".$arr2[$j-1],$choose_times))
-                        <td width='80px'><input type='checkbox' name='translator_times[]'value='{{$year2}}-{{$mon2}}-{{$arr2[$j-1]}}'>{{$arr2[$j-1]}}</td>
+                        <td width='80px'><input type='checkbox' name='translator_times[]'value='{{$year2}}-{{$mon2}}-{{$arr2[$j-1]}}' {{ (old('translator_times') and is_array(old('translator_times')) and in_array($year2. "-" . $mon2 . "-" . $arr2[$j-1], old('translator_times'))) ? ' checked' : '' }}>{{$arr2[$j-1]}}</td>
                     @else
                         <td width='80px'>&nbsp&nbsp&nbsp&nbsp{{$arr2[$j-1]}}</td>
                     @endif
@@ -144,12 +159,27 @@
             <div class="container" style="text-align:center;">
                 <div class="card">
                     <div class="card-body">通訳者に連絡するメッセージを入力
-                        <div  style="margin-top:20px;"><textarea name="reservation_comment" rows="3" cols="130"></textarea></div></br></br>
+                        <div  style="margin-top:20px;"><textarea name="reservation_comment" rows="3" cols="130">{{old('reservation_comment')}}</textarea></div></br></br>
                     </div>
-                    <p　name="salary" value="{{ $mtb_translator_salary->value}}">担当の料金最後の確認：{{ $mtb_translator_salary->value}}</p>
+                    <p　name="salary" value="{{ $mtb_translator_salary->value}}">担当の料金最後の確認：{{ $mtb_translator_salary->value}}円/日(約8時間)</p>
                     <div class"info1" style="margin-bottom:20px"; align="center">
-                         <input type="submit" value="提交" onclick="javaScript:window.location.href='http://www.baidu.com';"/>
+                        <button onclick="return fun()">予約する</button>
                     </div>
+                    <script>
+                    function fun(){
+                        var checks = document.getElementsByName("translator_times[]");
+                        n = 0;
+                        for(i=0;i<checks.length;i++){
+                            if(checks[i].checked)
+                            n++;
+                        }
+                        r=confirm("この担当者"+n+"日予約しますか？"+"料金合計"+n*{{ $mtb_translator_salary->value}}+"円");
+                        if(r) {
+                            document.getElementById("myForm").submit();
+                        }
+                        return r;
+                    }
+                    </script>
                 </div>
             </div>
         </form>

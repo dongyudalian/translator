@@ -247,6 +247,7 @@ class TranslatorController extends Controller
                 $Translator->translator_self = $request["translator_self"];
                 $Translator->translator_salaries_id = $request["mtb_translator_salaries"];
 
+
                 // 图片上传
                 $path = $request->file("translator_image")->store("pictures");
 

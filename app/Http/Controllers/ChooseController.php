@@ -26,27 +26,34 @@ class ChooseController extends Controller
             $mtb_translator_salary = DB::table('mtb_translator_salaries')->where('id',$translators[0]->translator_salaries_id)->first();
             $reservations = DB::table('reservations')->where('translator_id',$id)->get()->toArray();
             $status_ids = array();
-            foreach ($reservations as $reservation) {
-                $status_ids[]=$reservation->status_id;
-            }
 
-            if($reservation->status_id ==1 ||$reservation->status_id==2 ){
-
-                $reservation_ids = array();
+            if ($reservations != null) {
 
                 foreach ($reservations as $reservation) {
-                    $reservation_ids[] = $reservation->id;
+                    $status_ids[]=$reservation->status_id;
                 }
-                $choose_times =array();
-                foreach ($reservation_ids as $reservation_id) {
-                    $reservations = DB::table('reservation_days')->where('reservation_id',$reservation_id)->get();
+
+                if($reservation->status_id ==1 ||$reservation->status_id==2 ){
+
+                    $reservation_ids = array();
+
                     foreach ($reservations as $reservation) {
-                        $choose_times[] = $reservation->pickup_date;
+                        $reservation_ids[] = $reservation->id;
                     }
+                    $choose_times =array();
+                    foreach ($reservation_ids as $reservation_id) {
+                        $reservations = DB::table('reservation_days')->where('reservation_id',$reservation_id)->get();
+                        foreach ($reservations as $reservation) {
+                            $choose_times[] = $reservation->pickup_date;
+                        }
+                    }
+                }else{
+                    $choose_times = $get_times;
                 }
-            }else{
+            }else {
                 $choose_times = $get_times;
             }
+
 
             //得到纯时间的数组
             $work_dates = array();
@@ -82,6 +89,7 @@ class ChooseController extends Controller
                 }
             }
             $n=0;
+
 
             if($mon==1||$mon==2||$mon==3||$mon==4||$mon==5||$mon==6||$mon==7||$mon==8||$mon==9){
                 $mon="0".$mon;
