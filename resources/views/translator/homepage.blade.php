@@ -142,7 +142,7 @@
                             <img src="images/haruko.jpg">
                         </div>
                         <div class="person-introduction">
-                            <a href="图片链接地址1">{{$ordered_translater->name}}</a>
+                            <a href="/translator_info/{{$ordered_translater->id}}">{{$ordered_translater->name}}</a>
                         </div>
                     </div>
                     @endforeach

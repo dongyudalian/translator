@@ -23,17 +23,21 @@ class HomePageController extends Controller
             $no = null;
             $max_value_this_time = 0;
 
-            foreach ($tokyotranslators as $key => $tokyotranslator) {
-                if($tokyotranslator->get_reservation_times() > $max_value_this_time) {
+            foreach ($tokyotranslators as $key => $tokyotranslator ) {
+                if($tokyotranslator->get_reservation_times() >= $max_value_this_time) {
+
                     $no = $key;
                     $max_value_this_time = $tokyotranslator->get_reservation_times();
+
                 }
             }
             $ordered_translaters[] = $tokyotranslators[$no];
+
+            if(count($ordered_translaters) >= 6) {
+                break;
+            }
             unset($tokyotranslators[$no]);
         }
-
-
 
         $user = null;
         if(Auth::check()) {
