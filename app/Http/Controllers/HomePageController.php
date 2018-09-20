@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Model\Translator;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Storage;
 
 class HomePageController extends Controller
 {
@@ -16,6 +17,7 @@ class HomePageController extends Controller
             $query->where("mtb_translator_ikus.id", 1);
         })->get();
 
+
         // Tokyotranslator的排序
         $ordered_translaters = [];
         while(count($tokyotranslators) > 0) {
@@ -23,14 +25,14 @@ class HomePageController extends Controller
             $no = null;
             $max_value_this_time = 0;
 
-            foreach ($tokyotranslators as $key => $tokyotranslator ) {
+            foreach ($tokyotranslators as $key => $tokyotranslator) {
                 if($tokyotranslator->get_reservation_times() >= $max_value_this_time) {
-
                     $no = $key;
                     $max_value_this_time = $tokyotranslator->get_reservation_times();
 
                 }
             }
+
             $ordered_translaters[] = $tokyotranslators[$no];
 
             if(count($ordered_translaters) >= 6) {
@@ -38,6 +40,9 @@ class HomePageController extends Controller
             }
             unset($tokyotranslators[$no]);
         }
+
+
+            $img_url = Storage::url($ordered_translaters[0]->pictures);
 
         $user = null;
         if(Auth::check()) {
@@ -50,6 +55,7 @@ class HomePageController extends Controller
         [
             'user'=>$user,
             'ordered_translaters'=>$ordered_translaters,
+            'img_url' =>$img_url
         ]);
 
 

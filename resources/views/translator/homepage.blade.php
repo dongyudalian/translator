@@ -139,7 +139,12 @@
                     @foreach($ordered_translaters as $ordered_translater)
                     <div class="col-4">
                         <div class="person-pic">
-                            <img src="images/haruko.jpg">
+                            @if($ordered_translater->pictures =="/images/haruko.jpg")
+                                <img src="/images/haruko.jpg">
+                            @else
+                                <img src="{{$img_url}}">
+                            @endif
+
                         </div>
                         <div class="person-introduction">
                             <a href="/translator_info/{{$ordered_translater->id}}">{{$ordered_translater->name}}</a>

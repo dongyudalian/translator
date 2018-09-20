@@ -43,7 +43,7 @@ class TranslatorInfosController extends Controller
 			"mtb_translator_salary" => $mtb_translator_salary,
 			"translator_and_speciality" => $translator_and_speciality,
 			"mtb_translator_specialities" =>$mtb_translator_specialities,
-
+			'img_url' =>$img_url
 
 		]);
 
