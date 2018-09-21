@@ -9,6 +9,14 @@
     <script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://cdn.bootcss.com/popper.js/1.12.5/umd/popper.min.js"></script>
     <script src="https://cdn.bootcss.com/bootstrap/4.1.0/js/bootstrap.min.js"></script>
+
+    <script>
+        $(document).ready(function(){
+            $.get("demo/1",function(data,status){
+                alert("数据: " + data + "\n状态: " + status);
+            });
+        });
+    </script>
     <style>
         .main-container {
             max-width: 9600px;
@@ -135,22 +143,10 @@
                 </div>
             </div>
             <div class="col-5 persons">
-                <div class="row">
-                    @foreach($ordered_translaters as $ordered_translater)
-                    <div class="col-4">
-                        <div class="person-pic">
-                            @if($ordered_translater->pictures =="/images/haruko.jpg")
-                                <img src="/images/haruko.jpg">
-                            @else
-                                <img src="{{$img_url}}">
-                            @endif
+                <div class="row" id="tokyo">
 
-                        </div>
-                        <div class="person-introduction">
-                            <a href="/translator_info/{{$ordered_translater->id}}">{{$ordered_translater->name}}</a>
-                        </div>
-                    </div>
-                    @endforeach
+
+
                 </div>
             </div>
         </div>
