@@ -13,8 +13,24 @@ class HomePageController extends Controller
 
     public function home (Request $request)
     {
-        $tokyotranslators = Translator::query()->whereHas("mtb_translator_ikus", function($query){
-            $query->where("mtb_translator_ikus.id", 1);
+        $user = null;
+        if(Auth::check()) {
+            $user = Auth::user();
+        }
+        if(Auth::guard("visitor")->check()) {
+            $user = Auth::guard("visitor")->user();
+        }
+        return view("/translator/homepage",
+        [
+            'user'=>$user,
+
+        ]);
+    }
+
+    public function demo(Request $request, $ikus_id)
+    {
+        $tokyotranslators = Translator::query()->whereHas("mtb_translator_ikus", function($query) use($ikus_id){
+            $query->where("mtb_translator_ikus.id", $ikus_id);
         })->get();
 
 
@@ -41,24 +57,9 @@ class HomePageController extends Controller
             unset($tokyotranslators[$no]);
         }
 
-
-            $img_url = Storage::url($ordered_translaters[0]->pictures);
-
-        $user = null;
-        if(Auth::check()) {
-            $user = Auth::user();
-        }
-        if(Auth::guard("visitor")->check()) {
-            $user = Auth::guard("visitor")->user();
-        }
-        return view("/translator/homepage",
-        [
-            'user'=>$user,
-            'ordered_translaters'=>$ordered_translaters,
-            'img_url' =>$img_url
-        ]);
-
-
+            return response()->json([
+                'ordered_translaters'=>$ordered_translaters,
+            ]);
 
     }
 
