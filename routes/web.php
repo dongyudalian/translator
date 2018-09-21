@@ -1,6 +1,8 @@
 <?php
 
 Route::get('/homepage', 'HomePageController@home')->name('visitor_homepage');
+Route::get('/demo/{ikus_id}', 'HomePageController@demo')->name('demo');
+
 
 Route::get("/search", "SearchController@index")->name('get_search')->middleware("auth:visitor");
 Route::get("/translator_info/{id}", "TranslatorInfosController@index")->name('get_translator_info');
