@@ -13,7 +13,27 @@
     <script>
         $(document).ready(function(){
             $.get("demo/1",function(data,status){
-                alert("数据: " + data + "\n状态: " + status);
+                var ordered_translaters = data.ordered_translaters;
+                for(var i =0; i < ordered_translaters.length; i++) {
+
+                    // var str = '<div class="col-4"><div class="person-pic"><img src="';
+                    // str += ordered_translaters[i].pictures;
+                    // str += '"></div><div class="person-introduction"><a href="">';
+                    // str += ordered_translaters[i].name;
+                    // str += '</a></div></div>';
+
+                    // $("#tokyo").append(str);
+
+                    
+                    var img_ele = document.createElement("img", {"src":ordered_translaters[i].pictures});
+                    var img_div_ele = document.createElement("div",{"class":"person-pic"});
+                    img_div_ele.innerHTML = img_ele;
+
+                    var name_ele = document.createElement("a");
+                    name_ele.innerHTML = ordered_translaters[i].name;
+                    $("#tokyo").append(img_div_ele,name_ele);
+                    
+                }
             });
         });
     </script>
@@ -144,6 +164,8 @@
             </div>
             <div class="col-5 persons">
                 <div class="row" id="tokyo">
+
+
 
 
 
