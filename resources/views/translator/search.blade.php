@@ -106,7 +106,7 @@
                     @foreach ($Mtb_translator_salaries as $Mtb_translator_salary)
                         <option value="{{$Mtb_translator_salary->id}}"
                         {{ (isset($search_info["search_mtb_translator_salary_id"]) && $search_info["search_mtb_translator_salary_id"] == $Mtb_translator_salary->id) ? 'selected' : '' }}
-                        >{{$Mtb_translator_salary->value}}</option>
+                        >{{$Mtb_translator_salary->value}}円/日(約8時間)</option>
                     @endforeach
                 </select>
             </br></br>
@@ -151,7 +151,7 @@
                     {{ date("Y.m.d", strtotime($translator->birthday))}}
                 </td>
                 <td>
-                    {{ $translator->mtb_translator_salary->value}}
+                    {{ $translator->mtb_translator_salary->value}}円/日(約8時間)
                 </td>
                 <td>
                     @foreach($translator->translator_and_specialities as $translator_and_speciality)
