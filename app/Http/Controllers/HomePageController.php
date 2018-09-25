@@ -56,9 +56,14 @@ class HomePageController extends Controller
             }
             unset($tokyotranslators[$no]);
         }
-
+        foreach ($ordered_translaters as $ordered_translater) {
+            if($ordered_translater->pictures !=="/images/haruko.jpg"){
+                $img_url = Storage::url($ordered_translater->pictures);
+            }
+        }
             return response()->json([
                 'ordered_translaters'=>$ordered_translaters,
+                'img_url' =>$img_url
             ]);
 
     }

@@ -27,6 +27,4 @@ Route::get('/reservation','ReservationsController@index')->name('get_reservation
 Route::post('/reservation','ReservationsController@index')->name('post_reservation');
 
 
-Route::get('mail','MailController@send');
-
 Auth::routes();

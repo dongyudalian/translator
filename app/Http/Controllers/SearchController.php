@@ -117,7 +117,6 @@ class SearchController extends Controller
             })->orWhereHas("mtb_translator_salary", function($query) use($search_self) {
                 $query->where("mtb_translator_salaries.value", "LIKE", "%" . $search_self . "%");
 
-
             })->orWhere("translator_self", "LIKE", "%" . $search_self . "%");
             ;
         }
