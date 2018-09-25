@@ -33,6 +33,7 @@ class SearchController extends Controller
             "search_mtb_translator_specialities_ids",
             "search_translator_self",
         );
+
         foreach ($search_names as $search_name) {
             if($request_info) {
                 if(isset($request_info[$search_name])) {
@@ -40,6 +41,7 @@ class SearchController extends Controller
                 }
             }
         }
+
 
         //ikusの検索
         if(
@@ -118,7 +120,7 @@ class SearchController extends Controller
             })->orWhereHas("translator_times", function($query) use($search_self) {
                 $query->where("translator_times.translator_time","LIKE", "%" . $search_self . "%");
 
-            })->orWhere("translator_self", "LIKE", "%" . $search_self . "%");
+            })->orWhere("translator_self", "LIKE BINARY", "%" . $search_self . "%");
             ;
         }
 
