@@ -14,8 +14,13 @@
             $.get("demo/1",function(data,status){
                 var ordered_translaters = data.ordered_translaters;
                 for(var i =0; i < ordered_translaters.length; i++) {
+                    if (ordered_translaters[i].pictures =="/images/haruko.jpg"){
+                        var img_url = ordered_translaters[i].pictures;
+                    }else{
+                        var img_url = data.img_url ;
+                    }
                     var str = '<div class="col-4"><div class="person-pic"><img src="';
-                    str += ordered_translaters[i].pictures;
+                    str += img_url;
                     str += '"></div><div class="person-introduction"><a href="';
                     str +='/translator_info/';
                     str += ordered_translaters[i].id;
@@ -30,8 +35,13 @@
             $.get("demo/2",function(data,status){
                 var ordered_translaters = data.ordered_translaters;
                 for(var i =0; i < ordered_translaters.length; i++) {
+                    if (ordered_translaters[i].pictures =="/images/haruko.jpg"){
+                        var img_url = ordered_translaters[i].pictures;
+                    }else{
+                        var img_url = data.img_url ;
+                    }
                     var str = '<div class="col-4"><div class="person-pic"><img src="';
-                    str += ordered_translaters[i].pictures;
+                    str += img_url;
                     str += '"></div><div class="person-introduction"><a href="';
                     str +='/translator_info/';
                     str += ordered_translaters[i].id;
@@ -46,8 +56,13 @@
             $.get("demo/3",function(data,status){
                 var ordered_translaters = data.ordered_translaters;
                 for(var i =0; i < ordered_translaters.length; i++) {
+                    if (ordered_translaters[i].pictures =="/images/haruko.jpg"){
+                        var img_url = ordered_translaters[i].pictures;
+                    }else{
+                        var img_url = data.img_url ;
+                    }
                     var str = '<div class="col-4"><div class="person-pic"><img src="';
-                    str += ordered_translaters[i].pictures;
+                    str += img_url;
                     str += '"></div><div class="person-introduction"><a href="';
                     str +='/translator_info/';
                     str += ordered_translaters[i].id;
@@ -188,6 +203,8 @@
             </div>
             <div class="col-5 persons">
                 <div class="row" id ="tokyo">
+
+
 
                 </div>
             </div>
