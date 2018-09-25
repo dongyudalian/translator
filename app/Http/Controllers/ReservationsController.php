@@ -55,12 +55,12 @@ class ReservationsController extends Controller
 	    			DB::update('update reservations set  status_id =:status_id where id =:id', $query_parameters);
 
     			//メールの発信機能
-    			$mail_reservations = DB::table('reservations')->where('id',$request->id)->get();
-    			
-    			if($mail_reservations[0]->status_id == 2){
+    			$mail_reservation = DB::table('reservations')->where('id',$request->id)->first();
 
-		        	$visitor = DB::table('visitors')->where('id',$mail_reservations[0]->visitor_id)->first();
-			        $translator = DB::table('translators')->where('id',$mail_reservations[0]->translator_id)->first();
+    			if($mail_reservation->status_id == 2){
+
+		        	$visitor = DB::table('visitors')->where('id',$mail_reservation->visitor_id)->first();
+			        $translator = DB::table('translators')->where('id',$mail_reservation->translator_id)->first();
 		        	$visitor_email = $visitor->email;
 		        	$visitor_name = $visitor->name;
 		        	$translator_email = $translator->email;
