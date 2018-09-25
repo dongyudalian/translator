@@ -15,7 +15,6 @@ class SearchController extends Controller
     public function index(Request $request)
     {
 
-
     	$Translators = Translator::query();
     	$Mtb_translator_ikus = Mtb_translator_iku::query();
     	$Mtb_translator_specialities = Mtb_translator_speciality::query();
@@ -86,11 +85,13 @@ class SearchController extends Controller
     		// 计算日期段内有多少天
     	    $dates = ($endtimestamp-$starttimestamp)/86400+1;
 
+
     	    $search_dates = array();
 
     	    for($i=0; $i<$dates; $i++){
     	        $search_dates[] = date('Y-m-d', $starttimestamp+(86400*$i));
     	    }
+
 
 
         	if(
@@ -123,13 +124,12 @@ class SearchController extends Controller
 
 
 	    return view("translator/search",[
-    		'translators' => $Translators->get(),
+    		'translators' => Translator::get(),
     		"Mtb_translator_ikus" => Mtb_translator_iku::get(),
             "Mtb_translator_specialities" => Mtb_translator_speciality::get(),
             "Mtb_translator_salaries" => Mtb_translator_salary::get(),
             "search_info" => $search_info
     	]);
-
     }
 
 }
