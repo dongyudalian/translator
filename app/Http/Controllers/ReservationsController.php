@@ -15,47 +15,51 @@ class ReservationsController extends Controller
     {
     	if(Auth::check()){
     		$user = Auth::user();
-
-    		if($request->isMethod("get")) {
 	    	 
-		    	$reservations = DB::table('reservations')->where('translator_id',$user->id)->get();	
-		    	if(isset($reservations[0])){
-		    		$visitor = DB::table('translators')->where('id',$reservations[0]->visitor_id)->first();
-		    		$reservation_days = DB::table('reservation_days')->where('reservation_id',$reservations[0]->id)->get();
+	    	$reservations = DB::table('reservations')->where('translator_id',$user->id)->get();	
+	    	if(isset($reservations[0])){
+	    		$visitor = DB::table('visitors')->where('id',$reservations[0]->visitor_id)->first();
+	    		$reservation_days = DB::table('reservation_days')->where('reservation_id',$reservations[0]->id)->get();
 
-		    		return view("translator/reservation_index",[
-			    		"reservations" => $reservations,
-			    		"visitor" => $visitor,
-			    		"reservation_days" => $reservation_days
-			    	]);
-		    	}else{
-		    		return redirect(route("visitor_homepage"))->with("message", "予約が見つからなかった。");
-				}
+	    		return view("translator/reservation_index",[
+		    		"reservations" => $reservations,
+		    		"visitor" => $visitor,
+		    		"reservation_days" => $reservation_days
+		    	]);
+	    	}else{
+	    		return redirect(route("visitor_homepage"))->with("message", "予約が見つからなかった。");
+			}
+		}
+	}
 		    	
-    		}else{
+		public function edit(Request $request,$id,$status_id)
+		{
 
-    			//予約済みの場合、id値を変える
-    			$reservations = DB::table('reservations')->where('id',$request->id)->get();
+			//予約済みの場合、id値を変える
+			if($request->isMethod("get")) {
 
-				foreach ($reservations as $reservation) {
+    			$id = $request->id;
+    			$status_id = $request->status_id;
+    			$reservation = DB::table('reservations')->where('id',$id)->first();
 					
-					if($reservation->status_id == 1){
-						if($request->getid){
-							$request->status_id = $request->getid;
-						}
-					}
+				if($reservation->status_id == 1){
 					
+					$request->status_id = $request->status_id;
+				}
 
-    				$query_parameters = [
-	    					"status_id" => $request->status_id,
-	    					"id" => $request->id
-    				];
 				
-    				
-	    			DB::update('update reservations set  status_id =:status_id where id =:id', $query_parameters);
+				$query_parameters = [
+    					"status_id" => $request->status_id,
+    					"id" => $request->id
+				];
+			
+				
+    			DB::update('update reservations set  status_id =:status_id where id =:id', $query_parameters);
 
+    			
     			//メールの発信機能
-    			$mail_reservation = DB::table('reservations')->where('id',$request->id)->first();
+    			$mail_reservation = DB::table('reservations')->where('id',$id)->first();
+    			
 
     			if($mail_reservation->status_id == 2){
 
@@ -81,11 +85,7 @@ class ReservationsController extends Controller
 			    }  	
 	    				
     		return redirect(route('get_reservation'))->with("message", "予約取りました。");
-	    			
-    			}
-    			
+	    	    			
     		}	
     	}
-    }
-    
 }

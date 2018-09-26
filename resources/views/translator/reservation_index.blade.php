@@ -59,9 +59,7 @@
                 <th>操作機能</th>
             </tr>
             @foreach($reservations as $reservation)
-            <form action="" method="post" >
-                {{csrf_field()}}
-            <input type="hidden" name="id" value="{{$reservation->id}}" />
+          
             <tr>
                 <td>
                     {{$visitor->name}}
@@ -81,26 +79,20 @@
                     @if($reservation->status_id==1)
 
                         <div class="row">
-                            <input type="hidden" id="getid" name="getid" value="">
-
                             <div class="col-5" >
-                                <button id="recept"  onclick="myFunction1()">受け取り</button>
+                           
+                                <a href="{{route('get_edit_reservation', ['id'=>$reservation->id,'status_id'=>'2'])}}">受け取り</a>
+
                             </div>
 
                             <div class="col-5">
-                                <button id="refuse"  onclick="myFunction2()">断り</button>
+                                
+                                <a href="{{route('get_edit_reservation', ['id'=>$reservation->id,'status_id'=>'3'])}}">断り</a>
+                                
                             </div>
-
-                            <script>
-                                function myFunction1(){
-                                    document.getElementById("getid").value="2";
-                                }
-                                function myFunction2(){
-                                    document.getElementById("getid").value="3";
-                                }
-                            </script>
                         </div>
-
+                        
+                       
                     @elseif($reservation->status_id==2)
                         <input type="button" value="予約済み">
                     @elseif($reservation->status_id==3)
@@ -110,7 +102,7 @@
                     @endif
                 </td>
             </tr>
-            </form>
+            
             @endforeach
     </table>
 </body>
