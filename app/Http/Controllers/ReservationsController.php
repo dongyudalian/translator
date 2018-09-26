@@ -37,7 +37,11 @@ class ReservationsController extends Controller
 		    		return redirect(route("visitor_homepage"))->with("message", "予約が見つからなかった。");
 				}
 
-    		}else{
+    		}
+		}
+	}
+		public function edit(Request $request,$id,$status_id)
+        {
 
 			//予約済みの場合、id値を変える
 			if($request->isMethod("get")) {

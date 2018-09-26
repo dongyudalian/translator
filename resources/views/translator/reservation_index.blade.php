@@ -59,9 +59,8 @@
                 <th>操作機能</th>
             </tr>
 
-            <form action="" method="post" >
-                {{csrf_field()}}
-			@for($i=0;$i<count($reservations);$i++)
+            
+			@for($i=0; $i< count($reservations);$i++)
             <tr>
 				<td>
 						@foreach($visitors[$i] as $aa)
@@ -86,18 +85,17 @@
                 </td>
                 <td>
 
-					 <input type="hidden" name="id" value="{{$reservations[$i]->id}}" />
                     @if($reservations[$i]->status_id==1)
                         <div class="row">
-                            <div class="col-5" >
+                            <div class="col-6" >
 
-                                <a href="{{route('get_edit_reservation', ['id'=>$reservation->id,'status_id'=>'2'])}}">受け取り</a>
+                                <a href="{{route('get_edit_reservation', ['id'=>$reservations[$i]->id,'status_id'=>'2'])}}">受け取り</a>
 
                             </div>
 
-                            <div class="col-5">
+                            <div class="col-6">
 
-                                <a href="{{route('get_edit_reservation', ['id'=>$reservation->id,'status_id'=>'3'])}}">断り</a>
+                                <a href="{{route('get_edit_reservation', ['id'=>$reservations[$i]->id,'status_id'=>'3'])}}">断り</a>
 
                             </div>
                         </div>
@@ -111,7 +109,6 @@
                     @endif
                 </td>
             </tr>
-            </form>
             @endfor
     </table>
 </body>
