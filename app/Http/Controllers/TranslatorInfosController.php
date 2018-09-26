@@ -29,12 +29,8 @@ class TranslatorInfosController extends Controller
 
 			$mtb_translator_specialities = DB::table('mtb_translator_specialities')->whereIn('id',$translator_and_speciality_specialities_ids)->get();
 
-			if($translators[0]->pictures =="/images/haruko.jpg"){
-				$img_url = $translators[0]->pictures;
+			$img_url = $translators[0]->pictures;
 
-			}else{
-				$img_url = Storage::url($translators[0]->pictures);
-			}
 
 
 

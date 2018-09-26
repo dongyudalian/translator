@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\Auth;
 use App\Model\Translator;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Storage;
+use App\Model\Mtb_translator_iku;
 
 class HomePageController extends Controller
 {
@@ -56,16 +57,10 @@ class HomePageController extends Controller
             }
             unset($tokyotranslators[$no]);
         }
-        foreach ($ordered_translaters as $ordered_translater) {
-            if($ordered_translater->pictures !=="/images/haruko.jpg"){
-                $img_url = Storage::url($ordered_translater->pictures);
-            }
-        }
-            return response()->json([
-                'ordered_translaters'=>$ordered_translaters,
-                'img_url' =>$img_url
-            ]);
 
+        return response()->json([
+            'ordered_translaters'=>$ordered_translaters,
+        ]);
     }
 
 
