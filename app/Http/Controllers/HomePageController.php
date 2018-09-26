@@ -32,7 +32,7 @@ class HomePageController extends Controller
         $tokyotranslators = Translator::query()->whereHas("mtb_translator_ikus", function($query) use($ikus_id){
             $query->where("mtb_translator_ikus.id", $ikus_id);
         })->get();
-        
+
 
         // Tokyotranslator的排序
         $ordered_translaters = [];

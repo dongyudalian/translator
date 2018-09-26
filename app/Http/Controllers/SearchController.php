@@ -124,7 +124,7 @@ class SearchController extends Controller
 
 
 	    return view("translator/search",[
-    		'translators' => Translator::get(),
+    		'translators' => $Translators->get(),
     		"Mtb_translator_ikus" => Mtb_translator_iku::get(),
             "Mtb_translator_specialities" => Mtb_translator_speciality::get(),
             "Mtb_translator_salaries" => Mtb_translator_salary::get(),

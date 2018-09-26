@@ -54,32 +54,40 @@
             <tr>
                 <th>観光者名前</th>
                 <th>予約日付</th>
-                <th>予約金額</th>
-                <th>予約要望</th>
+                <th>予約総金額</th>
+                <th>旅客からメッセージ</th>
                 <th>操作機能</th>
             </tr>
-            @foreach($reservations as $reservation)
+
             <form action="" method="post" >
                 {{csrf_field()}}
-            <input type="hidden" name="id" value="{{$reservation->id}}" />
+			@for($i=0;$i<count($reservations);$i++)
             <tr>
+				<td>
+						@foreach($visitors[$i] as $aa)
+						<P>
+	                    	{{$aa->name}}
+						</p>
+						@endforeach
+				</td>
+				<td>
+						@foreach($reservation_days[$i] as $bb)
+						<p>
+                        	{{$bb->pickup_date}}
+						</p>
+						@endforeach
+				</td>
                 <td>
-                    {{$visitor->name}}
-                </td>
-                <td>
-                    @foreach($reservation_days as $reservation_day)
-                        {{$reservation_day->pickup_date}}
-                    @endforeach
-                </td>
-                <td>
-                    {{$reservation->cost}}
-                </td>
-                <td>
-                    {{$reservation->reservation_comment}}
-                </td>
-                <td>
-                    @if($reservation->status_id==1)
+                    {{$reservations[$i]->cost * count($reservation_days[$i])}}円
 
+                </td>
+                <td>
+                    {{$reservations[$i]->reservation_comment}}
+                </td>
+                <td>
+
+					 <input type="hidden" name="id" value="{{$reservations[$i]->id}}" />
+                    @if($reservations[$i]->status_id==1)
                         <div class="row">
                             <input type="hidden" id="getid" name="getid" value="">
 
@@ -101,17 +109,17 @@
                             </script>
                         </div>
 
-                    @elseif($reservation->status_id==2)
+                    @elseif($reservations[$i]->status_id==2)
                         <input type="button" value="予約済み">
-                    @elseif($reservation->status_id==3)
+                    @elseif($reservations[$i]->status_id==3)
                         <input type="button" value="断り済み">
-                    @elseif($reservation->status_id==4)
+                    @elseif($reservations[$i]->status_id==4)
                         <input type="button" value="期限切れ">
                     @endif
                 </td>
             </tr>
             </form>
-            @endforeach
+            @endfor
     </table>
 </body>
 </html>
