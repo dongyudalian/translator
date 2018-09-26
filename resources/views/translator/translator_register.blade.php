@@ -326,7 +326,7 @@
                     </dt>
                     <dd>
                         <div class="inp">
-                            
+
                             <input class="" type="file" name="translator_image" multiple="multiple"  value="">
                             @if($errors->has('name'))
                                 <p class="text-danger">{{$errors->first('name')}}</p>

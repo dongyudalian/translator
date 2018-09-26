@@ -251,14 +251,15 @@ class TranslatorController extends Controller
                 // 图片上传
                 if($request->file("translator_image")){
 
-                    $path = $request->file("translator_image")->store("/public/pictures");
+                    $aa = $request->file("translator_image")->store("/public/pictures");
+                    $path = str_replace("public","/storage",$aa);
 
                 }else{
-                    $path = "/images/haruko.jpg";   
+                    $path = "/images/haruko.jpg";
                 }
                 $Translator->pictures = $path;
-                
-                
+
+
 
                 $Translator->save();
 
@@ -315,11 +316,11 @@ class TranslatorController extends Controller
             {
     			return redirect(route("visitor_homepage"))->with("message", "登録しました。");
     		}else{
-                
+
     			return redirect(route("get_login"))->with("message", "該当が存在してないので、ログイン失敗しました。");
 
     		}
-    		
+
         }
 
     }
