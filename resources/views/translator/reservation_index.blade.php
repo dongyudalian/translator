@@ -89,24 +89,17 @@
 					 <input type="hidden" name="id" value="{{$reservations[$i]->id}}" />
                     @if($reservations[$i]->status_id==1)
                         <div class="row">
-                            <input type="hidden" id="getid" name="getid" value="">
-
                             <div class="col-5" >
-                                <button id="recept"  onclick="myFunction1()">受け取り</button>
+
+                                <a href="{{route('get_edit_reservation', ['id'=>$reservation->id,'status_id'=>'2'])}}">受け取り</a>
+
                             </div>
 
                             <div class="col-5">
-                                <button id="refuse"  onclick="myFunction2()">断り</button>
-                            </div>
 
-                            <script>
-                                function myFunction1(){
-                                    document.getElementById("getid").value="2";
-                                }
-                                function myFunction2(){
-                                    document.getElementById("getid").value="3";
-                                }
-                            </script>
+                                <a href="{{route('get_edit_reservation', ['id'=>$reservation->id,'status_id'=>'3'])}}">断り</a>
+
+                            </div>
                         </div>
 
                     @elseif($reservations[$i]->status_id==2)

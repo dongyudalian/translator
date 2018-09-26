@@ -24,7 +24,8 @@ Route::get('/choose_time/{id}', 'ChooseController@time')->name('choose');
 Route::post('/choose_time/{id}', 'ChooseController@time')->name('post_choose');
 
 Route::get('/reservation','ReservationsController@index')->name('get_reservation');
-Route::post('/reservation','ReservationsController@index')->name('post_reservation');
+
+Route::get('/reservation/{id}/{status_id}','ReservationsController@edit')->name('get_edit_reservation');
 
 
 Auth::routes();
